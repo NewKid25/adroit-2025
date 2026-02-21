@@ -101,7 +101,10 @@ func _process(delta: float) -> void:
 		$Date3/DateText.text = game_event.chat_event.line3
 		speaking_timer -= delta
 		if speaking_timer < 0:
-			set_state_playing()
+			if game_event.is_there_more_after_this:
+				set_state_playing()
+			else:
+				get_tree().quit()
 	elif state == UIDS_State.Playing:
 		pass
 	

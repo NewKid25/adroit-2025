@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
-[ext_resource type="Script" path="res://scripts/ui_atom.gd" id="9_va3kr"]
+[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 
 [node name="DateScreen" type="Node2D" unique_id=1605705531]
 script = ExtResource("1_7jowm")
@@ -24,17 +24,21 @@ centered = false
 
 [node name="Schrodie" type="Sprite2D" parent="Date1" unique_id=2023343071]
 position = Vector2(320, 400)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("2_aw6qv")
 
-[node name="DateText" type="Label" parent="Date1" unique_id=464429696]
-offset_left = 101.0
-offset_top = 84.0
-offset_right = 206.0
-offset_bottom = 107.0
-text = "Debug Text!!! "
-
 [node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
+
+[node name="DateText" type="Label" parent="Date1" unique_id=464429696]
+z_index = 1
+offset_left = 95.0
+offset_top = 309.0
+offset_right = 200.0
+offset_bottom = 332.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
 
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
@@ -48,18 +52,22 @@ position = Vector2(320, 400)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_nfe8y")
 
-[node name="DateText" type="Label" parent="Date2" unique_id=399259112]
-offset_left = 253.0
-offset_top = 143.0
-offset_right = 358.0
-offset_bottom = 166.0
-text = "Debug Text!!! "
-
 [node name="Loveometer" parent="Date2" unique_id=818275035 instance=ExtResource("2_teu1t")]
 offset_left = 175.0
 offset_top = 40.0
 offset_right = 489.0
 offset_bottom = 90.0
+
+[node name="DateText" type="Label" parent="Date2" unique_id=1911907234]
+z_index = 1
+offset_left = 95.0
+offset_top = 309.0
+offset_right = 200.0
+offset_bottom = 332.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
 
 [node name="Date3" type="Node2D" parent="." unique_id=694699396]
 position = Vector2(1280, 0)
@@ -70,22 +78,25 @@ centered = false
 
 [node name="Guido" type="Sprite2D" parent="Date3" unique_id=942504291]
 position = Vector2(320, 407)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("5_6n4xi")
-
-[node name="DateText" type="Label" parent="Date3" unique_id=1711701796]
-offset_left = 245.0
-offset_top = 182.0
-offset_right = 350.0
-offset_bottom = 205.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Debug Text!!! "
 
 [node name="Loveometer" parent="Date3" unique_id=209854783 instance=ExtResource("2_teu1t")]
 offset_left = 152.0
 offset_top = 76.0
 offset_right = 466.0
 offset_bottom = 126.0
+
+[node name="DateText" type="Label" parent="Date3" unique_id=1860602442]
+z_index = 1
+offset_left = 95.0
+offset_top = 309.0
+offset_right = 200.0
+offset_bottom = 332.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
 
 [node name="HandBackground" type="Node2D" parent="." unique_id=1547144775]
 position = Vector2(0, 720)
