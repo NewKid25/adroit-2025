@@ -8,11 +8,12 @@ func _ready() -> void:
 	# dialog.nexts[Enums.CardPlayOutcome.ALL_SUCCESS] = "id1"
 
 
-	# var dialog2 = DialogPrompt.new()
+	# var dialog2 = Dialog.new()
 	# dialog2.text = "other dialog"
 	# dialog2.nexts[Enums.CardPlayOutcome.ALL_SUCCESS] = "id2"
 
 	# var mood = Mood.new()
+	# mood.funny = INF
 
 	# var moodRange = MoodRange.new()
 	# moodRange.mood_lower_bound = mood
@@ -28,7 +29,6 @@ func _ready() -> void:
 	# #dialogStr = JSON.stringify(dialog)
 	# var objStr = ForgeJSONGD.class_to_json(convo)
 	# ForgeJSONGD.store_json_file("res://data/test.json", objStr)
-	# dialogStr = JSON.stringify(JsonClassConverter.class_to_json(dialog, true))
 
 	#var a_dia = ForgeJSONGD.json_string_to_class(Dialog, dialogStr)
 	var a = ForgeJSONGD.json_file_to_class(Conversation, "res://data/test.json")
