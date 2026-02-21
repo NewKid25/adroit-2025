@@ -147,7 +147,7 @@ func spawn_wow(wow):
 	$WowTexts.add_child(w)
 
 func _process(delta: float) -> void:
-	debug_fullscreen_toggle_key()
+	UIHelper.debug_fullscreen_toggle_key()
 	
 	if state == UIDS_State.DateIntro:
 		game_event = controller.begin()
@@ -210,13 +210,6 @@ func cmod(node: CanvasItem, focused: bool, delta: float) -> void:
 		delta = 1
 	# TODO: This can break if the game runs terrible? Is that wanted?
 	node.modulate = node.modulate.lerp(target, delta)
-
-func debug_fullscreen_toggle_key() -> void:
-	if Input.is_action_just_pressed("dbg_fullscreen"):
-		if get_window().mode == Window.MODE_FULLSCREEN:
-			get_window().mode = Window.MODE_WINDOWED
-		else:
-			get_window().mode = Window.MODE_FULLSCREEN
 
 #region State Machine Getter Helpers
 
