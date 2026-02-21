@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2p3v7rywfpje"]
+[gd_scene format=3 uid="uid://b2p3v7rywfpje"]
 
 [ext_resource type="Script" uid="uid://dnk4d0a72x4tn" path="res://scripts/ui_card.gd" id="1_d81rb"]
 
@@ -15,16 +15,16 @@ font_names = PackedStringArray("Arial")
 subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
-[node name="Card" type="Node2D"]
+[node name="Card" type="Node2D" unique_id=500690310]
 script = ExtResource("1_d81rb")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=919015704]
 offset_left = -75.0
 offset_right = 75.0
 offset_bottom = 210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uoxc")
 
-[node name="Text" type="Label" parent="."]
+[node name="Text" type="Label" parent="." unique_id=694225043]
 offset_left = -75.0
 offset_right = 75.0
 offset_bottom = 210.0

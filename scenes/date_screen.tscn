@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhja7kk1sgvg7"]
+[gd_scene format=3 uid="uid://bhja7kk1sgvg7"]
 
-[ext_resource type="Script" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
-[ext_resource type="Script" path="res://scripts/hand.gd" id="1_i2wyr"]
+[ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
+[ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
 bg_color = Color(1, 0.297781, 0.51756, 1)
@@ -15,32 +15,32 @@ bg_color = Color(0.974282, 1, 0.368776, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktt6o"]
 bg_color = Color(0.000625611, 0.161339, 1.20327e-08, 1)
 
-[node name="DateScreen" type="Node2D"]
+[node name="DateScreen" type="Node2D" unique_id=1605705531]
 script = ExtResource("1_7jowm")
 
-[node name="Date1" type="Panel" parent="."]
+[node name="Date1" type="Panel" parent="." unique_id=1482813717]
 offset_right = 426.0
 offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_td82l")
 
-[node name="Date2" type="Panel" parent="."]
+[node name="Date2" type="Panel" parent="." unique_id=588908131]
 offset_left = 426.0
 offset_right = 852.0
 offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ppmm")
 
-[node name="Date3" type="Panel" parent="."]
+[node name="Date3" type="Panel" parent="." unique_id=1539858779]
 offset_left = 852.0
 offset_right = 1278.0
 offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w37m7")
 
-[node name="HandBackground" type="Panel" parent="."]
+[node name="HandBackground" type="Panel" parent="." unique_id=2084854127]
 offset_top = 480.0
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ktt6o")
 
-[node name="Hand" type="Node2D" parent="."]
+[node name="Hand" type="Node2D" parent="." unique_id=404099456]
 position = Vector2(640, 480)
-script = ExtResource("1_i2wyr")
+script = ExtResource("2_7jowm")
