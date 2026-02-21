@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
+[ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
 bg_color = Color(1, 0.297781, 0.51756, 1)
@@ -44,3 +45,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ktt6o")
 [node name="Hand" type="Node2D" parent="." unique_id=404099456]
 position = Vector2(640, 480)
 script = ExtResource("2_7jowm")
+
+[node name="DateController" type="Node" parent="." unique_id=1022024033]
+script = ExtResource("3_1bdot")
