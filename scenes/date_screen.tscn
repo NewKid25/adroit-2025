@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
 [ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_aw6qv"]
-[ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="2_teu1t"]
+[ext_resource type="PackedScene" path="res://scenes/loveometer.tscn" id="2_teu1t"]
 [ext_resource type="Texture2D" uid="uid://bqu0hm4vxgfjn" path="res://assets/art/quantumbg.png" id="2_xbivh"]
 [ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
 [ext_resource type="Texture2D" uid="uid://ehe2jmgcfuyp" path="res://assets/art/quantumdecor.png" id="3_4vcaf"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="8_pdnvl"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 [ext_resource type="Texture2D" uid="uid://b6oeldl701vln" path="res://assets/art/finediningscene.png" id="10_h3ygb"]
-[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
+[ext_resource type="Shader" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
 shader = ExtResource("7_42wmv")

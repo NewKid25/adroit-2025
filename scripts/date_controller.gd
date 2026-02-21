@@ -22,6 +22,8 @@ var current_line2: String = ""
 var conversation3: Conversation = null
 var current_line3: String = ""
 
+var date_deck = Deck.new()
+
 func _ready():
 	# TODO: hardcoding
 	conversation1 = DataService.get_conversation_from_file("res://data/shrodie-temp.json")
@@ -36,17 +38,15 @@ func get_date_number() -> int:
 
 ## Plays after animation
 func begin() -> GameEvent:
-	card_added.emit(new_demo_card())
-	card_added.emit(new_demo_card())
-	card_added.emit(new_demo_card())
-	card_added.emit(new_demo_card())
+	for i in range(4): card_added.emit(date_deck.cards.pop_front())
+
 	return get_current_gameevent()
 
 ## Plays when a card is chosen
 func play_card(card: Card) -> GameEvent:
 	card_removed.emit(card)
 	jump_next(card.mood)
-	card_added.emit(new_demo_card())
+	card_added.emit(date_deck.cards.pop_front())
 	return get_current_gameevent()
 
 func new_card(text: String, mood: Mood) -> Card:
