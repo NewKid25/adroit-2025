@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djse01wx6hvk1" path="res://assets/art/carnivalscenepurple.png" id="3_pdnvl"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
-[ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="7_42wmv"]
+[ext_resource type="Shader" path="res://scenes/wavy_text.gdshader" id="7_42wmv"]
 [ext_resource type="Shader" uid="uid://ecdf7lh41ynu" path="res://scenes/date_screen.gdshader" id="7_mjotm"]
 [ext_resource type="Script" uid="uid://djuym5m1maudx" path="res://scripts/ui_character_wave.gd" id="7_wgmu0"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
