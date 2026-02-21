@@ -42,24 +42,15 @@ func begin() -> GameEvent:
 ## Plays when a card is chosen
 func play_card(card: Card) -> GameEvent:
 	card_removed.emit(card)
+	jump_next(card.mood)
 	card_added.emit(new_demo_card())
 	return get_current_gameevent()
 
-func new_card(text: String) -> Card:
+func new_card(text: String, mood: Mood) -> Card:
 	var c = Card.new()
 	c.text = text
+	c.mood = mood
 	return c
-
-func get_demo_gameevent() -> GameEvent:
-	var ev := GameEvent.new()
-	
-	ev.chat_event = ChatEvent.new()
-	ev.chat_event.line1 = "Debug Line 1"
-	ev.chat_event.line2 = "Debug Line 2"
-	ev.chat_event.line3 = "Debug Line 3"
-	
-	ev.is_there_more_after_this = true
-	return ev
 
 func get_current_gameevent() -> GameEvent:
 	var ev := GameEvent.new()
@@ -78,28 +69,42 @@ func get_current_gameevent() -> GameEvent:
 	else:
 		ev.chat_event.line3 = ""
 	
-	current_line1 = get_next_line(conversation1, current_line1)
-	current_line2 = get_next_line(conversation2, current_line2)
-	current_line3 = get_next_line(conversation3, current_line3)
+	ev.is_there_more_after_this = \
+		len(conversation1.dialogs[current_line1].nexts) > 0 or \
+		len(conversation2.dialogs[current_line2].nexts) > 0 or \
+		len(conversation3.dialogs[current_line3].nexts) > 0
 	
-	ev.is_there_more_after_this = current_line1 or current_line2 or current_line3
 	return ev
 
-func get_next_line(conversation: Conversation, current_line: String) -> String:
+func get_next_line(conversation: Conversation, current_line: String, mood: Mood) -> String:
 	var dialog := conversation.dialogs[current_line]
 	
 	if len(dialog.nexts) == 0:
 		return ""
 	
 	var next = null
-	if Enums.CardPlayOutcome.ALL_SUCCESS in dialog.nexts:
-		next = dialog.nexts[Enums.CardPlayOutcome.ALL_SUCCESS]
-	elif Enums.CardPlayOutcome.DEFAULT in dialog.nexts:
+	var outcomes := dialog.mood_expectation.compare_mood(mood)
+	
+	for outcome in outcomes:
+		if outcome in dialog.nexts:
+			next = dialog.nexts[outcome]
+			if next:
+				break
+	
+	if next == null and Enums.CardPlayOutcome.DEFAULT in dialog.nexts:
 		next = dialog.nexts[Enums.CardPlayOutcome.DEFAULT]
-	else:
+	elif next == null:
 		next = dialog.nexts[dialog.nexts.keys()[0]]
 	return next
 
+func jump_next(mood: Mood) -> void:
+	current_line1 = get_next_line(conversation1, current_line1, mood)
+	current_line2 = get_next_line(conversation2, current_line2, mood)
+	current_line3 = get_next_line(conversation3, current_line3, mood)
+
 func new_demo_card() -> Card:
 	DEMO_card_index += 1
-	return new_card("Demo %d" % DEMO_card_index)
+	return new_card(
+		"Demo %d" % DEMO_card_index,
+		Mood.new(1, 0, 0)
+	)

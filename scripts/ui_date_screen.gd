@@ -104,7 +104,7 @@ func set_state_wow_text():
 	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
-	wow_text_timer = 1.5
+	wow_text_timer = 0.9
 	spawn_wow(preload("res://scenes/wow_text_too_far.tscn"))
 
 func spawn_wow(wow):
