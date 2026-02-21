@@ -14,6 +14,7 @@
 [ext_resource type="Shader" uid="uid://ecdf7lh41ynu" path="res://scenes/date_screen.gdshader" id="7_mjotm"]
 [ext_resource type="Script" uid="uid://djuym5m1maudx" path="res://scripts/ui_character_wave.gd" id="7_wgmu0"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
+[ext_resource type="Texture2D" uid="uid://mayquytyxocg" path="res://assets/art/textboxsize.png" id="8_h3ygb"]
 [ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
 [ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="8_pdnvl"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
@@ -193,23 +194,27 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_aw6qv")
 script = ExtResource("7_wgmu0")
 
-[node name="DateText" type="Label" parent="Date1" unique_id=464429696]
-z_index = 2
-material = SubResource("ShaderMaterial_pl322")
-offset_left = 95.0
-offset_top = 309.0
-offset_right = 200.0
-offset_bottom = 332.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_font_sizes/font_size = 33
-text = "Debug Text!!! "
-
 [node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
 offset_left = 180.0
 offset_top = 31.0
 offset_right = 460.0
 offset_bottom = 71.0
+
+[node name="Textbox" type="Sprite2D" parent="Date1" unique_id=2132786315]
+position = Vector2(320, 583)
+texture = ExtResource("8_h3ygb")
+
+[node name="DateText" type="Label" parent="Date1" unique_id=464429696]
+material = SubResource("ShaderMaterial_pl322")
+offset_left = 64.0
+offset_top = 499.0
+offset_right = 576.0
+offset_bottom = 666.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
+autowrap_mode = 3
 
 [node name="Date3" type="Node2D" parent="." unique_id=694699396]
 position = Vector2(1280, 0)
@@ -224,23 +229,27 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_6n4xi")
 script = ExtResource("7_wgmu0")
 
-[node name="DateText" type="Label" parent="Date3" unique_id=1823444103]
-z_index = 2
-material = SubResource("ShaderMaterial_pl322")
-offset_left = 95.0
-offset_top = 309.0
-offset_right = 200.0
-offset_bottom = 332.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_font_sizes/font_size = 33
-text = "Debug Text!!! "
-
 [node name="Loveometer" parent="Date3" unique_id=919235201 instance=ExtResource("2_teu1t")]
 offset_left = 180.0
 offset_top = 31.0
 offset_right = 460.0
 offset_bottom = 71.0
+
+[node name="Textbox" type="Sprite2D" parent="Date3" unique_id=1439245815]
+position = Vector2(320, 583)
+texture = ExtResource("8_h3ygb")
+
+[node name="DateText" type="Label" parent="Date3" unique_id=1148350856]
+material = SubResource("ShaderMaterial_pl322")
+offset_left = 64.0
+offset_top = 499.0
+offset_right = 576.0
+offset_bottom = 666.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
+autowrap_mode = 3
 
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
@@ -255,23 +264,27 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_nfe8y")
 script = ExtResource("7_wgmu0")
 
-[node name="DateText" type="Label" parent="Date2" unique_id=25782033]
-z_index = 2
-material = SubResource("ShaderMaterial_pl322")
-offset_left = 95.0
-offset_top = 309.0
-offset_right = 200.0
-offset_bottom = 332.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_font_sizes/font_size = 33
-text = "Debug Text!!! "
-
 [node name="Loveometer" parent="Date2" unique_id=1078323287 instance=ExtResource("2_teu1t")]
 offset_left = 180.0
 offset_top = 31.0
 offset_right = 460.0
 offset_bottom = 71.0
+
+[node name="Textbox" type="Sprite2D" parent="Date2" unique_id=346796004]
+position = Vector2(320, 583)
+texture = ExtResource("8_h3ygb")
+
+[node name="DateText" type="Label" parent="Date2" unique_id=938776797]
+material = SubResource("ShaderMaterial_pl322")
+offset_left = 64.0
+offset_top = 499.0
+offset_right = 576.0
+offset_bottom = 666.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 33
+text = "Debug Text!!! "
+autowrap_mode = 3
 
 [node name="EnergyBeams" type="Node2D" parent="." unique_id=805464923]
 
