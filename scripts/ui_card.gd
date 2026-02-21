@@ -2,6 +2,25 @@ class_name UICard
 extends Node2D
 
 var card: Card
+var body_scale: float = 1.0
 
 func _ready():
-	$Text.text = card.text
+	$Body/Centerer/Text.text = card.text
+
+func shake() -> void:
+	#$Body.position.x = dir * 15
+	$Body.position.x = randf_range(-10, 10)
+	$Body.position.y = randf_range(-10, 10)
+
+func _process(delta: float) -> void:
+	$Body.position.x = lerp(
+		$Body.position.x,
+		0.0,
+		delta * 8
+	)
+	$Body.position.y = lerp(
+		$Body.position.y,
+		0.0,
+		delta * 8
+	)
+	$Body/Centerer.scale = Vector2(body_scale, body_scale)

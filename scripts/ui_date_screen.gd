@@ -11,7 +11,8 @@ enum UIDS_State {
 	SpeakingLeft,
 	SpeakingMiddle,
 	SpeakingRight,
-	Playing
+	Playing,
+	WowText
 }
 
 enum UIDS_FocusState {
@@ -27,17 +28,22 @@ var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
 var game_event: DateController.GameEvent
 var speaking_timer := 0.0
+var wow_text_timer := 0.0
 var stashed_cards: Array[Card] = []
 
 @onready
 var controller: DateController = $DateController
 @onready
 var hand: UIHand = $Hand
+@onready
+var animator: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	controller.card_added.connect(on_card_added)
 	controller.card_removed.connect(on_card_removed)
 	hand.finish_move.connect(on_finish_move)
+	
+	$Overlays.visible = true
 
 func on_card_added(card: Card) -> void:
 	stashed_cards.push_back(card)
@@ -52,40 +58,58 @@ func on_card_removed(card: Card) -> void:
 
 func on_finish_move(card: Card) -> void:
 	game_event = controller.play_card(card)
-	set_state_left()
+	set_state_wow_text()
 
 func set_state_left():
 	state = UIDS_State.SpeakingLeft
 	focus = UIDS_FocusState.Left
 	speaking_timer = 1.0
 	hand.state = UIHand.UIHandState.Hidden
+	UIHelper.joy_shake()
 
 func set_state_middle():
 	state = UIDS_State.SpeakingMiddle
 	focus = UIDS_FocusState.Middle
 	speaking_timer = 1.0
 	hand.state = UIHand.UIHandState.Hidden
+	UIHelper.joy_shake()
 
 func set_state_right():
 	state = UIDS_State.SpeakingRight
 	focus = UIDS_FocusState.Right
 	speaking_timer = 1.0
 	hand.state = UIHand.UIHandState.Hidden
+	UIHelper.joy_shake()
 
 func set_state_playing():
 	state = UIDS_State.Playing
 	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Playing
 	add_stashed_cards()
+	UIHelper.joy_shake()
 
 func set_state_animating_in():
 	state = UIDS_State.AnimatingIn
 	focus = UIDS_FocusState.None
+	hand.state = UIHand.UIHandState.Hidden
 
 func set_state_animating_out():
 	state = UIDS_State.AnimatingOut
 	focus = UIDS_FocusState.All
-	$AnimationPlayer.play("end")
+	hand.state = UIHand.UIHandState.Hidden
+	animator.play("end")
+
+func set_state_wow_text():
+	state = UIDS_State.WowText
+	focus = UIDS_FocusState.All
+	hand.state = UIHand.UIHandState.Hidden
+	UIHelper.joy_shake()
+	wow_text_timer = 1.5
+	spawn_wow(preload("res://scenes/wow_text_too_far.tscn"))
+
+func spawn_wow(wow):
+	var w = wow.instantiate()
+	$WowTexts.add_child(w)
 
 func _process(delta: float) -> void:
 	debug_fullscreen_toggle_key()
@@ -120,6 +144,10 @@ func _process(delta: float) -> void:
 				set_state_animating_out()
 	elif state == UIDS_State.Playing:
 		pass
+	elif state == UIDS_State.WowText:
+		wow_text_timer -= delta
+		if wow_text_timer < 0:
+			set_state_left()
 	
 	do_focusing(delta)
 	

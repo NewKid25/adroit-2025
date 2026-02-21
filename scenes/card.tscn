@@ -18,16 +18,23 @@ multichannel_signed_distance_field = true
 [node name="Card" type="Node2D" unique_id=500690310]
 script = ExtResource("1_d81rb")
 
-[node name="Background" type="Panel" parent="." unique_id=919015704]
+[node name="Body" type="Node2D" parent="." unique_id=780767967]
+
+[node name="Centerer" type="Node2D" parent="Body" unique_id=554077454]
+position = Vector2(0, 157)
+
+[node name="Background" type="Panel" parent="Body/Centerer" unique_id=919015704]
 offset_left = -112.5
+offset_top = -157.0
 offset_right = 112.5
-offset_bottom = 315.0
+offset_bottom = 158.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uoxc")
 
-[node name="Text" type="Label" parent="." unique_id=694225043]
+[node name="Text" type="Label" parent="Body/Centerer" unique_id=694225043]
 offset_left = -112.5
+offset_top = -157.0
 offset_right = 112.5
-offset_bottom = 315.0
+offset_bottom = 158.0
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = SubResource("SystemFont_llbac")
 theme_override_font_sizes/font_size = 26

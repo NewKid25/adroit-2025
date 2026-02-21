@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("play_card"):
 			state = UIHandState.CardGoUpToMiddle
 			card_go_up_timer = 0.0
+			UIHelper.joy_shake()
 	elif state == UIHandState.Hidden:
 		animate_cards(delta, true, false)
 	elif state == UIHandState.CardGoUpToMiddle:
@@ -52,15 +53,34 @@ func _process(delta: float) -> void:
 	skip_anim_next_frame = false
 
 func change_selected():
+	if cards_in_hand() == 0:
+		return
+	
+	var moved := false
+	
 	if Input.is_action_just_pressed("left"):
 		selected -= 1
+		UIHelper.joy_shake()
+		moved = true
 	if Input.is_action_just_pressed("right"):
 		selected += 1
+		UIHelper.joy_shake()
+		moved = true
+	
+	if Input.is_action_just_pressed("far_left"):
+		selected = 0
+		UIHelper.joy_shake()
+	if Input.is_action_just_pressed("far_right"):
+		selected = 999
+		UIHelper.joy_shake()
 	
 	if selected < 0:
 		selected = 0
 	elif selected >= cards_in_hand():
 		selected = cards_in_hand() - 1
+	
+	if moved:
+		get_selected_card_node().shake()
 
 func animate_cards(delta: float, state_hidden: bool, skip_selected: bool) -> void:
 	var skipaware_cards = cards_in_hand()
@@ -143,6 +163,15 @@ func animate_middle_card(delta: float) -> void:
 		0.0,
 		delta * 5
 	)
+	if card_go_up_timer > 1.8:
+		card.shake()
+		UIHelper.joy_shake()
+	var s = (card_go_up_timer - 1.8) / 0.2
+	s = clamp(s, 0, 1)
+	s *= s
+	s *= 0.3
+	s += 1
+	card.body_scale = s
 
 func get_card_node(idx: int) -> UICard:
 	var x: Node = get_child(idx)
