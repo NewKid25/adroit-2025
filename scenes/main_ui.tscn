@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhja7kk1sgvg7"]
 
-[ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://cadenuicode/cards.gd" id="1_2ppmm"]
+[ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/hand.gd" id="1_2ppmm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
 bg_color = Color(1, 0.297781, 0.51756, 1)
@@ -39,6 +39,6 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ktt6o")
 
-[node name="Cards" type="Node2D" parent="."]
+[node name="Hand" type="Node2D" parent="."]
 position = Vector2(640, 480)
 script = ExtResource("1_2ppmm")
