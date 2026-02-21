@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://uhvko4ijytq3"]
+
+[ext_resource type="Script" uid="uid://cfklkjdjckyt4" path="res://player.gd" id="1_uhqqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia1lp"]
+size = Vector2(1189, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sasra"]
+size = Vector2(42, 70)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(577.5, 634.5)
+shape = SubResource("RectangleShape2D_ia1lp")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(450, 355)
+script = ExtResource("1_uhqqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_sasra")
