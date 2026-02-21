@@ -1,14 +1,23 @@
 class_name UIHand
 extends Node2D
 
-var selected = 0
-
 const CARD_WIDTH = 150
 const CARD_PADDING = 20
-
 const CARD_FULL_WIDTH = CARD_WIDTH + CARD_PADDING
-
 const CARD_RESOURCE = preload("res://scenes/card.tscn")
+const CARD_MODULATE_NORMAL = Color(0.729, 0.729, 0.729)
+const CARD_MODULATE_HELD = Color(1.0, 1.0, 1.0)
+const CARD_MODULATE_HIDDEN = Color(0.359, 0.359, 0.359)
+
+enum UIHandState {
+	Playing,
+	Hidden,
+	CardGoUpToMiddle
+}
+
+var state := UIHandState.Hidden
+var selected := 0
+var skip_anim_next_frame := true
 
 func _ready() -> void:
 	pass
@@ -22,12 +31,17 @@ func _process(delta: float) -> void:
 	if cards_in_hand() == 0:
 		return
 	
-	change_selected()
-	animate_cards(delta)
-	
-	if Input.is_action_just_pressed("play_card"):
-		get_selected_card_node().queue_free()
-		selected -= 1
+	if state == UIHandState.Playing:
+		change_selected()
+		animate_cards(delta, false)
+		
+		if Input.is_action_just_pressed("play_card"):
+			get_selected_card_node().queue_free()
+			selected -= 1
+	elif state == UIHandState.Hidden:
+		animate_cards(delta, true)
+	elif state == UIHandState.CardGoUpToMiddle:
+		pass
 
 func change_selected():
 	if Input.is_action_just_pressed("left"):
@@ -40,41 +54,46 @@ func change_selected():
 	elif selected >= cards_in_hand():
 		selected = cards_in_hand() - 1
 
-func animate_cards(delta: float):
+func animate_cards(delta: float, hidden: bool) -> void:
 	var wid = (cards_in_hand() * CARD_FULL_WIDTH) - CARD_FULL_WIDTH
 	var hwid = wid / 2.0
+	var rot_scale = 0.05 if hidden else 0.1
+	var xmod = 0.35 if hidden else 0.95
 	for i in range(cards_in_hand()):
 		var card: Node2D = get_child(i)
-		var is_selected = i == selected
+		var is_selected = not hidden and i == selected
 		
-		var target_rot = (i - cards_in_hand() / 2.0 + 0.5) * 0.15
+		var relative_idx = (i - cards_in_hand() / 2.0 + 0.5)
+		var target_rot = relative_idx * rot_scale
+		var ymod = (relative_idx * relative_idx) * 10
 		
 		card.position.x = lerp(
 			card.position.x,
-			CARD_FULL_WIDTH * i - hwid,
+			(CARD_FULL_WIDTH * i - hwid) * xmod,
 			delta * 5
 		)
 		card.position.y = lerp(
 			card.position.y,
-			-50.0 if is_selected else 50.0,
+			(80.0 + ymod * 0.2) if hidden else -50.0 if is_selected else (30.0 + ymod),
 			delta * 8
 		)
 		card.rotation = lerp(
 			card.rotation,
-			0.0 if is_selected else target_rot,
+			target_rot * (0.1 if is_selected else 1.0),
 			delta * 8
 		)
-		card.modulate.a = lerp(
-			card.modulate.a,
-			1.0 if is_selected else 0.8,
+		card.modulate = card.modulate.lerp(
+			CARD_MODULATE_HIDDEN if hidden else
+				CARD_MODULATE_HELD if is_selected else
+				CARD_MODULATE_NORMAL,
 			delta * 10
 		)
 		card.z_index = 1 if is_selected else 0
 
 func get_card_node(idx: int) -> UICard:
-	var x = get_child(idx)
-	if x == null: return x
-	if x is not UICard: return get_child(0)
+	var x: Node = get_child(idx)
+	if x == null: return null
+	if x is not UICard: return null
 	return x
 
 func get_selected_card_node() -> UICard:
@@ -85,11 +104,11 @@ func cards_in_hand() -> int:
 
 func get_card_node_by_card(card: Card) -> UICard:
 	for child in get_children():
-		if child.card == card:
+		if "card" in child and child.card == card:
 			return child
 	return null
 
-func add_card(card: Card):
+func add_card(card: Card) -> void:
 	var card_node: UICard = CARD_RESOURCE.instantiate()
 	card_node.position.x = (cards_in_hand() * CARD_FULL_WIDTH) / 2.0
 	card_node.card = card

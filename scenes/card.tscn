@@ -4,6 +4,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uoxc"]
 bg_color = Color(1, 0.520571, 0.214623, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_llbac"]
 font_names = PackedStringArray("Arial")
