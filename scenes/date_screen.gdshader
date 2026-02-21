@@ -8,9 +8,10 @@ void vertex() {
 
 void fragment() {
 	float time = TIME;
-	time = floor(TIME * 3.0) / 3.0;
+	//time = floor(TIME * 10.0) / 30.0;
+	time =0.0;
 	COLOR = texture(TEXTURE, UV + vec2(0,
-		(time * -0.5 * MOVE_SPEED) +
+		//(time * -0.5 * MOVE_SPEED)  
 		(TIME * 0.03 * MOVE_SPEED)
 	));
 }
