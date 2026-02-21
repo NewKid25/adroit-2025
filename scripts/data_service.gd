@@ -11,7 +11,7 @@ static func get_all_cards()-> Array[Card]:
 	const CARD_FILE_DELIMITER = "\t"
 	var card_data_file_str = load_file_txt(CARD_FILE_PATH)
 	card_data_file_str = card_data_file_str.replace('\r', '')
-	var card_dicts =_table_str_to_dicts(card_data_file_str, '\t')
+	var card_dicts =_table_str_to_dicts(card_data_file_str, CARD_FILE_DELIMITER)
 	
 	var cards : Array[Card] =[]
 	for card_dict in card_dicts:
