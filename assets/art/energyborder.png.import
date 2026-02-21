@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rhxw33n4gdjk"
-path="res://.godot/imported/IMG_7539.png-10f93f85308ee472a53d6d23fa0bdd8a.ctex"
+uid="uid://dnxo4sp6u1msf"
+path="res://.godot/imported/energyborder.png-9e0ad4c4d12a279a45443d1891d5191f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/IMG_7539.png"
-dest_files=["res://.godot/imported/IMG_7539.png-10f93f85308ee472a53d6d23fa0bdd8a.ctex"]
+source_file="res://assets/art/energyborder.png"
+dest_files=["res://.godot/imported/energyborder.png-9e0ad4c4d12a279a45443d1891d5191f.ctex"]
 
 [params]
 

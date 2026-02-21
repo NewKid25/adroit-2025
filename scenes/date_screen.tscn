@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
 [ext_resource type="Shader" uid="uid://ecdf7lh41ynu" path="res://scenes/date_screen.gdshader" id="7_mjotm"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
-[ext_resource type="Texture2D" uid="uid://rhxw33n4gdjk" path="res://assets/art/IMG_7539.png" id="8_wgmu0"]
+[ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjotm"]
@@ -114,13 +114,13 @@ text = "Debug Text!!! "
 texture_repeat = 2
 material = SubResource("ShaderMaterial_mjotm")
 position = Vector2(640, -1009)
-texture = ExtResource("8_wgmu0")
+texture = ExtResource("8_mjotm")
 
 [node name="Img7540" type="Sprite2D" parent="EnergyBeams" unique_id=500461931]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_42wmv")
 position = Vector2(1280, -1009)
-texture = ExtResource("8_wgmu0")
+texture = ExtResource("8_mjotm")
 
 [node name="HandBackground" type="Node2D" parent="." unique_id=1547144775]
 position = Vector2(0, 720)
