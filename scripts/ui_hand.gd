@@ -15,7 +15,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("dbg_add_card"):
-		add_card("Debug text!!")
+		var card = Card.new()
+		card.text = "Debug text!"
+		add_card(card)
 	
 	if cards_in_hand() == 0:
 		return
@@ -24,7 +26,7 @@ func _process(delta: float) -> void:
 	animate_cards(delta)
 	
 	if Input.is_action_just_pressed("play_card"):
-		get_selected_card().queue_free()
+		get_selected_card_node().queue_free()
 		selected -= 1
 
 func change_selected():
@@ -69,17 +71,26 @@ func animate_cards(delta: float):
 		)
 		card.z_index = 1 if is_selected else 0
 
-func get_card(idx: int) -> Node2D:
-	return get_child(idx)
+func get_card_node(idx: int) -> UICard:
+	var x = get_child(idx)
+	if x == null: return x
+	if x is not UICard: return get_child(0)
+	return x
 
-func get_selected_card() -> Node2D:
-	return get_card(selected)
+func get_selected_card_node() -> UICard:
+	return get_card_node(selected)
 
 func cards_in_hand() -> int:
 	return get_child_count()
 
-func add_card(text: String):
-	var card: Node2D = CARD_RESOURCE.instantiate()
-	card.position.x = (cards_in_hand() * CARD_FULL_WIDTH) / 2.0
-	card.get_node("Label").text = text
-	add_child(card)
+func get_card_node_by_card(card: Card) -> UICard:
+	for child in get_children():
+		if child.card == card:
+			return child
+	return null
+
+func add_card(card: Card):
+	var card_node: UICard = CARD_RESOURCE.instantiate()
+	card_node.position.x = (cards_in_hand() * CARD_FULL_WIDTH) / 2.0
+	card_node.card = card
+	add_child(card_node)

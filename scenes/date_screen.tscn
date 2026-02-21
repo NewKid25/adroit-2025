@@ -14,7 +14,7 @@ bg_color = Color(0.974282, 1, 0.368776, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktt6o"]
 bg_color = Color(0.000625611, 0.161339, 1.20327e-08, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="DateScreen" type="Node2D"]
 
 [node name="Date1" type="Panel" parent="."]
 offset_right = 426.0
