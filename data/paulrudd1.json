@@ -136,20 +136,20 @@
 	  "text": "Ooh, that’s what I was thinking too… Maybe we are meant for each other."
 	},
 	"id16": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Oh, definitely… We can find out for sure over this lovely dinner!"
 	},
 	"id17": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "We can figure it out later. Over this lovely dinner…"
 	},
 	"id18": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Well, we'll just have to find out over this lovely dinner!"
 	}

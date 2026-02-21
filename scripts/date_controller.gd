@@ -26,11 +26,11 @@ var date_deck = Deck.new()
 
 func _ready():
 	# TODO: hardcoding
-	conversation1 = DataService.get_conversation_from_file("res://data/shrodie-temp.json")
+	conversation1 = DataService.get_conversation_from_file("res://data/schrodie1.json")
 	current_line1 = conversation1.dialogs.keys()[0]
-	conversation2 = DataService.get_conversation_from_file("res://data/shrodie-temp.json")
+	conversation2 = DataService.get_conversation_from_file("res://data/paulrudd1.json")
 	current_line2 = conversation2.dialogs.keys()[0]
-	conversation3 = DataService.get_conversation_from_file("res://data/shrodie-temp.json")
+	conversation3 = DataService.get_conversation_from_file("res://data/guido1.json")
 	current_line3 = conversation3.dialogs.keys()[0]
 
 func get_date_number() -> int:

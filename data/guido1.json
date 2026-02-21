@@ -145,26 +145,26 @@
 	  "text": "You have certainly proven your keen sense of the right places to get coffee."
 	},
 	"id17": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "I feel the same way! Cheers with coffee to that, and each other."
 	},
 	"id18": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "I really mean this, it is good coffee. Cheers with the good coffee, to each other."
 	},
 	"id19": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "I mean this, it is good coffee. Cheers with the good coffee, to each other."
 	},
 	"id20": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Cheers with coffee to that, and each other."
 	}

@@ -136,26 +136,26 @@
 	  "text": "Well, not if I beat you to it. Maybe I will win that teddy bear!"
 	},
 	"id16": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Let's go ride that roller coaster then! Race you!"
 	},
 	"id17": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Let’s go have some fun, ride that roller coaster. Race you!"
 	},
 	"id18": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Let’s go have some fun, ride that roller coaster. Race you?"
 	},
 	"id19": {
-	  "mood_expectation": null,
-	  "nexts": null,
+	  "mood_expectation": {},
+	  "nexts": {},
 	  "sprite": null,
 	  "text": "Let’s go ride that roller coaster. Race you?"
 	}
