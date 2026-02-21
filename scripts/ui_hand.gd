@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 		animate_cards(delta, true, true)
 		animate_middle_card(delta)
 		card_go_up_timer += delta
-		if card_go_up_timer > 2.0:
+		if card_go_up_timer > 1.5:
 			finish_move.emit(get_selected_card())
 			selected -= 1
 	
@@ -163,14 +163,17 @@ func animate_middle_card(delta: float) -> void:
 		0.0,
 		delta * 5
 	)
-	if card_go_up_timer > 1.8:
+	#if card_go_up_timer > 1.8:
+	if true:
 		card.shake()
 		UIHelper.joy_shake()
-	var s = (card_go_up_timer - 1.8) / 0.2
+	var s = (card_go_up_timer - 1.3) / 0.2
 	s = clamp(s, 0, 1)
 	s *= s
 	s *= 0.3
 	s += 1
+	s -= pow(card_go_up_timer, 1.3) * 0.09
+	s += max(0, pow(card_go_up_timer - 0.3, 6) * 0.03)
 	card.body_scale = s
 
 func get_card_node(idx: int) -> UICard:

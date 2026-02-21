@@ -44,6 +44,7 @@ func _ready() -> void:
 	hand.finish_move.connect(on_finish_move)
 	
 	$Overlays.visible = true
+	$Overlays/BlackScreen.visible = true
 	# TODO: Glow?
 	#$GlowShader.visible = true
 	
