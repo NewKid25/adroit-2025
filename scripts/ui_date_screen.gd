@@ -44,6 +44,8 @@ func _ready() -> void:
 	hand.finish_move.connect(on_finish_move)
 	
 	$Overlays.visible = true
+	# TODO: Glow?
+	#$GlowShader.visible = true
 
 func on_card_added(card: Card) -> void:
 	stashed_cards.push_back(card)

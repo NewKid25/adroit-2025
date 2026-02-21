@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
 [ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_aw6qv"]
 [ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="2_teu1t"]
-[ext_resource type="Texture2D" uid="uid://b12641rws46eg" path="res://assets/art/datearea.png" id="2_va3kr"]
 [ext_resource type="Texture2D" uid="uid://bqu0hm4vxgfjn" path="res://assets/art/quantumbg.png" id="2_xbivh"]
 [ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
 [ext_resource type="Texture2D" uid="uid://ehe2jmgcfuyp" path="res://assets/art/quantumdecor.png" id="3_4vcaf"]
+[ext_resource type="Texture2D" uid="uid://djse01wx6hvk1" path="res://assets/art/carnivalscenepurple.png" id="3_pdnvl"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
 [ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="7_42wmv"]
@@ -15,17 +15,13 @@
 [ext_resource type="Script" uid="uid://djuym5m1maudx" path="res://scripts/ui_character_wave.gd" id="7_wgmu0"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
 [ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
+[ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="8_pdnvl"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
+[ext_resource type="Texture2D" uid="uid://b6oeldl701vln" path="res://assets/art/finediningscene.png" id="10_h3ygb"]
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
+[ext_resource type="Shader" uid="uid://b4fnpw3nu27nl" path="res://scenes/glow_shader.gdshader" id="20_pdnvl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
-shader = ExtResource("7_42wmv")
-shader_parameter/text_color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6x3r"]
-shader = ExtResource("7_42wmv")
-shader_parameter/text_color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxhot"]
 shader = ExtResource("7_42wmv")
 shader_parameter/text_color = Color(1, 1, 1, 1)
 
@@ -36,6 +32,15 @@ shader_parameter/MOVE_SPEED = -1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_42wmv"]
 shader = ExtResource("7_mjotm")
 shader_parameter/MOVE_SPEED = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdnvl"]
+shader = ExtResource("12_pl322")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h3ygb"]
+shader = ExtResource("20_pdnvl")
+shader_parameter/a = 1.0
+shader_parameter/b = 1.775
+shader_parameter/c = 1.705
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjotm"]
 bg_color = Color(0, 0, 0, 1)
@@ -186,20 +191,27 @@ script = ExtResource("3_1bdot")
 [node name="Date1" type="Node2D" parent="." unique_id=1108158995]
 
 [node name="Datearea" type="Sprite2D" parent="Date1" unique_id=1207458468]
-position = Vector2(3, -34)
-texture = ExtResource("2_va3kr")
+texture = ExtResource("3_pdnvl")
 centered = false
 
-[node name="Schrodie" type="Sprite2D" parent="Date1" unique_id=2023343071]
+[node name="Sprite" type="Sprite2D" parent="Date1" unique_id=2023343071]
+position = Vector2(320, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_aw6qv")
+script = ExtResource("7_wgmu0")
+
+[node name="SpriteFG" type="Sprite2D" parent="Date1" unique_id=59456519]
+z_index = 2
 position = Vector2(320, 400)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_aw6qv")
 script = ExtResource("7_wgmu0")
 
 [node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
+z_index = 2
 
 [node name="DateText" type="Label" parent="Date1" unique_id=464429696]
-z_index = 1
+z_index = 2
 material = SubResource("ShaderMaterial_pl322")
 offset_left = 95.0
 offset_top = 309.0
@@ -214,82 +226,61 @@ text = "Debug Text!!! "
 position = Vector2(1280, 0)
 
 [node name="Datearea" type="Sprite2D" parent="Date3" unique_id=1062133651]
-texture = ExtResource("2_va3kr")
+texture = ExtResource("8_pdnvl")
 centered = false
 
-[node name="Guido" type="Sprite2D" parent="Date3" unique_id=942504291]
+[node name="Sprite" type="Sprite2D" parent="Date3" unique_id=942504291]
 position = Vector2(320, 407)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_6n4xi")
 script = ExtResource("7_wgmu0")
 
-[node name="Loveometer" parent="Date3" unique_id=209854783 instance=ExtResource("2_teu1t")]
-offset_left = 152.0
-offset_top = 76.0
-offset_right = 466.0
-offset_bottom = 126.0
-
-[node name="DateText" type="Label" parent="Date3" unique_id=1860602442]
-z_index = 1
-material = SubResource("ShaderMaterial_j6x3r")
-offset_left = 95.0
-offset_top = 309.0
-offset_right = 200.0
-offset_bottom = 332.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_font_sizes/font_size = 33
-text = "Debug Text!!! "
+[node name="SpriteFG" type="Sprite2D" parent="Date3" unique_id=318168752]
+z_index = 2
+position = Vector2(320, 407)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_6n4xi")
+script = ExtResource("7_wgmu0")
 
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
 
 [node name="Datearea" type="Sprite2D" parent="Date2" unique_id=743433969]
-texture = ExtResource("2_va3kr")
+texture = ExtResource("10_h3ygb")
 centered = false
 
-[node name="PaulRudd" type="Sprite2D" parent="Date2" unique_id=1566130157]
+[node name="Sprite" type="Sprite2D" parent="Date2" unique_id=1566130157]
 position = Vector2(320, 400)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_nfe8y")
 script = ExtResource("7_wgmu0")
 
-[node name="Loveometer" parent="Date2" unique_id=818275035 instance=ExtResource("2_teu1t")]
-offset_left = 175.0
-offset_top = 40.0
-offset_right = 489.0
-offset_bottom = 90.0
-
-[node name="DateText" type="Label" parent="Date2" unique_id=1911907234]
-z_index = 1
-material = SubResource("ShaderMaterial_bxhot")
-offset_left = 95.0
-offset_top = 309.0
-offset_right = 200.0
-offset_bottom = 332.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 17
-theme_override_font_sizes/font_size = 33
-text = "Debug Text!!! "
+[node name="SpriteFG" type="Sprite2D" parent="Date2" unique_id=136615776]
+z_index = 2
+position = Vector2(320, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_nfe8y")
+script = ExtResource("7_wgmu0")
 
 [node name="EnergyBeams" type="Node2D" parent="." unique_id=805464923]
 
 [node name="Img7539" type="Sprite2D" parent="EnergyBeams" unique_id=996940965]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_mjotm")
-position = Vector2(640, -1009)
+position = Vector2(639, -1009)
 texture = ExtResource("8_mjotm")
 
 [node name="Img7540" type="Sprite2D" parent="EnergyBeams" unique_id=500461931]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_42wmv")
-position = Vector2(1280, -1009)
+position = Vector2(1277, -1009)
 texture = ExtResource("8_mjotm")
 
 [node name="HandBackground" type="Node2D" parent="." unique_id=1547144775]
 position = Vector2(0, 720)
 
 [node name="Img7536" type="Sprite2D" parent="HandBackground" unique_id=1282469647]
+material = SubResource("ShaderMaterial_pdnvl")
 texture = ExtResource("2_xbivh")
 centered = false
 
@@ -306,13 +297,20 @@ script = ExtResource("9_va3kr")
 position = Vector2(960, 720)
 script = ExtResource("2_7jowm")
 
-[node name="WowTexts" type="Node2D" parent="." unique_id=640194950]
+[node name="GlowShader" type="ColorRect" parent="." unique_id=1049190732]
+visible = false
 z_index = 1
+material = SubResource("ShaderMaterial_h3ygb")
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="WowTexts" type="Node2D" parent="." unique_id=640194950]
+z_index = 2
 position = Vector2(960, 540)
 
 [node name="Overlays" type="Node2D" parent="." unique_id=1374392839]
 visible = false
-z_index = 2
+z_index = 3
 
 [node name="BlackScreen" type="Panel" parent="Overlays" unique_id=713744082]
 visible = false
