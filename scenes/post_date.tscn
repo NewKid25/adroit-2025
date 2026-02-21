@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dpm5xo8mjivhw"]
+
+[ext_resource type="Script" uid="uid://bnueuxo6ldw3l" path="res://scripts/ui_post_date.gd" id="1_101kl"]
+[ext_resource type="Texture2D" uid="uid://dn6u01pyown1q" path="res://assets/art/endscreenbg.png" id="2_semg7"]
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_u4h5m"]
+[ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_2wnl5"]
+[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_u4h5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4v5"]
+shader = ExtResource("2_u4h5m")
+
+[node name="Node2D" type="Node2D" unique_id=67385496]
+script = ExtResource("1_101kl")
+
+[node name="Background" type="Node2D" parent="." unique_id=765824319]
+
+[node name="Endscreenbg" type="Sprite2D" parent="Background" unique_id=554144344]
+material = SubResource("ShaderMaterial_ap4v5")
+texture = ExtResource("2_semg7")
+centered = false
+
+[node name="Atomlarger" type="Sprite2D" parent="Background" unique_id=1506798650]
+position = Vector2(215, 840)
+texture = ExtResource("3_2wnl5")
+script = ExtResource("4_u4h5m")
+speed_mod = 1.3
+
+[node name="Atomlarger2" type="Sprite2D" parent="Background" unique_id=936087107]
+position = Vector2(1648, 158)
+texture = ExtResource("3_2wnl5")
+script = ExtResource("4_u4h5m")
+inverted = true
+speed_mod = 1.9
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2132957346]
+visible = false
+z_index = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
