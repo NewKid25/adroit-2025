@@ -1,0 +1,42 @@
+{
+	"dialogs": {
+		"id1": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 1e99999,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 1e99999,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+				"0": "id1"
+			},
+			"sprite": null,
+			"text": "dialog"
+		},
+		"id2": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 1e99999,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 1e99999,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+				"0": "id2"
+			},
+			"sprite": null,
+			"text": "other dialog"
+		}
+	}
+}

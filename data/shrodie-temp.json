@@ -1,0 +1,58 @@
+{
+  "dialogs": {
+    "id1": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id2" },
+      "sprite": null,
+      "text": "This is so exciting! I hope I can win a giant teddy bear."
+    },
+    "id2": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id3" },
+      "sprite": null,
+      "text": "I love the ones with big bows... don't know if I'm good enough to win one though."
+    },
+    "id3": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id4" },
+      "sprite": null,
+      "text": "Awww, you're so sweet! We should ride all the rides first though, so we won't need to buckle it in on the roller coaster."
+    },
+    "id4": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id5" },
+      "sprite": null,
+      "text": "Sounds like a really nice night."
+    },
+    "id5": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id6" },
+      "sprite": null,
+      "text": "Well, not if I beat you to it. Maybe I will win that teddy bear!"
+    },
+    "id6": {
+      "mood_expectation": {
+        "mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+        "mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+      },
+      "nexts": { "0": "id6" },
+      "sprite": null,
+      "text": "Let's go ride that rollercoaster then! Race you!"
+    }
+  }
+}
