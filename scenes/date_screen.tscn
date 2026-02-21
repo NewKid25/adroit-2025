@@ -23,8 +23,151 @@ shader_parameter/MOVE_SPEED = -1.0
 shader = ExtResource("7_mjotm")
 shader_parameter/MOVE_SPEED = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjotm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_wgmu0"]
+font_names = PackedStringArray("Arial")
+multichannel_signed_distance_field = true
+
+[sub_resource type="Animation" id="Animation_mjotm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlays/BlackScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlays/BlackScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlays/EndText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Overlays/EndText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Overlays/EndText:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wgmu0"]
+resource_name = "end"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlays/BlackScreen:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlays/BlackScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Overlays/EndText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Overlays/EndText:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Overlays/EndText:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.6666667, 4),
+"transitions": PackedFloat32Array(1, 7.464262, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(160, 160)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42wmv"]
+_data = {
+&"RESET": SubResource("Animation_mjotm"),
+&"end": SubResource("Animation_wgmu0")
+}
+
 [node name="DateScreen" type="Node2D" unique_id=1605705531]
 script = ExtResource("1_7jowm")
+
+[node name="DateController" type="Node" parent="." unique_id=1022024033]
+script = ExtResource("3_1bdot")
 
 [node name="Date1" type="Node2D" parent="." unique_id=1108158995]
 
@@ -142,5 +285,25 @@ script = ExtResource("9_va3kr")
 position = Vector2(960, 720)
 script = ExtResource("2_7jowm")
 
-[node name="DateController" type="Node" parent="." unique_id=1022024033]
-script = ExtResource("3_1bdot")
+[node name="Overlays" type="Node2D" parent="." unique_id=1374392839]
+z_index = 2
+
+[node name="BlackScreen" type="Panel" parent="Overlays" unique_id=713744082]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjotm")
+
+[node name="EndText" type="Label" parent="Overlays" unique_id=9034031]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("SystemFont_wgmu0")
+theme_override_font_sizes/font_size = 90
+text = "Dates Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1802511389]
+libraries/ = SubResource("AnimationLibrary_42wmv")

@@ -6,7 +6,8 @@ const UNFOCUSED_MODULATE = Color(0.329, 0.329, 0.329)
 
 enum UIDS_State {
 	DateIntro,
-	Animating,
+	AnimatingIn,
+	AnimatingOut,
 	SpeakingLeft,
 	SpeakingMiddle,
 	SpeakingRight,
@@ -77,6 +78,15 @@ func set_state_playing():
 	hand.state = UIHand.UIHandState.Playing
 	add_stashed_cards()
 
+func set_state_animating_in():
+	state = UIDS_State.AnimatingIn
+	focus = UIDS_FocusState.None
+
+func set_state_animating_out():
+	state = UIDS_State.AnimatingOut
+	focus = UIDS_FocusState.All
+	$AnimationPlayer.play("end")
+
 func _process(delta: float) -> void:
 	debug_fullscreen_toggle_key()
 	
@@ -84,9 +94,12 @@ func _process(delta: float) -> void:
 		game_event = controller.begin()
 		hand.skip_anim_next_frame = true
 		add_stashed_cards()
-		state = UIDS_State.Animating
-	elif state == UIDS_State.Animating:
+		set_state_animating_in()
+	elif state == UIDS_State.AnimatingIn:
 		set_state_left()
+	elif state == UIDS_State.AnimatingOut:
+		if not $AnimationPlayer.is_playing():
+			get_tree().quit()
 	elif state == UIDS_State.SpeakingLeft:
 		$Date1/DateText.text = game_event.chat_event.line1
 		speaking_timer -= delta
@@ -104,7 +117,7 @@ func _process(delta: float) -> void:
 			if game_event.is_there_more_after_this:
 				set_state_playing()
 			else:
-				get_tree().quit()
+				set_state_animating_out()
 	elif state == UIDS_State.Playing:
 		pass
 	
