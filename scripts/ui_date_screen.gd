@@ -63,21 +63,21 @@ func on_finish_move(card: Card) -> void:
 func set_state_left():
 	state = UIDS_State.SpeakingLeft
 	focus = UIDS_FocusState.Left
-	speaking_timer = 1.0
+	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 
 func set_state_middle():
 	state = UIDS_State.SpeakingMiddle
 	focus = UIDS_FocusState.Middle
-	speaking_timer = 1.0
+	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 
 func set_state_right():
 	state = UIDS_State.SpeakingRight
 	focus = UIDS_FocusState.Right
-	speaking_timer = 1.0
+	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 
@@ -125,19 +125,19 @@ func _process(delta: float) -> void:
 		if not $AnimationPlayer.is_playing():
 			get_tree().quit()
 	elif state == UIDS_State.SpeakingLeft:
-		$Date1/DateText.text = game_event.chat_event.line1
-		speaking_timer -= delta
-		if speaking_timer < 0:
+		speaking_timer += delta * 80
+		$Date1/DateText.text = game_event.chat_event.line1.substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.line1) + 50:
 			set_state_middle()
 	elif state == UIDS_State.SpeakingMiddle:
-		$Date2/DateText.text = game_event.chat_event.line2
-		speaking_timer -= delta
-		if speaking_timer < 0:
+		speaking_timer += delta * 80
+		$Date2/DateText.text = game_event.chat_event.line2.substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.line2) + 50:
 			set_state_right()
 	elif state == UIDS_State.SpeakingRight:
-		$Date3/DateText.text = game_event.chat_event.line3
-		speaking_timer -= delta
-		if speaking_timer < 0:
+		speaking_timer += delta * 80
+		$Date3/DateText.text = game_event.chat_event.line3.substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.line3) + 50:
 			if game_event.is_there_more_after_this:
 				set_state_playing()
 			else:

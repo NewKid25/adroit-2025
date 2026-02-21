@@ -10,11 +10,24 @@
 [ext_resource type="Texture2D" uid="uid://ehe2jmgcfuyp" path="res://assets/art/quantumdecor.png" id="3_4vcaf"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
+[ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="7_42wmv"]
 [ext_resource type="Shader" uid="uid://ecdf7lh41ynu" path="res://scenes/date_screen.gdshader" id="7_mjotm"]
 [ext_resource type="Script" uid="uid://djuym5m1maudx" path="res://scripts/ui_character_wave.gd" id="7_wgmu0"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
 [ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
+shader = ExtResource("7_42wmv")
+shader_parameter/text_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j6x3r"]
+shader = ExtResource("7_42wmv")
+shader_parameter/text_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxhot"]
+shader = ExtResource("7_42wmv")
+shader_parameter/text_color = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjotm"]
 shader = ExtResource("7_mjotm")
@@ -152,8 +165,8 @@ tracks/4/path = NodePath("Overlays/EndText:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 3.6666667, 4),
-"transitions": PackedFloat32Array(1, 7.464262, 1),
+"times": PackedFloat32Array(0, 0.8666667, 4),
+"transitions": PackedFloat32Array(1, 35.506203, 1e-05),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(160, 160)]
 }
@@ -173,6 +186,7 @@ script = ExtResource("3_1bdot")
 [node name="Date1" type="Node2D" parent="." unique_id=1108158995]
 
 [node name="Datearea" type="Sprite2D" parent="Date1" unique_id=1207458468]
+position = Vector2(3, -34)
 texture = ExtResource("2_va3kr")
 centered = false
 
@@ -186,6 +200,7 @@ script = ExtResource("7_wgmu0")
 
 [node name="DateText" type="Label" parent="Date1" unique_id=464429696]
 z_index = 1
+material = SubResource("ShaderMaterial_pl322")
 offset_left = 95.0
 offset_top = 309.0
 offset_right = 200.0
@@ -216,6 +231,7 @@ offset_bottom = 126.0
 
 [node name="DateText" type="Label" parent="Date3" unique_id=1860602442]
 z_index = 1
+material = SubResource("ShaderMaterial_j6x3r")
 offset_left = 95.0
 offset_top = 309.0
 offset_right = 200.0
@@ -246,6 +262,7 @@ offset_bottom = 90.0
 
 [node name="DateText" type="Label" parent="Date2" unique_id=1911907234]
 z_index = 1
+material = SubResource("ShaderMaterial_bxhot")
 offset_left = 95.0
 offset_top = 309.0
 offset_right = 200.0
