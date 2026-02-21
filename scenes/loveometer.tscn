@@ -34,7 +34,7 @@ show_percentage = false
 script = ExtResource("1_oux3w")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1535463805]
-position = Vector2(224, 20)
+position = Vector2(224.00002, 20.000006)
 rotation = 0.16580628
 scale = Vector2(0.114, 0.114)
 texture = ExtResource("2_oux3w")
