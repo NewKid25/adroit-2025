@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bbrtlwhvlvekq"]
+
+[ext_resource type="Script" uid="uid://bv5u1qrc21avr" path="res://scripts/ui_wowtext.gd" id="1_otmfg"]
+
+[node name="TooFar" type="Label" unique_id=699716328]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -320.0
+offset_bottom = -340.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "Too sappy!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_otmfg")

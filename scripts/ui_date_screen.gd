@@ -23,6 +23,18 @@ enum UIDS_FocusState {
 	Right
 }
 
+const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
+	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
+	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+}
+
+signal wow_text_complete
+
 var state := UIDS_State.DateIntro
 var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
@@ -30,6 +42,8 @@ var game_event: DateController.GameEvent
 var speaking_timer := 0.0
 var wow_text_timer := 0.0
 var stashed_cards: Array[Card] = []
+var wow_texts_character_index := 0
+var wow_texts_outcome_index := 0
 
 @onready
 var controller: DateController = $DateController
@@ -108,18 +122,32 @@ func set_state_animating_out():
 
 func set_state_wow_text():
 	state = UIDS_State.WowText
-	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Hidden
-	UIHelper.joy_shake()
-	wow_text_timer = 0.9
-	spawn_wow(preload("res://scenes/wow_text_too_far.tscn"))
+
+	wow_texts_character_index = 0
+	wow_texts_outcome_index = -1
+
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
+	match wow_texts_character_index:
+		0:
+			focus = UIDS_FocusState.Left
+		1:
+			focus = UIDS_FocusState.Middle
+			w.position.x += get_window().size.x / 2
+		2:
+			focus = UIDS_FocusState.Right
+			w.position.x += get_window().size.x
+
+	w.position.y += 100
+
+	UIHelper.joy_shake()
+	wow_text_timer = 0.9
 	$WowTexts.add_child(w)
 
 func _process(delta: float) -> void:
-	debug_fullscreen_toggle_key()
+	UIHelper.debug_fullscreen_toggle_key()
 	
 	if state == UIDS_State.DateIntro:
 		game_event = controller.begin()
@@ -155,7 +183,15 @@ func _process(delta: float) -> void:
 	elif state == UIDS_State.WowText:
 		wow_text_timer -= delta
 		if wow_text_timer < 0:
-			set_state_left()
+			wow_texts_outcome_index += 1
+			if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
+				wow_texts_character_index += 1
+				wow_texts_outcome_index = 0
+				if wow_texts_character_index == 3:
+					set_state_left()
+			if not state == UIDS_State.SpeakingLeft:
+				spawn_wow(outcome_to_wow_text_scene[controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]])
+
 	
 	do_focusing(delta)
 	
@@ -174,13 +210,6 @@ func cmod(node: CanvasItem, focused: bool, delta: float) -> void:
 		delta = 1
 	# TODO: This can break if the game runs terrible? Is that wanted?
 	node.modulate = node.modulate.lerp(target, delta)
-
-func debug_fullscreen_toggle_key() -> void:
-	if Input.is_action_just_pressed("dbg_fullscreen"):
-		if get_window().mode == Window.MODE_FULLSCREEN:
-			get_window().mode = Window.MODE_WINDOWED
-		else:
-			get_window().mode = Window.MODE_FULLSCREEN
 
 #region State Machine Getter Helpers
 
