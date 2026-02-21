@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmym7plfoxrf"
-path="res://.godot/imported/youtubedefault.jpg-6d0c2956efff9873c74f1da1630a7d13.ctex"
+uid="uid://da8e8es62dxhd"
+path="res://.godot/imported/schrodie.png-db33b9d98655b1a84d42b59ba4fd4715.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/youtubedefault.jpg"
-dest_files=["res://.godot/imported/youtubedefault.jpg-6d0c2956efff9873c74f1da1630a7d13.ctex"]
+source_file="res://assets/art/schrodie.png"
+dest_files=["res://.godot/imported/schrodie.png-db33b9d98655b1a84d42b59ba4fd4715.ctex"]
 
 [params]
 
