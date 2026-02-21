@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
 [ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_aw6qv"]
-[ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="2_teu1t"]
+[ext_resource type="PackedScene" path="res://scenes/loveometer.tscn" id="2_teu1t"]
 [ext_resource type="Texture2D" uid="uid://b12641rws46eg" path="res://assets/art/datearea.png" id="2_va3kr"]
 [ext_resource type="Texture2D" uid="uid://bqu0hm4vxgfjn" path="res://assets/art/quantumbg.png" id="2_xbivh"]
 [ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
