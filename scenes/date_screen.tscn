@@ -20,30 +20,37 @@ bg_color = Color(0.000625611, 0.161339, 1.20327e-08, 1)
 script = ExtResource("1_7jowm")
 
 [node name="Date1" type="Panel" parent="." unique_id=1482813717]
-offset_right = 426.0
-offset_bottom = 480.0
+offset_right = 639.0
+offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_td82l")
 
 [node name="Date2" type="Panel" parent="." unique_id=588908131]
-offset_left = 426.0
-offset_right = 852.0
-offset_bottom = 480.0
+offset_left = 639.0
+offset_right = 1278.0
+offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ppmm")
 
 [node name="Date3" type="Panel" parent="." unique_id=1539858779]
-offset_left = 852.0
-offset_right = 1278.0
-offset_bottom = 480.0
+offset_left = 1278.0
+offset_right = 1917.0
+offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w37m7")
 
 [node name="HandBackground" type="Panel" parent="." unique_id=2084854127]
-offset_top = 480.0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_top = 720.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ktt6o")
 
+[node name="DateText1" type="Label" parent="." unique_id=464429696]
+offset_left = 101.0
+offset_top = 84.0
+offset_right = 141.0
+offset_bottom = 107.0
+text = "Debug Text!!! "
+
 [node name="Hand" type="Node2D" parent="." unique_id=404099456]
-position = Vector2(640, 480)
+position = Vector2(960, 720)
 script = ExtResource("2_7jowm")
 
 [node name="DateController" type="Node" parent="." unique_id=1022024033]

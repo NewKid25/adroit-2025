@@ -23,6 +23,8 @@ const FOCUSED_MODULATE = Color.WHITE
 const UNFOCUSED_MODULATE = Color(0.329, 0.329, 0.329)
 
 func _process(delta: float) -> void:
+	debug_fullscreen_toggle_key()
+	
 	do_focusing(delta)
 	
 	skip_anim_next_frame = false
@@ -40,6 +42,13 @@ func cmod(node: CanvasItem, focused: bool, delta: float) -> void:
 		delta = 1
 	# TODO: This can break if the game runs terrible? Is that wanted?
 	node.modulate = node.modulate.lerp(target, delta)
+
+func debug_fullscreen_toggle_key() -> void:
+	if Input.is_action_just_pressed("dbg_fullscreen"):
+		if get_window().mode == Window.MODE_FULLSCREEN:
+			get_window().mode = Window.MODE_WINDOWED
+		else:
+			get_window().mode = Window.MODE_FULLSCREEN
 
 #region State Machine Getter Helpers
 
