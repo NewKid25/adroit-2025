@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhja7kk1sgvg7"]
+[gd_scene load_steps=7 format=3 uid="uid://bhja7kk1sgvg7"]
 
+[ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="1_i2wyr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
@@ -15,6 +16,7 @@ bg_color = Color(0.974282, 1, 0.368776, 1)
 bg_color = Color(0.000625611, 0.161339, 1.20327e-08, 1)
 
 [node name="DateScreen" type="Node2D"]
+script = ExtResource("1_7jowm")
 
 [node name="Date1" type="Panel" parent="."]
 offset_right = 426.0
@@ -33,7 +35,7 @@ offset_right = 1278.0
 offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_w37m7")
 
-[node name="Date4" type="Panel" parent="."]
+[node name="HandBackground" type="Panel" parent="."]
 offset_top = 480.0
 offset_right = 1280.0
 offset_bottom = 720.0
