@@ -2,8 +2,8 @@
   "dialogs": {
 	"id1": {
 	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": null, "funny": 100, "sentiment": null }
 	  },
 	  "nexts": { "0": "id2" },
 	  "sprite": null,
@@ -11,8 +11,8 @@
 	},
 	"id2": {
 	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": null, "funny": 100, "sentiment": null }
 	  },
 	  "nexts": { "0": "id3" },
 	  "sprite": null,
@@ -20,7 +20,7 @@
 	},
 	"id3": {
 	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 0.0 },
 		"mood_upper_bound": { "flirty": null, "funny": null, "sentiment": null }
 	  },
 	  "nexts": { "0": "id4" },

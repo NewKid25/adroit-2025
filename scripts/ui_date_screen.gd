@@ -23,6 +23,18 @@ enum UIDS_FocusState {
 	Right
 }
 
+const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
+	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
+	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+}
+
+signal wow_text_complete
+
 var state := UIDS_State.DateIntro
 var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
@@ -103,11 +115,28 @@ func set_state_animating_out():
 
 func set_state_wow_text():
 	state = UIDS_State.WowText
-	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Hidden
-	UIHelper.joy_shake()
-	wow_text_timer = 0.9
-	spawn_wow(preload("res://scenes/wow_text_too_far.tscn"))
+	for i in range(3):
+		var outcomes:Array[Enums.CardPlayOutcome]
+		match i:
+			0:
+				outcomes = controller.outcomes1
+				focus = UIDS_FocusState.Left
+			1:
+				outcomes = controller.outcomes2
+				focus = UIDS_FocusState.Middle
+			2:
+				outcomes = controller.outcomes3
+				focus = UIDS_FocusState.Right
+
+		for outcome:Enums.CardPlayOutcome in outcomes:
+			UIHelper.joy_shake()
+			wow_text_timer = 0.9
+			print(outcome)
+			spawn_wow(outcome_to_wow_text_scene[outcome])
+			await wow_text_complete
+	set_state_left()
+
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
@@ -149,7 +178,7 @@ func _process(delta: float) -> void:
 	elif state == UIDS_State.WowText:
 		wow_text_timer -= delta
 		if wow_text_timer < 0:
-			set_state_left()
+			wow_text_complete.emit()
 	
 	do_focusing(delta)
 	
