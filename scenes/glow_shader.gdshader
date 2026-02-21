@@ -13,7 +13,7 @@ void vertex() {
 void fragment() {
 	vec4 cur = texture(screen_texture, SCREEN_UV);
 	vec4 below =
-		textureLod(screen_texture, SCREEN_UV, 3) * 1.2 +
+		textureLod(screen_texture, SCREEN_UV, 3 1.2 +
 		textureLod(screen_texture, SCREEN_UV, 1) * 0.8;
 	below -= b;
 	below.a = 1.0;
