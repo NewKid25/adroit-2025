@@ -1,17 +1,16 @@
 [gd_scene format=3 uid="uid://b2p3v7rywfpje"]
 
 [ext_resource type="Script" uid="uid://dnk4d0a72x4tn" path="res://scripts/ui_card.gd" id="1_d81rb"]
+[ext_resource type="Texture2D" uid="uid://h4lemgtlmvtc" path="res://assets/art/cardbg.png" id="2_6u4wf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uoxc"]
-bg_color = Color(1, 0.520571, 0.214623, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u4wf"]
+draw_center = false
+shadow_color = Color(0, 0, 0, 0.27058825)
+shadow_size = 16
 
 [sub_resource type="SystemFont" id="SystemFont_llbac"]
 font_names = PackedStringArray("Arial")
+font_weight = 800
 subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
@@ -23,19 +22,25 @@ script = ExtResource("1_d81rb")
 [node name="Centerer" type="Node2D" parent="Body" unique_id=554077454]
 position = Vector2(0, 157)
 
-[node name="Background" type="Panel" parent="Body/Centerer" unique_id=919015704]
-offset_left = -112.5
-offset_top = -157.0
-offset_right = 112.5
-offset_bottom = 158.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4uoxc")
+[node name="Panel" type="Panel" parent="Body/Centerer" unique_id=391424277]
+offset_left = -104.0
+offset_top = -149.0
+offset_right = 105.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6u4wf")
+
+[node name="Background" type="Sprite2D" parent="Body/Centerer" unique_id=261362808]
+scale = Vector2(0.113, 0.113)
+texture = ExtResource("2_6u4wf")
 
 [node name="Text" type="Label" parent="Body/Centerer" unique_id=694225043]
 offset_left = -112.5
 offset_top = -157.0
 offset_right = 112.5
 offset_bottom = 158.0
-theme_override_constants/outline_size = 8
+theme_override_colors/font_color = Color(0.07688307, 4.046593e-05, 0.27969757, 1)
+theme_override_colors/font_outline_color = Color(0.9372549, 0.8784314, 0.8039216, 1)
+theme_override_constants/outline_size = 11
 theme_override_fonts/font = SubResource("SystemFont_llbac")
 theme_override_font_sizes/font_size = 26
 text = "You're so cool..."

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="adroit-2025"
-run/main_scene="uid://bhja7kk1sgvg7"
+run/main_scene="uid://bl5fjw0bvxoik"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

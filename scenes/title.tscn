@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bl5fjw0bvxoik"]
+
+[ext_resource type="Texture2D" uid="uid://cfmy3cjgjplle" path="res://assets/art/paulruddicule.png" id="1_p6dhs"]
+[ext_resource type="Script" uid="uid://51pe2dve7thu" path="res://scripts/ui_title.gd" id="1_pyl7j"]
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_pyl7j"]
+[ext_resource type="Texture2D" uid="uid://dwe828eldiyha" path="res://assets/art/temp_title_overlay.png" id="3_b3w7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvspv"]
+bg_color = Color(0, 0.31979817, 0.4705087, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rr2b"]
+shader = ExtResource("2_pyl7j")
+
+[sub_resource type="SystemFont" id="SystemFont_yql1r"]
+font_names = PackedStringArray("Arial")
+font_weight = 800
+
+[node name="Node2D" type="Node2D" unique_id=1751761179]
+script = ExtResource("1_pyl7j")
+
+[node name="Panel" type="Panel" parent="." unique_id=499203132]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pvspv")
+
+[node name="Paulruddicule" type="Sprite2D" parent="." unique_id=306106781]
+position = Vector2(960, 319)
+texture = ExtResource("1_p6dhs")
+
+[node name="TempTitleOverlay" type="Sprite2D" parent="." unique_id=506778411]
+material = SubResource("ShaderMaterial_4rr2b")
+texture = ExtResource("3_b3w7a")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=1699932635]
+offset_left = 854.0
+offset_top = 651.0
+offset_right = 1112.0
+offset_bottom = 765.0
+theme_override_fonts/font = SubResource("SystemFont_yql1r")
+theme_override_font_sizes/font_size = 80
+text = "DATE!"

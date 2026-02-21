@@ -44,6 +44,10 @@ func _ready() -> void:
 	hand.finish_move.connect(on_finish_move)
 	
 	$Overlays.visible = true
+	# TODO: Glow?
+	#$GlowShader.visible = true
+	
+	_process(1.0/60.0)
 
 func on_card_added(card: Card) -> void:
 	stashed_cards.push_back(card)
@@ -92,6 +96,8 @@ func set_state_animating_in():
 	state = UIDS_State.AnimatingIn
 	focus = UIDS_FocusState.None
 	hand.state = UIHand.UIHandState.Hidden
+	$Overlays/StartText.text = "Dates %d" % controller.get_date_number()
+	animator.play("start")
 
 func set_state_animating_out():
 	state = UIDS_State.AnimatingOut
@@ -120,7 +126,8 @@ func _process(delta: float) -> void:
 		add_stashed_cards()
 		set_state_animating_in()
 	elif state == UIDS_State.AnimatingIn:
-		set_state_left()
+		if not $AnimationPlayer.is_playing():
+			set_state_left()
 	elif state == UIDS_State.AnimatingOut:
 		if not $AnimationPlayer.is_playing():
 			get_tree().quit()

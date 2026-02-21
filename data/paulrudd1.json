@@ -1,0 +1,157 @@
+{
+  "dialogs": {
+	"id1": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 3 }
+	  },
+	  "nexts": { "0": "id2", "1": "id3", "5": "id4", "10": "1d5" },
+	  "sprite": null,
+	  "text": "Sorry I'm late- you ordered me the most expensive thing on the menu, right?"
+	},
+	"id2": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id6", "3": "id7", "10": "id8" },
+	  "sprite": null,
+	  "text": "Really though, everything on the menu looks fantastic. And so do you."
+	},
+	"id3": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id6", "3": "id7", "10": "id8" },
+	  "sprite": null,
+	  "text": "I was joking, to be clear.  The whole menu looks great. And so do you."
+	},
+	"id4": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id6", "3": "id7", "10": "id8" },
+	  "sprite": null,
+	  "text": "Oh, I’m kidding, don’t worry about it. The whole menu looks great. And so do you."
+	},
+	"id5": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id6", "3": "id7", "10": "id8" },
+	  "sprite": null,
+	  "text": "Yeah, everything on the menu looks fantastic. And so do you."
+	},
+	"id6": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4 }
+	  },
+	  "nexts": { "0": "id9", "1": "id10", "5": "id11", "10": "id12" },
+	  "sprite": null,
+	  "text": "Oh, definitely. I just threw on this old thing from all the Marvel interviews."
+	},
+	"id7": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4 }
+	  },
+	  "nexts": { "0": "id9", "1": "id10", "5": "id11", "10": "id12" },
+	  "sprite": null,
+	  "text": "Yeah… Well. I just threw on this old thing from all the Marvel interviews."
+	},
+	"id8": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 2.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4 }
+	  },
+	  "nexts": { "0": "id9", "1": "id10", "5": "id11", "10": "id12" },
+	  "sprite": null,
+	  "text": "I just threw on this old thing from all the Marvel interviews."
+	},
+	"id9": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
+	  "sprite": null,
+	  "text": "Exactly, the Antman swag! But anyways, I do gotta pick something to eat. What did you get?"
+	},
+	"id10": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
+	  "sprite": null,
+	  "text": "Well, y’know. The Antman swag. It’s funny. Anyways, I should pick what to eat- What did you get?"
+	},
+	"id11": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
+	  "sprite": null,
+	  "text": "No, yeah, y’know. The Antman swag. Anyways, I should just pick what to eat- What did you get?"
+	},
+	"id12": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
+	  "sprite": null,
+	  "text": "But anyways, I do gotta pick something to eat. What did you get?"
+	},
+	"id13": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id16", "3": "id17", "10": "id18" },
+	  "sprite": null,
+	  "text": "That sounds great! Maybe we are meant for each other."
+	},
+	"id14": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id16", "3": "id17", "10": "id18" },
+	  "sprite": null,
+	  "text": "Sure, I can get whatever. If we happen to get the same thing, maybe we are meant for each other."
+	},
+	"id15": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id16", "3": "id17", "10": "id18" },
+	  "sprite": null,
+	  "text": "Ooh, that’s what I was thinking too… Maybe we are meant for each other."
+	},
+	"id16": {
+	  "mood_expectation": null,
+	  "nexts": null,
+	  "sprite": null,
+	  "text": "Oh, definitely… We can find out for sure over this lovely dinner!"
+	},
+	"id17": {
+	  "mood_expectation": null,
+	  "nexts": null,
+	  "sprite": null,
+	  "text": "We can figure it out later. Over this lovely dinner…"
+	},
+	"id18": {
+	  "mood_expectation": null,
+	  "nexts": null,
+	  "sprite": null,
+	  "text": "Well, we'll just have to find out over this lovely dinner!"
+	}
+  }
+}

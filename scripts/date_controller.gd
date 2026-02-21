@@ -31,6 +31,9 @@ func _ready():
 	conversation3 = DataService.get_conversation_from_file("res://data/shrodie-temp.json")
 	current_line3 = conversation3.dialogs.keys()[0]
 
+func get_date_number() -> int:
+	return 1
+
 ## Plays after animation
 func begin() -> GameEvent:
 	card_added.emit(new_demo_card())
