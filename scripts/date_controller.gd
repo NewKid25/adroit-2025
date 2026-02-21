@@ -23,6 +23,8 @@ var conversation3: Conversation = null
 var current_line3: String = ""
 
 var date_deck = Deck.new()
+var outcomes:Array = []
+
 
 func _ready():
 	# TODO: hardcoding
@@ -87,7 +89,7 @@ func get_next_line(conversation: Conversation, current_line: String, mood: Mood)
 	
 	var next = null
 	var outcomes := dialog.mood_expectation.compare_mood(mood)
-	
+
 	for outcome in outcomes:
 		if outcome in dialog.nexts:
 			next = dialog.nexts[outcome]
@@ -101,8 +103,12 @@ func get_next_line(conversation: Conversation, current_line: String, mood: Mood)
 	return next
 
 func jump_next(mood: Mood) -> void:
+	outcomes.clear()
+	outcomes.push_back(conversation1.dialogs[current_line1].mood_expectation.compare_mood(mood))
 	current_line1 = get_next_line(conversation1, current_line1, mood)
+	outcomes.push_back(conversation1.dialogs[current_line2].mood_expectation.compare_mood(mood))
 	current_line2 = get_next_line(conversation2, current_line2, mood)
+	outcomes.push_back(conversation1.dialogs[current_line3].mood_expectation.compare_mood(mood))
 	current_line3 = get_next_line(conversation3, current_line3, mood)
 
 func new_demo_card() -> Card:
