@@ -2,67 +2,106 @@
 
 [ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
 [ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="2_7jowm"]
+[ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_aw6qv"]
+[ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="2_teu1t"]
+[ext_resource type="Texture2D" uid="uid://b12641rws46eg" path="res://assets/art/datearea.png" id="2_va3kr"]
+[ext_resource type="Texture2D" path="res://assets/art/IMG_7536.png" id="2_xbivh"]
 [ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
-bg_color = Color(1, 0.297781, 0.51756, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ppmm"]
-bg_color = Color(2.79158e-06, 0.663764, 0.825383, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w37m7"]
-bg_color = Color(0.974282, 1, 0.368776, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktt6o"]
-bg_color = Color(0.000625611, 0.161339, 1.20327e-08, 1)
+[ext_resource type="Texture2D" uid="uid://ehe2jmgcfuyp" path="res://assets/art/quantumdecor.png" id="3_4vcaf"]
+[ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
+[ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
+[ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
+[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 
 [node name="DateScreen" type="Node2D" unique_id=1605705531]
 script = ExtResource("1_7jowm")
 
-[node name="Date1" type="Panel" parent="." unique_id=1482813717]
-offset_right = 639.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_td82l")
+[node name="Date1" type="Node2D" parent="." unique_id=1108158995]
 
-[node name="Date2" type="Panel" parent="." unique_id=588908131]
-offset_left = 639.0
-offset_right = 1278.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ppmm")
+[node name="Datearea" type="Sprite2D" parent="Date1" unique_id=1207458468]
+texture = ExtResource("2_va3kr")
+centered = false
 
-[node name="Date3" type="Panel" parent="." unique_id=1539858779]
-offset_left = 1278.0
-offset_right = 1917.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_w37m7")
+[node name="Schrodie" type="Sprite2D" parent="Date1" unique_id=2023343071]
+position = Vector2(320, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_aw6qv")
 
-[node name="HandBackground" type="Panel" parent="." unique_id=2084854127]
-offset_top = 720.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ktt6o")
-
-[node name="DateText1" type="Label" parent="." unique_id=464429696]
+[node name="DateText" type="Label" parent="Date1" unique_id=464429696]
 offset_left = 101.0
 offset_top = 84.0
-offset_right = 141.0
+offset_right = 206.0
 offset_bottom = 107.0
 text = "Debug Text!!! "
 
-[node name="DateText2" type="Label" parent="." unique_id=399259112]
-offset_left = 893.0
+[node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
+
+[node name="Date2" type="Node2D" parent="." unique_id=939320485]
+position = Vector2(640, 0)
+
+[node name="Datearea" type="Sprite2D" parent="Date2" unique_id=743433969]
+texture = ExtResource("2_va3kr")
+centered = false
+
+[node name="PaulRudd" type="Sprite2D" parent="Date2" unique_id=1566130157]
+position = Vector2(320, 400)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_nfe8y")
+
+[node name="DateText" type="Label" parent="Date2" unique_id=399259112]
+offset_left = 253.0
 offset_top = 143.0
-offset_right = 998.0
+offset_right = 358.0
 offset_bottom = 166.0
 text = "Debug Text!!! "
 
-[node name="DateText3" type="Label" parent="." unique_id=1711701796]
-offset_left = 1525.0
+[node name="Loveometer" parent="Date2" unique_id=818275035 instance=ExtResource("2_teu1t")]
+offset_left = 175.0
+offset_top = 40.0
+offset_right = 489.0
+offset_bottom = 90.0
+
+[node name="Date3" type="Node2D" parent="." unique_id=694699396]
+position = Vector2(1280, 0)
+
+[node name="Datearea" type="Sprite2D" parent="Date3" unique_id=1062133651]
+texture = ExtResource("2_va3kr")
+centered = false
+
+[node name="Guido" type="Sprite2D" parent="Date3" unique_id=942504291]
+position = Vector2(320, 407)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_6n4xi")
+
+[node name="DateText" type="Label" parent="Date3" unique_id=1711701796]
+offset_left = 245.0
 offset_top = 182.0
-offset_right = 1630.0
+offset_right = 350.0
 offset_bottom = 205.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Debug Text!!! "
+
+[node name="Loveometer" parent="Date3" unique_id=209854783 instance=ExtResource("2_teu1t")]
+offset_left = 152.0
+offset_top = 76.0
+offset_right = 466.0
+offset_bottom = 126.0
+
+[node name="HandBackground" type="Node2D" parent="." unique_id=1547144775]
+position = Vector2(0, 720)
+
+[node name="Img7536" type="Sprite2D" parent="HandBackground" unique_id=1282469647]
+texture = ExtResource("2_xbivh")
+centered = false
+
+[node name="Quantumdecor" type="Sprite2D" parent="HandBackground" unique_id=188203775]
+texture = ExtResource("3_4vcaf")
+centered = false
+
+[node name="Atom" type="Sprite2D" parent="HandBackground" unique_id=810424906]
+position = Vector2(960, 180)
+texture = ExtResource("8_6n4xi")
+script = ExtResource("9_va3kr")
 
 [node name="Hand" type="Node2D" parent="." unique_id=404099456]
 position = Vector2(960, 720)

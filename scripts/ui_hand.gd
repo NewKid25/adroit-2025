@@ -10,7 +10,7 @@ const CARD_FULL_WIDTH = CARD_WIDTH + CARD_PADDING
 const CARD_RESOURCE = preload("res://scenes/card.tscn")
 const CARD_MODULATE_NORMAL = Color(0.729, 0.729, 0.729)
 const CARD_MODULATE_HELD = Color(1.0, 1.0, 1.0)
-const CARD_MODULATE_HIDDEN = Color(0.359, 0.359, 0.359)
+const CARD_MODULATE_HIDDEN = Color(0.361, 0.361, 0.361, 0.906)
 
 enum UIHandState {
 	Playing,
@@ -70,12 +70,12 @@ func animate_cards(delta: float, state_hidden: bool, skip_selected: bool) -> voi
 	var wid = (skipaware_cards * CARD_FULL_WIDTH) - CARD_FULL_WIDTH
 	var hwid = wid / 2.0
 	var rot_scale = 0.05 if state_hidden else 0.1
-	var xmod = 0.35 if state_hidden else 0.95
+	var xmod = 0.5 if state_hidden else 0.95
 	
 	var rel_selected = (selected - skipaware_cards / 2.0 + 0.5)
 	position.x = clerp(
 		position.x,
-		HALF_SCREEN - (-20.0 if state_hidden else rel_selected * 20.0),
+		HALF_SCREEN - (-0.0 if state_hidden else rel_selected * 20.0),
 		delta * 5
 	)
 	
@@ -92,6 +92,7 @@ func animate_cards(delta: float, state_hidden: bool, skip_selected: bool) -> voi
 		
 		var relative_idx = (skipaware_idx - skipaware_cards / 2.0 + 0.5)
 		var target_rot = relative_idx * rot_scale
+		var yfloater = sin((Time.get_ticks_msec() / 1000.0 * 0.8) + skipaware_idx) * 5.0
 		var ymod = (relative_idx * relative_idx) * 10
 		
 		card.position.x = clerp(
@@ -101,7 +102,9 @@ func animate_cards(delta: float, state_hidden: bool, skip_selected: bool) -> voi
 		)
 		card.position.y = clerp(
 			card.position.y,
-			(80.0 + ymod * 0.2) if state_hidden else -50.0 if is_selected else (30.0 + ymod),
+			(120.0 + ymod * 0.2) if state_hidden else
+				(-50.0 + yfloater * 0.2) if is_selected else
+				(30.0 + ymod + yfloater),
 			delta * 8
 		)
 		card.rotation = clerp(

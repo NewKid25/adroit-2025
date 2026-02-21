@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bnl0sk8ytdmst"]
+
+[ext_resource type="Script" uid="uid://bc3rlhp4qoo0b" path="res://scripts/ui_loveometer.gd" id="1_oux3w"]
+[ext_resource type="Texture2D" uid="uid://dtw1n4grsbcl" path="res://icon.svg" id="2_ucfsj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdxra"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ysyx"]
+bg_color = Color(1, 0.65913045, 0.8795193, 1)
+
+[node name="Loveometer1" type="ProgressBar" unique_id=804945615]
+offset_left = 266.0
+offset_top = 19.0
+offset_right = 580.0
+offset_bottom = 69.0
+theme_override_styles/background = SubResource("StyleBoxFlat_rdxra")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ysyx")
+value = 80.0
+show_percentage = false
+script = ExtResource("1_oux3w")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1535463805]
+modulate = Color(1, 1, 1, 0.4862745)
+position = Vector2(251, 25)
+texture = ExtResource("2_ucfsj")

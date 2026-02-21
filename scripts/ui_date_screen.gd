@@ -6,6 +6,7 @@ const UNFOCUSED_MODULATE = Color(0.329, 0.329, 0.329)
 
 enum UIDS_State {
 	DateIntro,
+	Animating,
 	SpeakingLeft,
 	SpeakingMiddle,
 	SpeakingRight,
@@ -25,6 +26,7 @@ var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
 var game_event: DateController.GameEvent
 var speaking_timer := 0.0
+var stashed_cards: Array[Card] = []
 
 @onready
 var controller: DateController = $DateController
@@ -37,7 +39,12 @@ func _ready() -> void:
 	hand.finish_move.connect(on_finish_move)
 
 func on_card_added(card: Card) -> void:
-	hand.add_card(card)
+	stashed_cards.push_back(card)
+
+func add_stashed_cards() -> void:
+	for card in stashed_cards:
+		hand.add_card(card)
+	stashed_cards.clear()
 
 func on_card_removed(card: Card) -> void:
 	hand.remove_card(card)
@@ -68,6 +75,7 @@ func set_state_playing():
 	state = UIDS_State.Playing
 	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Playing
+	add_stashed_cards()
 
 func _process(delta: float) -> void:
 	debug_fullscreen_toggle_key()
@@ -75,19 +83,22 @@ func _process(delta: float) -> void:
 	if state == UIDS_State.DateIntro:
 		game_event = controller.begin()
 		hand.skip_anim_next_frame = true
+		add_stashed_cards()
+		state = UIDS_State.Animating
+	elif state == UIDS_State.Animating:
 		set_state_left()
 	elif state == UIDS_State.SpeakingLeft:
-		$DateText1.text = game_event.chat_event.line1
+		$Date1/DateText.text = game_event.chat_event.line1
 		speaking_timer -= delta
 		if speaking_timer < 0:
 			set_state_middle()
 	elif state == UIDS_State.SpeakingMiddle:
-		$DateText2.text = game_event.chat_event.line2
+		$Date2/DateText.text = game_event.chat_event.line2
 		speaking_timer -= delta
 		if speaking_timer < 0:
 			set_state_right()
 	elif state == UIDS_State.SpeakingRight:
-		$DateText3.text = game_event.chat_event.line3
+		$Date3/DateText.text = game_event.chat_event.line3
 		speaking_timer -= delta
 		if speaking_timer < 0:
 			set_state_playing()
