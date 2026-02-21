@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2p3v7rywfpje"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uoxc"]
+bg_color = Color(1, 0.520571, 0.214623, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_llbac"]
+font_names = PackedStringArray("Arial")
+multichannel_signed_distance_field = true
+
+[node name="Card" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4uoxc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 210.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = SubResource("SystemFont_llbac")
+theme_override_font_sizes/font_size = 26
+text = "You're so cool..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
