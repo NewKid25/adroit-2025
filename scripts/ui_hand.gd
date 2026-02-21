@@ -1,4 +1,4 @@
-class_name UICards
+class_name UIHand
 extends Node2D
 
 var selected = 0
