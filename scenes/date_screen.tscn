@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhja7kk1sgvg7"]
 
-[ext_resource type="Script" uid="uid://xbpcdtamjyqc" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
-[ext_resource type="Script" uid="uid://cgbwvwrx4ilk1" path="res://scripts/ui_hand.gd" id="1_i2wyr"]
+[ext_resource type="Script" path="res://scripts/ui_date_screen.gd" id="1_7jowm"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="1_i2wyr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td82l"]
 bg_color = Color(1, 0.297781, 0.51756, 1)
