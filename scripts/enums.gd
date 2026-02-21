@@ -10,5 +10,6 @@ enum CardPlayOutcome{
     OVER_FLIRTY,
     ALL_OVER,
     ALL_UNDER,
-    ALL_FAIL
+    ALL_FAIL,
+    DEFAULT
 }
