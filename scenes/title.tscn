@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bl5fjw0bvxoik"]
 
 [ext_resource type="Texture2D" uid="uid://cfmy3cjgjplle" path="res://assets/art/paulruddicule.png" id="1_p6dhs"]
+[ext_resource type="Script" uid="uid://51pe2dve7thu" path="res://scripts/ui_title.gd" id="1_pyl7j"]
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_pyl7j"]
 [ext_resource type="Texture2D" uid="uid://dwe828eldiyha" path="res://assets/art/temp_title_overlay.png" id="3_b3w7a"]
 
@@ -15,6 +16,7 @@ font_names = PackedStringArray("Arial")
 font_weight = 800
 
 [node name="Node2D" type="Node2D" unique_id=1751761179]
+script = ExtResource("1_pyl7j")
 
 [node name="Panel" type="Panel" parent="." unique_id=499203132]
 offset_right = 1920.0

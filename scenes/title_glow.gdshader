@@ -21,8 +21,10 @@ float funmod(float x) {
 
 void fragment() {
 	float fun = funmod(UV.x);
+	float a = COLOR.a;
 	COLOR *= 1.0 + fun * 0.06;
 	COLOR += fun * 0.04;
+	COLOR.a = a;
 	//COLOR = vec4(vec3(fun), 1);
 }
 
