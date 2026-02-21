@@ -25,12 +25,12 @@ enum UIDS_FocusState {
 
 const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
 	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
-	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
-	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
-	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
-	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
-	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
-	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_too_far.tscn"),
+	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
 }
 
 signal wow_text_complete
@@ -42,6 +42,8 @@ var game_event: DateController.GameEvent
 var speaking_timer := 0.0
 var wow_text_timer := 0.0
 var stashed_cards: Array[Card] = []
+var wow_texts_character_index := 0
+var wow_texts_outcome_index := 0
 
 @onready
 var controller: DateController = $DateController
@@ -116,30 +118,27 @@ func set_state_animating_out():
 func set_state_wow_text():
 	state = UIDS_State.WowText
 	hand.state = UIHand.UIHandState.Hidden
-	for i in range(3):
-		var outcomes:Array[Enums.CardPlayOutcome]
-		match i:
-			0:
-				outcomes = controller.outcomes1
-				focus = UIDS_FocusState.Left
-			1:
-				outcomes = controller.outcomes2
-				focus = UIDS_FocusState.Middle
-			2:
-				outcomes = controller.outcomes3
-				focus = UIDS_FocusState.Right
 
-		for outcome:Enums.CardPlayOutcome in outcomes:
-			UIHelper.joy_shake()
-			wow_text_timer = 0.9
-			print(outcome)
-			spawn_wow(outcome_to_wow_text_scene[outcome])
-			await wow_text_complete
-	set_state_left()
+	wow_texts_character_index = 0
+	wow_texts_outcome_index = -1
 
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
+	match wow_texts_character_index:
+		0:
+			focus = UIDS_FocusState.Left
+		1:
+			focus = UIDS_FocusState.Middle
+			w.position.x += get_window().size.x / 2
+		2:
+			focus = UIDS_FocusState.Right
+			w.position.x += get_window().size.x
+
+	w.position.y += 100
+
+	UIHelper.joy_shake()
+	wow_text_timer = 0.9
 	$WowTexts.add_child(w)
 
 func _process(delta: float) -> void:
@@ -178,7 +177,15 @@ func _process(delta: float) -> void:
 	elif state == UIDS_State.WowText:
 		wow_text_timer -= delta
 		if wow_text_timer < 0:
-			wow_text_complete.emit()
+			wow_texts_outcome_index += 1
+			if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
+				wow_texts_character_index += 1
+				wow_texts_outcome_index = 0
+				if wow_texts_character_index == 3:
+					set_state_left()
+			if not state == UIDS_State.SpeakingLeft:
+				spawn_wow(outcome_to_wow_text_scene[controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]])
+
 	
 	do_focusing(delta)
 	

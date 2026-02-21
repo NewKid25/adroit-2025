@@ -22,9 +22,8 @@ var current_line2: String = ""
 var conversation3: Conversation = null
 var current_line3: String = ""
 
-var outcomes1:Array[Enums.CardPlayOutcome] = []
-var outcomes2:Array[Enums.CardPlayOutcome] = []
-var outcomes3:Array[Enums.CardPlayOutcome] = []
+var outcomes:Array = []
+
 
 func _ready():
 	# TODO: hardcoding
@@ -102,11 +101,12 @@ func get_next_line(conversation: Conversation, current_line: String, mood: Mood)
 	return next
 
 func jump_next(mood: Mood) -> void:
-	outcomes1 = conversation1.dialogs[current_line1].mood_expectation.compare_mood(mood)
+	outcomes.clear()
+	outcomes.push_back(conversation1.dialogs[current_line1].mood_expectation.compare_mood(mood))
 	current_line1 = get_next_line(conversation1, current_line1, mood)
-	outcomes2 = conversation1.dialogs[current_line2].mood_expectation.compare_mood(mood)
+	outcomes.push_back(conversation1.dialogs[current_line2].mood_expectation.compare_mood(mood))
 	current_line2 = get_next_line(conversation2, current_line2, mood)
-	outcomes3 = conversation1.dialogs[current_line3].mood_expectation.compare_mood(mood)
+	outcomes.push_back(conversation1.dialogs[current_line3].mood_expectation.compare_mood(mood))
 	current_line3 = get_next_line(conversation3, current_line3, mood)
 
 func new_demo_card() -> Card:
