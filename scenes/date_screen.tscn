@@ -193,9 +193,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_aw6qv")
 script = ExtResource("7_wgmu0")
 
-[node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
-z_index = 2
-
 [node name="DateText" type="Label" parent="Date1" unique_id=464429696]
 z_index = 2
 material = SubResource("ShaderMaterial_pl322")
@@ -207,6 +204,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 text = "Debug Text!!! "
+
+[node name="Loveometer" parent="Date1" unique_id=804945615 instance=ExtResource("2_teu1t")]
+offset_left = 180.0
+offset_top = 31.0
+offset_right = 460.0
+offset_bottom = 71.0
 
 [node name="Date3" type="Node2D" parent="." unique_id=694699396]
 position = Vector2(1280, 0)
@@ -221,9 +224,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_6n4xi")
 script = ExtResource("7_wgmu0")
 
-[node name="Loveometer" parent="Date3" unique_id=376847357 instance=ExtResource("2_teu1t")]
-z_index = 2
-
 [node name="DateText" type="Label" parent="Date3" unique_id=1823444103]
 z_index = 2
 material = SubResource("ShaderMaterial_pl322")
@@ -235,6 +235,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 text = "Debug Text!!! "
+
+[node name="Loveometer" parent="Date3" unique_id=919235201 instance=ExtResource("2_teu1t")]
+offset_left = 180.0
+offset_top = 31.0
+offset_right = 460.0
+offset_bottom = 71.0
 
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
@@ -249,9 +255,6 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_nfe8y")
 script = ExtResource("7_wgmu0")
 
-[node name="Loveometer" parent="Date2" unique_id=1046922907 instance=ExtResource("2_teu1t")]
-z_index = 2
-
 [node name="DateText" type="Label" parent="Date2" unique_id=25782033]
 z_index = 2
 material = SubResource("ShaderMaterial_pl322")
@@ -263,6 +266,12 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 text = "Debug Text!!! "
+
+[node name="Loveometer" parent="Date2" unique_id=1078323287 instance=ExtResource("2_teu1t")]
+offset_left = 180.0
+offset_top = 31.0
+offset_right = 460.0
+offset_bottom = 71.0
 
 [node name="EnergyBeams" type="Node2D" parent="." unique_id=805464923]
 
