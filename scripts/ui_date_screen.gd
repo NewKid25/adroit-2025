@@ -1,9 +1,14 @@
 class_name UIDateScreen
 extends Node2D
 
+const FOCUSED_MODULATE = Color.WHITE
+const UNFOCUSED_MODULATE = Color(0.329, 0.329, 0.329)
+
 enum UIDS_State {
 	DateIntro,
-	Speaking,
+	SpeakingLeft,
+	SpeakingMiddle,
+	SpeakingRight,
 	Playing
 }
 
@@ -18,12 +23,76 @@ enum UIDS_FocusState {
 var state := UIDS_State.DateIntro
 var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
+var game_event: DateController.GameEvent
+var speaking_timer := 0.0
 
-const FOCUSED_MODULATE = Color.WHITE
-const UNFOCUSED_MODULATE = Color(0.329, 0.329, 0.329)
+@onready
+var controller: DateController = $DateController
+@onready
+var hand: UIHand = $Hand
+
+func _ready() -> void:
+	controller.card_added.connect(on_card_added)
+	controller.card_removed.connect(on_card_removed)
+	hand.finish_move.connect(on_finish_move)
+
+func on_card_added(card: Card) -> void:
+	hand.add_card(card)
+
+func on_card_removed(card: Card) -> void:
+	hand.remove_card(card)
+
+func on_finish_move(card: Card) -> void:
+	game_event = controller.play_card(card)
+	set_state_left()
+
+func set_state_left():
+	state = UIDS_State.SpeakingLeft
+	focus = UIDS_FocusState.Left
+	speaking_timer = 1.0
+	hand.state = UIHand.UIHandState.Hidden
+
+func set_state_middle():
+	state = UIDS_State.SpeakingMiddle
+	focus = UIDS_FocusState.Middle
+	speaking_timer = 1.0
+	hand.state = UIHand.UIHandState.Hidden
+
+func set_state_right():
+	state = UIDS_State.SpeakingRight
+	focus = UIDS_FocusState.Right
+	speaking_timer = 1.0
+	hand.state = UIHand.UIHandState.Hidden
+
+func set_state_playing():
+	state = UIDS_State.Playing
+	focus = UIDS_FocusState.All
+	hand.state = UIHand.UIHandState.Playing
 
 func _process(delta: float) -> void:
 	debug_fullscreen_toggle_key()
+	
+	if state == UIDS_State.DateIntro:
+		game_event = controller.begin()
+		hand.skip_anim_next_frame = true
+		set_state_left()
+	elif state == UIDS_State.SpeakingLeft:
+		$DateText1.text = game_event.chat_event.line1
+		speaking_timer -= delta
+		if speaking_timer < 0:
+			set_state_middle()
+	elif state == UIDS_State.SpeakingMiddle:
+		$DateText2.text = game_event.chat_event.line2
+		speaking_timer -= delta
+		if speaking_timer < 0:
+			set_state_right()
+	elif state == UIDS_State.SpeakingRight:
+		$DateText3.text = game_event.chat_event.line3
+		speaking_timer -= delta
+		if speaking_timer < 0:
+			set_state_playing()
+	elif state == UIDS_State.Playing:
+		pass
 	
 	do_focusing(delta)
 	

@@ -21,6 +21,7 @@ func begin() -> GameEvent:
 	card_added.emit(new_demo_card())
 	card_added.emit(new_demo_card())
 	card_added.emit(new_demo_card())
+	card_added.emit(new_demo_card())
 	return get_demo_gameevent()
 
 ## Plays when a card is chosen
