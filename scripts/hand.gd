@@ -8,6 +8,8 @@ const CARD_PADDING = 20
 
 const CARD_FULL_WIDTH = CARD_WIDTH + CARD_PADDING
 
+const CARD_RESOURCE = preload("res://scenes/card.tscn")
+
 func _ready() -> void:
 	pass
 
@@ -77,7 +79,7 @@ func cards_in_hand() -> int:
 	return get_child_count()
 
 func add_card(text: String):
-	var card: Node2D = preload("res://scenes/card.tscn").instantiate()
+	var card: Node2D = CARD_RESOURCE.instantiate()
 	card.position.x = (cards_in_hand() * CARD_FULL_WIDTH) / 2.0
 	card.get_node("Label").text = text
 	add_child(card)
