@@ -9,7 +9,9 @@ func _ready() -> void:
 	#dialogStr = JSON.from_native(dialog, true)
 #
 	#dialogStr = JSON.stringify(dialog)
-	#dialogStr = ForgeJSONGD.class_to_json(dialog)
+	dialogStr = ForgeJSONGD.class_to_json_string(dialog)
 	# dialogStr = JSON.stringify(JsonClassConverter.class_to_json(dialog, true))
+
+	var a_dia = ForgeJSONGD.json_string_to_class(Dialog, dialogStr)
 
 	print(dialogStr)
