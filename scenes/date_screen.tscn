@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_aw6qv"]
 [ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="2_teu1t"]
 [ext_resource type="Texture2D" uid="uid://b12641rws46eg" path="res://assets/art/datearea.png" id="2_va3kr"]
-[ext_resource type="Texture2D" path="res://assets/art/IMG_7536.png" id="2_xbivh"]
+[ext_resource type="Texture2D" uid="uid://bqu0hm4vxgfjn" path="res://assets/art/quantumbg.png" id="2_xbivh"]
 [ext_resource type="Script" uid="uid://vnm4asaeaast" path="res://scripts/date_controller.gd" id="3_1bdot"]
 [ext_resource type="Texture2D" uid="uid://ehe2jmgcfuyp" path="res://assets/art/quantumdecor.png" id="3_4vcaf"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
-[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
+[ext_resource type="Script" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 
 [node name="DateScreen" type="Node2D" unique_id=1605705531]
 script = ExtResource("1_7jowm")
