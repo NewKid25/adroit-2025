@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func leave():
 	UIHelper.joy_shake()
-	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
 
 func _process(delta: float) -> void:

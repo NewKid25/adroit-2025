@@ -107,4 +107,4 @@ func leave_pressed() -> void:
 	state = UIPD_State.FadingOut
 	fade_time = 0.0
 	UIHelper.joy_shake()
-	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))

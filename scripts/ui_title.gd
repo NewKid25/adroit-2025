@@ -38,14 +38,14 @@ func _on_credits_button_push():
 	if fading_out:
 		return
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
-	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 	UIHelper.joy_shake()
 
 func _on_play_button_push():
 	if fading_out:
 		return
 	fading_out = true
-	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 	UIHelper.joy_shake()
 
 func _process(delta: float) -> void:
@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 				fading_out = true
 			else:
 				get_tree().change_scene_to_file("res://scenes/credits.tscn")
-			SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+			SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 			UIHelper.joy_shake()
 		elif Input.is_action_just_pressed("down") or Input.is_action_just_pressed("right"):
 			selected_menu_option = 1
