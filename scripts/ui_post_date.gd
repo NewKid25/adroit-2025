@@ -1,7 +1,15 @@
 extends Node2D
 
-var fading_out := false
+enum UIPD_State {
+	FadingIn,
+	FadingOut,
+	Main
+}
+
+var state := UIPD_State.FadingIn
 var fade_time := 0.0
+var time_between := 0.0
+var viscount := 0
 
 var lock_out_time := 3.0
 
@@ -9,6 +17,9 @@ var loveometers : Array[UILoveometer] =[null, null, null]
 var loveometer_labels : Array[Label] = [null, null, null]
 var success_labels :  Array[Label] = [null, null, null]
 var fail_labels :  Array[Label] = [null, null, null]
+
+@onready
+var to_show = []
 
 func _ready() -> void:
 	loveometers = [$Center/VBox/Grid/Loveometer1,
@@ -29,17 +40,38 @@ func _ready() -> void:
 		loveometer_labels[i].text = str(int(character.affection/character.goal_affection*100)) +"% Affection!"
 		success_labels[i].text = str(character.cards_correct)
 		fail_labels[i].text = str(character.cards_incorrect)
+	
+	$BlackOut.visible = true
+	to_show = $Center/VBox/Grid.get_children().slice(5)
+	for it in to_show:
+		it.modulate = Color.TRANSPARENT
+
+const BEGIN_TIME = 0.5
+const PADDING_TIME = 0.2
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
 
-	if fading_out:
+	if state == UIPD_State.FadingIn:
+		fade_time += delta
+		$BlackOut.modulate.a = 1 - fade_time
+		if fade_time >= BEGIN_TIME:
+			time_between += delta
+			if time_between >= PADDING_TIME:
+				time_between = 0.0
+				to_show[viscount].modulate = Color.WHITE
+				viscount += 1
+				UIHelper.joy_shake()
+		if viscount == len(to_show):
+			state = UIPD_State.Main
+	elif state == UIPD_State.FadingOut:
 		fade_time += delta
 		if fade_time >= 1.0:
 			get_tree().change_scene_to_file("res://scenes/title.tscn")
 		$BlackOut.modulate.a = fade_time
-	else:
+	elif state == UIPD_State.Main:
 		if lock_out_time > 0:
 			lock_out_time -= delta
 		elif Input.is_action_just_pressed("play_card"):
-			fading_out = true
+			state = UIPD_State.FadingOut
+			fade_time = 0.0

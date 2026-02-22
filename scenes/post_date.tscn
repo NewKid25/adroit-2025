@@ -41,7 +41,7 @@ inverted = true
 speed_mod = 1.9
 
 [node name="BlackOut" type="ColorRect" parent="." unique_id=2132957346]
-modulate = Color(1, 1, 1, 0)
+visible = false
 z_index = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -53,7 +53,7 @@ offset_bottom = 1080.0
 
 [node name="VBox" type="VBoxContainer" parent="Center" unique_id=1939221147]
 layout_mode = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 64
 
 [node name="Label" type="Label" parent="Center/VBox" unique_id=1311389535]
 layout_mode = 2
@@ -127,6 +127,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 size_flags_vertical = 4
+skip_anim_next = false
 
 [node name="LoveText1" type="Label" parent="Center/VBox/Grid" unique_id=1845965367]
 custom_minimum_size = Vector2(250, 0)
@@ -182,6 +183,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 size_flags_vertical = 4
+skip_anim_next = false
 
 [node name="LoveText4" type="Label" parent="Center/VBox/Grid" unique_id=1382614757]
 custom_minimum_size = Vector2(250, 0)
@@ -237,6 +239,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(280, 40)
 layout_mode = 2
 size_flags_vertical = 4
+skip_anim_next = false
 
 [node name="LoveText5" type="Label" parent="Center/VBox/Grid" unique_id=1292044616]
 custom_minimum_size = Vector2(250, 0)
