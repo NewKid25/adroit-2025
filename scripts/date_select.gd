@@ -26,11 +26,15 @@ var characters : Array[Dictionary] = [
 		"date_numbers": [
 			{
 				"label": "Date 1",
-				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"]
+				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
+				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
+				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
 			},
 			{
 				"label": "Date 2",
-				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"]
+				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
+				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
+				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
 			}
 		]
 	},
@@ -38,11 +42,15 @@ var characters : Array[Dictionary] = [
 		"date_numbers": [
 			{
 				"label": "Date B1",
-				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"]
+				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
+				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
+				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
 			},
 			{
 				"label": "Date B2",
-				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"]
+				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
+				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
+				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
 			}
 		]
 	}
@@ -84,6 +92,12 @@ func _process(delta: float):
 		$BlackOut.modulate = Color(1, 1, 1, 1 - fade_timer)
 		$BlackOut.visible = true
 		if fade_timer <= 0:
+			GameManager.characters = [Character.new(), Character.new(), Character.new()]
+			for i in range(3):
+				GameManager.characters[i].conversation = DataService.get_conversation_from_file(characters[selected_char_index].date_numbers[selected_date_index].conversations[i])
+				GameManager.characters[i].displayed_name = characters[selected_char_index].date_numbers[selected_date_index].displayed_names[i]
+				GameManager.characters[i].profile_image = characters[selected_char_index].date_numbers[selected_date_index].profile_images[i]
+
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
 
 	else:	

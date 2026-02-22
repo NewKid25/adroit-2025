@@ -86,6 +86,7 @@ scale = Vector2(0.8, 0.8)
 [node name="CharacterBundle" parent="CharacterList" unique_id=1044222446 instance=ExtResource("8_16pmm")]
 
 [node name="CharacterBundle2" parent="CharacterList" unique_id=1196658236 instance=ExtResource("8_16pmm")]
+visible = false
 char_index = 1
 
 [node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("10_16pmm")]
