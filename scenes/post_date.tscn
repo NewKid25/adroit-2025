@@ -5,7 +5,9 @@
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_u4h5m"]
 [ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_2wnl5"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_u4h5m"]
+[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="6_ahfw1"]
 [ext_resource type="Texture2D" uid="uid://cwq05iu7tfu7w" path="res://assets/art/squareschrodie.png" id="6_ghi1l"]
+[ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="7_elbml"]
 [ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="7_jboo6"]
 [ext_resource type="Texture2D" uid="uid://cfkpgv1ts8mtq" path="res://assets/art/squarepaul.png" id="8_e0wdb"]
 [ext_resource type="Texture2D" uid="uid://6cv0n4y15pe0" path="res://assets/art/squareguido.png" id="9_pc0ql"]
@@ -13,9 +15,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4v5"]
 shader = ExtResource("2_u4h5m")
 
-[sub_resource type="SystemFont" id="SystemFont_ahfw1"]
-font_names = PackedStringArray("Arial")
-font_weight = 600
+[sub_resource type="FontVariation" id="FontVariation_hulum"]
+base_font = ExtResource("6_ahfw1")
+
+[sub_resource type="FontVariation" id="FontVariation_c3xql"]
+base_font = ExtResource("7_elbml")
+variation_embolden = 0.43
 
 [node name="Node2D" type="Node2D" unique_id=67385496]
 script = ExtResource("1_101kl")
@@ -59,6 +64,7 @@ theme_override_constants/separation = 64
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.1764706, 1)
 theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("FontVariation_hulum")
 theme_override_font_sizes/font_size = 120
 text = "Dates Complete!"
 horizontal_alignment = 1
@@ -83,6 +89,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "Successful
 Cards"
@@ -93,6 +100,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "Failed
 Cards"
@@ -108,7 +116,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_fonts/font = ExtResource("6_ahfw1")
 theme_override_font_sizes/font_size = 24
 text = "Schrodie"
 horizontal_alignment = 1
@@ -134,6 +142,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "100% Love!"
 horizontal_alignment = 1
@@ -142,6 +151,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -150,6 +160,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -164,7 +175,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_fonts/font = ExtResource("6_ahfw1")
 theme_override_font_sizes/font_size = 24
 text = "Paul Rudd"
 horizontal_alignment = 1
@@ -190,6 +201,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "100% Love!"
 horizontal_alignment = 1
@@ -198,6 +210,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -206,6 +219,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -220,7 +234,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_fonts/font = ExtResource("6_ahfw1")
 theme_override_font_sizes/font_size = 24
 text = "Guido"
 horizontal_alignment = 1
@@ -246,6 +260,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "100% Love!"
 horizontal_alignment = 1
@@ -254,6 +269,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -262,6 +278,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1

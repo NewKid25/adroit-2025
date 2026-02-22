@@ -17,14 +17,19 @@
 [ext_resource type="Texture2D" uid="uid://mayquytyxocg" path="res://assets/art/textboxsize.png" id="8_h3ygb"]
 [ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
 [ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="8_pdnvl"]
+[ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="9_gfyte"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 [ext_resource type="Texture2D" uid="uid://b6oeldl701vln" path="res://assets/art/finediningscene.png" id="10_h3ygb"]
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 [ext_resource type="Script" uid="uid://ihgny4txemup" path="res://scripts/sfx_manager.gd" id="21_gfyte"]
+[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
 shader = ExtResource("7_42wmv")
 shader_parameter/text_color = Color(1, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_o068n"]
+base_font = ExtResource("9_gfyte")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjotm"]
 shader = ExtResource("7_mjotm")
@@ -40,9 +45,8 @@ shader = ExtResource("12_pl322")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjotm"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_wgmu0"]
-font_names = PackedStringArray("Arial")
-multichannel_signed_distance_field = true
+[sub_resource type="FontVariation" id="FontVariation_h60h2"]
+base_font = ExtResource("22_o068n")
 
 [sub_resource type="Animation" id="Animation_mjotm"]
 length = 0.001
@@ -386,6 +390,7 @@ offset_right = 576.0
 offset_bottom = 666.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
+theme_override_fonts/font = SubResource("FontVariation_o068n")
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
 visible_characters_behavior = 1
@@ -421,6 +426,7 @@ offset_right = 576.0
 offset_bottom = 666.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
+theme_override_fonts/font = SubResource("FontVariation_o068n")
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
 visible_characters_behavior = 1
@@ -456,6 +462,7 @@ offset_right = 576.0
 offset_bottom = 666.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
+theme_override_fonts/font = SubResource("FontVariation_o068n")
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
 visible_characters_behavior = 1
@@ -513,7 +520,7 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = SubResource("SystemFont_wgmu0")
+theme_override_fonts/font = SubResource("FontVariation_h60h2")
 theme_override_font_sizes/font_size = 90
 text = "Dates Won!"
 horizontal_alignment = 1
@@ -525,7 +532,7 @@ modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
 offset_bottom = 1080.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_fonts/font = SubResource("SystemFont_wgmu0")
+theme_override_fonts/font = SubResource("FontVariation_h60h2")
 theme_override_font_sizes/font_size = 90
 text = "Dates 1!"
 horizontal_alignment = 1
