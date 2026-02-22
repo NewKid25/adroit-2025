@@ -6,7 +6,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id2", "3": "id3", "10": "id4" },
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "Yooo, sensational outfit! You look positively groovy."
 	},
 	"id2": {
@@ -15,7 +15,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "feldsparhappy.png",
 	  "text": "Aw, thanks! It's all supposed to match the crystals for my intentions, channel the spirit... How do you channel your spirit, birdie?"
 	},
 	"id3": {
@@ -24,7 +24,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "I mean it! Mine, it's all supposed to match the crystals for my intentions, channel the spirit... How do you channel your spirit, birdie."
 	},
 	"id4": {
@@ -33,7 +33,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "It's all supposed to match the crystals for my intentions, channel the spirit... How do you channel your spirit, birdie?"
 	},
 	"id5": {
@@ -42,7 +42,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "10": "id11" },
-	  "sprite": null,
+	  "sprite": "feldsparhappy.png",
 	  "text": "Right on! That's beautiful... I do sense some of that from you. A very strong aura."
 	},
 	"id6": {
@@ -51,7 +51,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "10": "id11" },
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "No, for real, listen... I do sense some of that from you. A very strong aura."
 	},
 	"id7": {
@@ -60,7 +60,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "10": "id11" },
-	  "sprite": null,
+	  "sprite": "feldspardispleased.png",
 	  "text": "No, for real, listen... I do sense some of that from you. A very strong aura."
 	},
 	"id8": {
@@ -69,7 +69,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "10": "id11" },
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "That's beautiful... I do sense some of that from you. A very strong aura."
 	},
 	"id9": {
@@ -78,7 +78,7 @@
 		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id12", "1": "id13", "6": "id14", "10": "id15" },
-	  "sprite": null,
+	  "sprite": "feldsparhappy.png",
 	  "text": "It's almost like... your aura is trifurcated. The trinity is the strongest form, you know. The strongest instrument, the strongest shape for pizza..."
 	},
 	"id10": {
@@ -87,7 +87,7 @@
 		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id12", "1": "id13", "6": "id14", "10": "id15" },
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "For real, it's almost like... your aura is trifurcated. The trinity is the strongest form, you know. The strongest instrument, the strongest shape for pizza..."
 	},
 	"id11": {
@@ -96,7 +96,7 @@
 		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id12", "1": "id13", "6": "id14", "10": "id15" },
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "It's almost like... your aura is trifurcated. The trinity is the strongest form, you know. The strongest instrument, the strongest shape for pizza..."
 	},
 	"id12": {
@@ -105,7 +105,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id16", "3": "id17", "2": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "feldsparhappy.png",
 	  "text": "It's groovy! And sort of... wavy. Like the ocean... Or the wind, on its journey through a field of flowers."
 	},
 	"id13": {
@@ -114,7 +114,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id16", "3": "id17", "2": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "Well, you know... Like the ocean. Or the wind, on its journey through a field of flowers."
 	},
 	"id14": {
@@ -123,7 +123,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id16", "3": "id17", "2": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "feldspardispleased.png",
 	  "text": "Well, uh... It's sort of wavy. Like the ocean. Or the wind, on its journey through a field of flowers."
 	},
 	"id15": {
@@ -132,32 +132,33 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id16", "3": "id17", "2": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "It's sort of... wavy. Like the ocean... Or the wind, on its journey through a field of flowers."
 	},
 	"id16": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "feldsparhappy.png",
 	  "text": "Aw, what a beautiful thought... You'd match a sapphire... or maybe a topaz. I can find you just the right stone, birdie."
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "Come on, look inward... You'd match a sapphire. Or maybe a topaz. I can find you just the right stone, birdie."
 	},
 	"id18": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "feldsparmeh.png",
 	  "text": "Come on, look inward... You'd match a sapphire. Or maybe a topaz. I can find you just the right stone, birdie."
 	},
 	"id19": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "feldspar.png",
 	  "text": "What a beautiful thought... You'd match a sapphire... or maybe a topaz. I can find you just the right stone, birdie."
 	}
   }
+
 }
