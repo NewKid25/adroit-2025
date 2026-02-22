@@ -128,7 +128,7 @@ func set_state_playing():
 	hand.state = UIHand.UIHandState.Playing
 	add_stashed_cards()
 	UIHelper.joy_shake()
-	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	SfxManager.play_sound(preload("res://assets/sfx/card_shuffle.wav"))
 
 func set_state_animating_in():
 	state = UIDS_State.AnimatingIn
