@@ -110,7 +110,9 @@ theme_override_fonts/font = ExtResource("6_kyhnv")
 theme_override_font_sizes/font_size = 50
 text = "Audio from Pixabay by Universfield,
 ALEXIS_GAMING_CAM, CreatorsHome,
-DRAGON-STUDIO, and freesound_community."
+DRAGON-STUDIO, and freesound_community.
+\"Another Typewriter\" font by Johan Holmdahl.
+\"Arvo\" font by Anton Koovit."
 horizontal_alignment = 1
 tab_stops = PackedFloat32Array(50)
 
