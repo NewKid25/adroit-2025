@@ -77,7 +77,7 @@ func _ready() -> void:
 				highlight_character()
 		)
 		
-		$WhiteOut.visible = true
+	$WhiteOut.visible = true
 
 	button.mouse_entered.connect(
 		func(): 
@@ -101,6 +101,7 @@ func _process(delta: float):
 				GameManager.characters[i].conversation = DataService.get_conversation_from_file(characters[selected_char_index].date_numbers[selected_date_index].conversations[i])
 				GameManager.characters[i].displayed_name = characters[selected_char_index].date_numbers[selected_date_index].displayed_names[i]
 				GameManager.characters[i].profile_image = characters[selected_char_index].date_numbers[selected_date_index].profile_images[i]
+			GameManager.date_idx = selected_date_index + 1
 
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
 	else:	

@@ -55,8 +55,8 @@ func _process(delta: float) -> void:
 	
 	if fading_out:
 		fade_time += delta
-		if fade_time >= 1.0:
-			get_tree().change_scene_to_file("res://scenes/date_select.tscn")
+		#if fade_time >= 1.0:
+		get_tree().change_scene_to_file("res://scenes/date_select.tscn")
 		$BlackOut.modulate.a = fade_time
 	#elif not $AnimationPlayer.is_playing():
 	else:

@@ -29,7 +29,7 @@ func _ready():
 	for i in range(3): current_lines[i] = GameManager.characters[i].conversation.dialogs.keys()[0]
 
 func get_date_number() -> int:
-	return 1
+	return GameManager.date_idx
 
 ## Plays after animation
 func begin() -> GameEvent:
