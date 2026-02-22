@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cmm5qeqva8q"]
+
+[ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="1_63lbm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyhnv"]
+bg_color = Color(0.9372549, 0.8784314, 0.8039216, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_top = 8.0
+expand_margin_right = 16.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ih6pn"]
+bg_color = Color(0.92255527, 0.81911135, 0.7333387, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.39734608, 0.2819927, 0.2174505, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 15.0
+expand_margin_top = 7.0
+expand_margin_right = 15.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooihk"]
+bg_color = Color(0.9708683, 0.9432159, 0.9084007, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 18.0
+expand_margin_top = 10.0
+expand_margin_right = 18.0
+expand_margin_bottom = 10.0
+
+[node name="StyledButton" type="Button" unique_id=400037784]
+offset_left = 1544.0
+offset_top = 933.0
+offset_right = 1825.0
+offset_bottom = 992.0
+theme_override_colors/font_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_colors/font_focus_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_colors/font_pressed_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_colors/font_hover_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_fonts/font = ExtResource("1_63lbm")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyhnv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ih6pn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ooihk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kyhnv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyhnv")
+text = "Back to the title"

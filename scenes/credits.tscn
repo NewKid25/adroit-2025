@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_kyhnv"]
 [ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="5_mah5v"]
 [ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="6_kyhnv"]
+[ext_resource type="PackedScene" uid="uid://cmm5qeqva8q" path="res://scenes/styled_button.tscn" id="8_ooihk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ooihk"]
 shader = ExtResource("1_2fbfq")
@@ -54,7 +55,10 @@ theme_override_fonts/font = ExtResource("6_kyhnv")
 theme_override_font_sizes/font_size = 50
 text = "hi :)"
 
+[node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("8_ooihk")]
+
 [node name="WhiteOut" type="ColorRect" parent="." unique_id=185744516]
 visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
