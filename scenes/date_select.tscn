@@ -8,7 +8,10 @@
 [ext_resource type="FontFile" uid="uid://c3xft0pe7h8qs" path="res://assets/Arvo-Bold-SDF.ttf" id="5_ivooj"]
 [ext_resource type="PackedScene" uid="uid://k5m6x3eflmj5" path="res://scenes/date_select_label.tscn" id="7_ivooj"]
 [ext_resource type="PackedScene" uid="uid://bixrhsaisxkyj" path="res://scenes/character_select_bundle.tscn" id="8_16pmm"]
+[ext_resource type="Texture2D" uid="uid://cw5lkgm0qoyqt" path="res://assets/art/feldspar.png" id="9_nso2x"]
 [ext_resource type="PackedScene" uid="uid://cmm5qeqva8q" path="res://scenes/styled_button.tscn" id="10_16pmm"]
+[ext_resource type="Texture2D" uid="uid://m8ollef28st8" path="res://assets/art/cassandra.png" id="10_ro77a"]
+[ext_resource type="Texture2D" uid="uid://b8a1okm0q3efl" path="res://assets/art/professor.png" id="11_fus5a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r5jwd"]
 shader = ExtResource("1_et0vb")
@@ -84,10 +87,21 @@ position = Vector2(1400, 650)
 scale = Vector2(0.8, 0.8)
 
 [node name="CharacterBundle" parent="CharacterList" unique_id=1044222446 instance=ExtResource("8_16pmm")]
+position = Vector2(0, 2.5)
 
 [node name="CharacterBundle2" parent="CharacterList" unique_id=1196658236 instance=ExtResource("8_16pmm")]
-visible = false
 char_index = 1
+
+[node name="Sprite1" parent="CharacterList/CharacterBundle2" index="1" unique_id=355196138]
+position = Vector2(-210.99998, -103.74997)
+texture = ExtResource("9_nso2x")
+
+[node name="Sprite3" parent="CharacterList/CharacterBundle2" index="2" unique_id=1763728690]
+texture = ExtResource("10_ro77a")
+
+[node name="Sprite2" parent="CharacterList/CharacterBundle2" index="3" unique_id=2086100120]
+position = Vector2(402, -103.74997)
+texture = ExtResource("11_fus5a")
 
 [node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("10_16pmm")]
 offset_left = 820.0
@@ -109,3 +123,5 @@ z_index = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
+
+[editable path="CharacterList/CharacterBundle2"]

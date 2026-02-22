@@ -6,7 +6,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id2", "3": "id3", "1": "id4", "10": "id5" },
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "Ah, hello there! You're a fascinating specimen, aren't you?"
 	},
 	"id2": {
@@ -15,7 +15,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "professorhappy.png",
 	  "text": "Oh, you are a charmer! Well, if-- wait. Are you... superimposed?"
 	},
 	"id3": {
@@ -24,7 +24,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "Ah, I suppose, uh... yes. Well, if-- wait. Are you... superimposed?"
 	},
 	"id4": {
@@ -33,7 +33,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": {"0": "id6", "2": "id7", "10": "id8"},
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "Ah, I suppose, uh... yes. Well, if-- wait. Are you... superimposed?"
 	},
 	"id5": {
@@ -42,7 +42,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "Well, if-- wait. Are you... superimposed?"
 	},
 	"id6": {
@@ -51,7 +51,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "4": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "professorhappy.png",
 	  "text": "You are! This is just incredible! Quantum mechanics, on a date! You are also on another date, maybe more, yes? "
 	},
 	"id7": {
@@ -60,7 +60,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "4": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "This must be taken seriously, this is incredible! Quantum mechanics, on a date! You are also on another date, maybe more, yes?"
 	},
 	"id8": {
@@ -69,7 +69,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 4, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "4": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "Incredible... Quantum mechanics, on a date! You are also on another date, maybe more, yes?"
 	},
 	"id9": {
@@ -78,7 +78,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "professorhappy.png",
 	  "text": "I see! Incredible indeed! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id10": {
@@ -87,7 +87,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "Well, even still... Incredible! Regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id11": {
@@ -96,7 +96,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "professordispleased.png",
 	  "text": "I mean, even still... Incredible! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id12": {
@@ -105,7 +105,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "Incredible indeed! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id13": {
@@ -114,7 +114,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "professorhappy.png",
 	  "text": "Excellent! And perhaps I can even get a closer look at such a technological marvel...? "
 	},
 	"id14": {
@@ -123,7 +123,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "I understand, but still... can I perhaps get a closer look at such a technological marvel? "
 	},
 	"id15": {
@@ -132,7 +132,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "professordispleased.png",
 	  "text": "Haha, yes, sure... But I must ask, can I perhaps get a closer look at such a technological marvel?"
 	},
 	"id16": {
@@ -141,26 +141,27 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "And perhaps I can even get a closer look at such a technological marvel...?"
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "professorhappy.png",
 	  "text": "Just spectacular! Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 	},
 	"id18": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "professormeh.png",
 	  "text": "Very well then. I shall be forgiving if you say a little nonsense for the sake of the others. Shall we get on with the romantic ritual of cafe dining?"
 	},
 	"id19": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "professor.png",
 	  "text": "Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 	}
   }
+
 }
