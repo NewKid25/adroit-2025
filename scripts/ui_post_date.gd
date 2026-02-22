@@ -6,18 +6,18 @@ var success_labels :  Array[Label] = [null, null, null]
 var fail_labels :  Array[Label] = [null, null, null]
 
 func _ready() -> void:
-	loveometers = [$Center/Grid/Loveometer1,
-					$Center/Grid/Loveometer2,
-					$Center/Grid/Loveometer3]
-	loveometer_labels = [$Center/Grid/LoveText1,
-						$Center/Grid/LoveText4,
-						$Center/Grid/LoveText5]
-	success_labels = [$Center/Grid/Successful1,
-						$Center/Grid/Successful2,
-						$Center/Grid/Successful3]
-	fail_labels = [$Center/Grid/Failed1,
-					$Center/Grid/Failed2,
-					$Center/Grid/Failed3]
+	loveometers = [$Center/VBox/Grid/Loveometer1,
+					$Center/VBox/Grid/Loveometer2,
+					$Center/VBox/Grid/Loveometer3]
+	loveometer_labels = [$Center/VBox/Grid/LoveText1,
+						$Center/VBox/Grid/LoveText4,
+						$Center/VBox/Grid/LoveText5]
+	success_labels = [$Center/VBox/Grid/Successful1,
+						$Center/VBox/Grid/Successful2,
+						$Center/VBox/Grid/Successful3]
+	fail_labels = [$Center/VBox/Grid/Failed1,
+					$Center/VBox/Grid/Failed2,
+					$Center/VBox/Grid/Failed3]
 	for i in range(3):
 		var character = GameManager.characters[i]
 		loveometers[i]._on_update_affection(character.affection, character.goal_affection)
