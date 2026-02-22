@@ -52,3 +52,11 @@ func _compare_flirty(mood:Mood):
 		return Enums.CardPlayOutcome.OVER_FLIRTY
 	else:
 		return Enums.CardPlayOutcome.ALL_SUCCESS
+		
+## this method should only be called on a Mood that got ALL_SUCCESS from compare_mood()
+func score_mood(mood:Mood)->float:
+	var sum :=0.0
+	sum += mood.funny - mood_lower_bound.funny
+	sum += mood.sentiment - mood_lower_bound.sentiment
+	sum += mood.flirty - mood_lower_bound.flirty
+	return sum

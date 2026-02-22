@@ -30,7 +30,7 @@ func _ready():
 	#get loveometers and associate them with characters
 	loveometers = [$"../Date1/Loveometer", $"../Date3/Loveometer", $"../Date2/Loveometer"]
 	for i in range(3):	
-		GameManager.characters[i].affection_update.connect(loveometers[i].update_love)
+		GameManager.characters[i].affection_update.connect(loveometers[i]._on_update_affection)
 
 func get_date_number() -> int:
 	return 1
@@ -44,8 +44,7 @@ func begin() -> GameEvent:
 ## Plays when a card is chosen
 func play_card(card: Card) -> GameEvent:
 	card_removed.emit(card)
-	jump_next(card.mood)
-	GameManager.characters[0].affection = .5
+	process_play(card.mood)
 	card_added.emit(date_deck.cards.pop_front())
 	return get_current_gameevent()
 
@@ -93,11 +92,18 @@ func get_next_line(conversation: Conversation, current_line: String, mood: Mood)
 		next = dialog.nexts[dialog.nexts.keys()[0]]
 	return next
 
-func jump_next(mood: Mood) -> void:
+func process_play(mood: Mood) -> void:
 	outcomes.clear()
 	for i in range(3):
-		outcomes.push_back(conversations[i].dialogs[current_lines[i]].mood_expectation.compare_mood(mood))
+		var mood_range :MoodRange = conversations[i].dialogs[current_lines[i]].mood_expectation
+		var play_outcomes = mood_range.compare_mood(mood)
+		if Enums.CardPlayOutcome.ALL_SUCCESS in play_outcomes:
+			var score = mood_range.score_mood(mood)
+			GameManager.characters[i].affection += score
+
+		outcomes.push_back(play_outcomes)
 		current_lines[i] = get_next_line(conversations[i], current_lines[i], mood)
+	
 
 func new_demo_card() -> Card:
 	DEMO_card_index += 1

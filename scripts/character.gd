@@ -6,6 +6,8 @@ var affection : float:
 		return affection
 	set(value):
 		affection=value
-		affection_update.emit(affection)
+		affection_update.emit(affection, goal_affection)
 
-signal affection_update(affection: float)
+var goal_affection :float =10
+
+signal affection_update(affection: float, goal_affection: float)
