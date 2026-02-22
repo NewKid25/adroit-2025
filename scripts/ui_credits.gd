@@ -6,6 +6,7 @@ func _ready() -> void:
 	$StyledButton.pressed.connect(leave)
 
 func leave():
+	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
 

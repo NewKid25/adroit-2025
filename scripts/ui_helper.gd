@@ -1,8 +1,9 @@
 class_name UIHelper
 extends Node
 
-static func joy_shake():
-	Input.start_joy_vibration(0, 0.6, 0.2, 0.1)
+static func joy_shake(strength := 0.0):
+	strength = clamp(strength, 0.0, 1.0)
+	Input.start_joy_vibration(0, 0.6 + strength * 0.4, 0.2 + strength * 0.8, 0.1)
 
 static func debug_fullscreen_toggle_key() -> void:
 	if Input.is_action_just_pressed("dbg_fullscreen"):

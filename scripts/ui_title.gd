@@ -39,12 +39,14 @@ func _on_credits_button_push():
 		return
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	UIHelper.joy_shake()
 
 func _on_play_button_push():
 	if fading_out:
 		return
 	fading_out = true
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+	UIHelper.joy_shake()
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
@@ -65,14 +67,17 @@ func _process(delta: float) -> void:
 			else:
 				get_tree().change_scene_to_file("res://scenes/credits.tscn")
 			SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
+			UIHelper.joy_shake()
 		elif Input.is_action_just_pressed("down") or Input.is_action_just_pressed("right"):
 			selected_menu_option = 1
 			$AnimationPlayer.seek(1000, true)
 			$AnimationPlayer.play("select_credits")
+			UIHelper.joy_shake()
 			SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 
 		elif Input.is_action_just_pressed("up") or Input.is_action_just_pressed("left"):
 			selected_menu_option = 0
 			$AnimationPlayer.seek(1000, true)
 			$AnimationPlayer.play("select_play")
+			UIHelper.joy_shake()
 			SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))

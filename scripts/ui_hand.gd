@@ -175,7 +175,7 @@ func animate_middle_card(delta: float) -> void:
 	#if card_go_up_timer > 1.8:
 	if true:
 		card.shake(card_go_up_timer / 1.5)
-		UIHelper.joy_shake()
+		UIHelper.joy_shake(card_go_up_timer / 1.5)
 	var s = (card_go_up_timer - 1.3) / 0.2
 	s = clamp(s, 0, 1)
 	s *= s
