@@ -85,6 +85,8 @@ func set_state_left():
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
+	scale_text_fit_width($Date1/DateText, game_event.chat_event.lines[0])
+
 
 func set_state_middle():
 	state = UIDS_State.SpeakingMiddle
@@ -92,6 +94,8 @@ func set_state_middle():
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
+	scale_text_fit_width($Date2/DateText, game_event.chat_event.lines[1])
+
 
 func set_state_right():
 	state = UIDS_State.SpeakingRight
@@ -99,6 +103,8 @@ func set_state_right():
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
+	scale_text_fit_width($Date3/DateText, game_event.chat_event.lines[2])
+
 
 func set_state_playing():
 	state = UIDS_State.Playing
@@ -237,3 +243,18 @@ func is_hand_focused() -> bool:
 	return (focus == UIDS_FocusState.All)
 
 #endregion
+
+
+func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33):	
+	var font_size:int = default_font_size + 1
+	if text.is_empty():
+		text = label.text
+
+	var total_text_height:float = 1000
+	while (total_text_height > label.size.y):
+		font_size -= 1
+		total_text_height = label.get_theme_font("font").get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
+
+	if (label.has_theme_font_size_override("font_size")):
+		label.remove_theme_font_size_override("font_size")
+	label.add_theme_font_size_override("font_size", font_size)
