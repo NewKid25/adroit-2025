@@ -8,8 +8,11 @@ var skip_anim_next := true
 func _on_update_affection(affection:float, goal_affection):
 	love=affection/goal_affection
 
+func _ready() -> void:
+	value = 0
+
 func _process(delta: float) -> void:
-	if not visible:
+	if not visible or modulate.a <= 0:
 		return
 	
 	if skip_anim_next:

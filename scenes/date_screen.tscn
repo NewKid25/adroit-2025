@@ -388,6 +388,7 @@ theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
+visible_characters_behavior = 1
 
 [node name="Date3" type="Node2D" parent="." unique_id=694699396]
 position = Vector2(1280, 0)
@@ -422,6 +423,7 @@ theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
+visible_characters_behavior = 1
 
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
@@ -456,6 +458,7 @@ theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470
 theme_override_constants/outline_size = 17
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
+visible_characters_behavior = 1
 
 [node name="EnergyBeams" type="Node2D" parent="." unique_id=805464923]
 
