@@ -221,6 +221,8 @@ func remove_card(card: Card) -> void:
 	get_card_node_by_card(card).queue_free()
 
 func set_selected_to_node(card: UICard) -> void:
+	if state != UIHandState.Playing:
+		return
 	var idx = card.get_index()
 	if selected != idx:
 		SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))

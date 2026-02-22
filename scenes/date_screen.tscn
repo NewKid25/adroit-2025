@@ -24,7 +24,7 @@
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 [ext_resource type="Script" uid="uid://ihgny4txemup" path="res://scripts/sfx_manager.gd" id="21_gfyte"]
 [ext_resource type="Texture2D" uid="uid://ejc7i0ayfyfm" path="res://assets/art/temp_card_particle.png" id="21_o068n"]
-[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
+[ext_resource type="FontFile" uid="uid://c3xft0pe7h8qs" path="res://assets/Arvo-Bold-SDF.ttf" id="24_ievts"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
 shader = ExtResource("7_42wmv")
@@ -59,7 +59,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.8980392, 1, 1, 1, 0)
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_h60h2"]
-base_font = ExtResource("22_o068n")
+base_font = ExtResource("24_ievts")
 
 [sub_resource type="Animation" id="Animation_mjotm"]
 length = 0.001
