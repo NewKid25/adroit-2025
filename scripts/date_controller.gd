@@ -28,7 +28,7 @@ func _ready():
 	conversations[2] = DataService.get_conversation_from_file("res://data/guido1.json")
 	for i in range(3): current_lines[i] = conversations[i].dialogs.keys()[0]
 	#get loveometers and associate them with characters
-	loveometers = [$"../Date1/Loveometer", $"../Date3/Loveometer", $"../Date2/Loveometer"]
+	loveometers = [$"../Date1/Loveometer", $"../Date2/Loveometer", $"../Date3/Loveometer"]
 	for i in range(3):	
 		GameManager.characters[i].affection_update.connect(loveometers[i]._on_update_affection)
 

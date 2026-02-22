@@ -1,7 +1,7 @@
 class_name Character
 extends Node
 
-var affection : float:
+var affection : float: 
 	get:
 		return affection
 	set(value):
