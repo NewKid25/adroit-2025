@@ -24,6 +24,7 @@ var state := UIHandState.Hidden
 var selected := 0
 var skip_anim_next_frame := true
 var card_go_up_timer := 0.0
+var card_go_up_card: UICard = null
 
 func _ready() -> void:
 	pass
@@ -40,6 +41,7 @@ func _process(delta: float) -> void:
 			state = UIHandState.CardGoUpToMiddle
 			SfxManager.play_sound(preload("res://assets/sfx/card_use.mp3"))
 			card_go_up_timer = 0.0
+			card_go_up_card = get_selected_card_node()
 			UIHelper.joy_shake()
 	elif state == UIHandState.Hidden:
 		animate_cards(delta, true, false)
@@ -157,7 +159,7 @@ func objlerp(from, to, x):
 	return from.lerp(to, x)
 
 func animate_middle_card(delta: float) -> void:
-	var card = get_selected_card_node()
+	var card = card_go_up_card
 	card.global_position = objlerp(
 		card.global_position,
 		Vector2(HALF_SCREEN, HALF_SCREEN_HEIGHT - CARD_HEIGHT / 2.0),
@@ -197,6 +199,10 @@ func cards_in_hand() -> int:
 	return get_child_count()
 
 func get_card_node_by_card(card: Card) -> UICard:
+	if cards_in_hand() == 0:
+		return null
+	if get_selected_card() == card:
+		return get_selected_card_node()
 	for child in get_children():
 		if "card" in child and child.card == card:
 			return child
