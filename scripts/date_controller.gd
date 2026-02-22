@@ -14,7 +14,7 @@ class GameEvent:
 	var is_there_more_after_this: bool
 
 var DEMO_card_index = 0
-var conversations : Array[Conversation] = [null, null, null]
+# var conversations : Array[Conversation] = [null, null, null]
 var current_lines : Array[String] = ["", "", ""]
 
 var date_deck = Deck.new()
@@ -23,14 +23,18 @@ var loveometers : Array[UILoveometer]
 
 
 func _ready():
-	# TODO: hardcoding
-	conversations[0] = DataService.get_conversation_from_file("res://data/schrodie1.json")
-	conversations[1] = DataService.get_conversation_from_file("res://data/paulrudd1.json")
-	conversations[2] = DataService.get_conversation_from_file("res://data/guido1.json")
-	for i in range(3): current_lines[i] = conversations[i].dialogs.keys()[0]
 	#get loveometers and associate them with characters
 	loveometers = [$"../Date1/Loveometer", $"../Date2/Loveometer", $"../Date3/Loveometer"]
 	GameManager.characters = [Character.new(), Character.new(), Character.new()]
+
+	# If/when character select is implemented:
+	# Remove these 3 lines and have char select scene handle
+	# set these in the GameManager. (Keep the current_lines call though)
+	GameManager.characters[0].conversation = DataService.get_conversation_from_file("res://data/schrodie1.json")
+	GameManager.characters[1].conversation = DataService.get_conversation_from_file("res://data/paulrudd1.json")
+	GameManager.characters[2].conversation = DataService.get_conversation_from_file("res://data/guido1.json")
+	
+	for i in range(3): current_lines[i] = GameManager.characters[i].conversation.dialogs.keys()[0]
 
 func get_date_number() -> int:
 	return 1
@@ -60,14 +64,14 @@ func get_current_gameevent() -> GameEvent:
 	ev.chat_event = ChatEvent.new()
 	for i in range(3):
 		if current_lines[i]:
-			ev.chat_event.lines[i] = conversations[i].dialogs[current_lines[i]].text
-			ev.chat_event.sprite_paths[i] = conversations[i].dialogs[current_lines[i]].sprite
+			ev.chat_event.lines[i] = GameManager.characters[i].conversation.dialogs[current_lines[i]].text
+			ev.chat_event.sprite_paths[i] = GameManager.characters[i].conversation.dialogs[current_lines[i]].sprite
 		else:
 			ev.chat_event.line[i] = ""
 	
 	ev.is_there_more_after_this = false
 	for i in range(3):
-		if len(conversations[i].dialogs[current_lines[i]].nexts) > 0:
+		if len(GameManager.characters[i].conversation.dialogs[current_lines[i]].nexts) > 0:
 			ev.is_there_more_after_this = true
 	
 	return ev
@@ -96,7 +100,7 @@ func get_next_line(conversation: Conversation, current_line: String, mood: Mood)
 func process_play(mood: Mood) -> void:
 	outcomes.clear()
 	for i in range(3):
-		var mood_range :MoodRange = conversations[i].dialogs[current_lines[i]].mood_expectation
+		var mood_range :MoodRange = GameManager.characters[i].conversation.dialogs[current_lines[i]].mood_expectation
 		var play_outcomes = mood_range.compare_mood(mood)
 		if Enums.CardPlayOutcome.ALL_SUCCESS in play_outcomes:
 			var score = mood_range.score_mood(mood)
@@ -106,7 +110,7 @@ func process_play(mood: Mood) -> void:
 			GameManager.characters[i].cards_incorrect += 1
 
 		outcomes.push_back(play_outcomes)
-		current_lines[i] = get_next_line(conversations[i], current_lines[i], mood)
+		current_lines[i] = get_next_line(GameManager.characters[i].conversation, current_lines[i], mood)
 	
 
 func new_demo_card() -> Card:
