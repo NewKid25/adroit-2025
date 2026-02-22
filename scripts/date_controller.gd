@@ -25,20 +25,6 @@ var loveometers : Array[UILoveometer]
 func _ready():
 	#get loveometers and associate them with characters
 	loveometers = [$"../Date1/Loveometer", $"../Date2/Loveometer", $"../Date3/Loveometer"]
-	GameManager.characters = [Character.new(), Character.new(), Character.new()]
-
-	# If/when character select is implemented:
-	# Remove these 3 lines and have char select scene handle
-	# set these in the GameManager. (Keep the current_lines call though)
-	GameManager.characters[0].conversation = DataService.get_conversation_from_file("res://data/schrodie1.json")
-	GameManager.characters[1].conversation = DataService.get_conversation_from_file("res://data/paulrudd1.json")
-	GameManager.characters[2].conversation = DataService.get_conversation_from_file("res://data/guido1.json")
-	GameManager.characters[0].displayed_name = "Schrodie"
-	GameManager.characters[1].displayed_name = "Paul Rudd"
-	GameManager.characters[2].displayed_name = "Guido"
-	GameManager.characters[0].profile_image = preload("res://assets/art/squareschrodie.png")
-	GameManager.characters[1].profile_image = preload("res://assets/art/squarepaul.png")
-	GameManager.characters[2].profile_image = preload("res://assets/art/squareguido.png")
 	
 	for i in range(3): current_lines[i] = GameManager.characters[i].conversation.dialogs.keys()[0]
 

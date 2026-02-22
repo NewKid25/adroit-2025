@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bixrhsaisxkyj"]
+
+[ext_resource type="Texture2D" uid="uid://yfc7s7wmy2wt" path="res://assets/art/CharacterBackdrop.svg" id="1_cmb0q"]
+[ext_resource type="Script" uid="uid://cptcd1r3jsobm" path="res://scripts/char_select_bundle.gd" id="1_wg0fp"]
+[ext_resource type="Texture2D" uid="uid://da8e8es62dxhd" path="res://assets/art/schrodie.png" id="2_wg0fp"]
+[ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="3_safih"]
+[ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="4_cq2vc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg0fp"]
+size = Vector2(1310, 269)
+
+[node name="CharacterBundle" type="Node2D" unique_id=1044222446]
+script = ExtResource("1_wg0fp")
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=202936010]
+modulate = Color(1, 1, 1, 0.8627451)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_cmb0q")
+
+[node name="Sprite1" type="Sprite2D" parent="." unique_id=355196138]
+position = Vector2(-210.99998, -103)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_wg0fp")
+
+[node name="Sprite3" type="Sprite2D" parent="." unique_id=1763728690]
+position = Vector2(87, -123)
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("3_safih")
+
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=2086100120]
+position = Vector2(402, -98)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_cq2vc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=452046027]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=818720587]
+position = Vector2(-2, -4.5)
+shape = SubResource("RectangleShape2D_wg0fp")

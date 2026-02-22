@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://iyu5li2ocpdl"]
+
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="1_et0vb"]
+[ext_resource type="Script" uid="uid://b0jhpycq8jw3d" path="res://scripts/date_select.gd" id="1_wcpni"]
+[ext_resource type="Texture2D" uid="uid://dn6u01pyown1q" path="res://assets/art/endscreenbg.png" id="2_iwyq7"]
+[ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_0teci"]
+[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_fk46g"]
+[ext_resource type="FontFile" uid="uid://c3xft0pe7h8qs" path="res://assets/Arvo-Bold-SDF.ttf" id="5_ivooj"]
+[ext_resource type="PackedScene" uid="uid://k5m6x3eflmj5" path="res://scenes/date_select_label.tscn" id="7_ivooj"]
+[ext_resource type="PackedScene" uid="uid://bixrhsaisxkyj" path="res://scenes/character_select_bundle.tscn" id="8_16pmm"]
+[ext_resource type="PackedScene" uid="uid://cmm5qeqva8q" path="res://scenes/styled_button.tscn" id="10_16pmm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r5jwd"]
+shader = ExtResource("1_et0vb")
+
+[node name="DateSelect" type="Node2D" unique_id=1377507820]
+script = ExtResource("1_wcpni")
+
+[node name="Background" type="Node2D" parent="." unique_id=1830334342]
+
+[node name="Endscreenbg" type="Sprite2D" parent="Background" unique_id=1865569791]
+material = SubResource("ShaderMaterial_r5jwd")
+texture = ExtResource("2_iwyq7")
+centered = false
+
+[node name="Atomlarger" type="Sprite2D" parent="Background" unique_id=325279446]
+position = Vector2(215, 840)
+texture = ExtResource("3_0teci")
+script = ExtResource("4_fk46g")
+speed_mod = 1.3
+
+[node name="Atomlarger2" type="Sprite2D" parent="Background" unique_id=2024122892]
+position = Vector2(1648, 158)
+texture = ExtResource("3_0teci")
+script = ExtResource("4_fk46g")
+inverted = true
+speed_mod = 1.9
+
+[node name="Header" type="Label" parent="." unique_id=1461407058]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 75.0
+offset_right = 1920.0
+offset_bottom = 259.375
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.32941177, 0.23137255, 0.1764706, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_ivooj")
+theme_override_font_sizes/font_size = 150
+text = "Choose your date:"
+horizontal_alignment = 1
+
+[node name="DateLabels" type="Node2D" parent="." unique_id=1173867118]
+position = Vector2(192.00012, 556)
+
+[node name="DateLabel" parent="DateLabels" unique_id=2061939306 instance=ExtResource("7_ivooj")]
+offset_top = 0.0
+offset_bottom = 147.5
+
+[node name="DateLabel2" type="Label" parent="DateLabels" unique_id=514760394]
+modulate = Color(0.6781177, 0.6781177, 0.67811763, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.00012
+offset_top = 157.0
+offset_right = 265.99988
+offset_bottom = 304.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_outline_color = Color(0.32941177, 0.23137255, 0.1764706, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_ivooj")
+theme_override_font_sizes/font_size = 120
+text = "Date 2"
+vertical_alignment = 1
+
+[node name="CharacterList" type="Node2D" parent="." unique_id=633029616]
+position = Vector2(1400, 650)
+scale = Vector2(0.8, 0.8)
+
+[node name="CharacterBundle" parent="CharacterList" unique_id=1044222446 instance=ExtResource("8_16pmm")]
+
+[node name="CharacterBundle2" parent="CharacterList" unique_id=1196658236 instance=ExtResource("8_16pmm")]
+visible = false
+char_index = 1
+
+[node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("10_16pmm")]
+offset_left = 820.0
+offset_top = 973.0
+offset_right = 1110.0
+offset_bottom = 1032.0
+text = "DATE!"
+
+[node name="BlackOut" type="ColorRect" parent="." unique_id=1272823264]
+visible = false
+z_index = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
