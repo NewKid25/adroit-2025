@@ -4,19 +4,262 @@
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_pyl7j"]
 [ext_resource type="Texture2D" uid="uid://b302jncoqoaf8" path="res://assets/art/titlebg.png" id="3_pyl7j"]
 [ext_resource type="Texture2D" uid="uid://dh0io0nxsen66" path="res://assets/art/titlelogo.png" id="4_b3w7a"]
+[ext_resource type="Texture2D" uid="uid://du7ufnglhc3di" path="res://assets/art/titlebutton.png" id="5_b3w7a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rr2b"]
 shader = ExtResource("2_pyl7j")
 
-[sub_resource type="SystemFont" id="SystemFont_yql1r"]
-font_names = PackedStringArray("Arial")
-font_weight = 800
+[sub_resource type="FontVariation" id="FontVariation_4rr2b"]
+variation_embolden = 0.44
+
+[sub_resource type="Animation" id="Animation_b3w7a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TempTitleOverlay:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paulruddicule:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 710)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CreditsButton:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.69467354, 0.69467354, 0.6946735, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CreditsButton:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 975)]
+}
+
+[sub_resource type="Animation" id="Animation_pyl7j"]
+resource_name = "intro"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TempTitleOverlay:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-100, 0), Vector2(-100, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paulruddicule:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(960, 300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CreditsButton:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0.49, 2.99),
+"transitions": PackedFloat32Array(0.5547849, 0.13397217),
+"update": 0,
+"values": [Vector2(960, 1500), Vector2(960, 975)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayButton:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 0.21763767),
+"update": 0,
+"values": [Vector2(960, 1400), Vector2(960, 710)]
+}
+
+[sub_resource type="Animation" id="Animation_yql1r"]
+resource_name = "select_credits"
+length = 0.25
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(0.69411767, 0.69411767, 0.69411767, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditsButton:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(960, 700)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CreditsButton:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(960, 950)]
+}
+
+[sub_resource type="Animation" id="Animation_4rr2b"]
+resource_name = "select_play"
+length = 0.25
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditsButton:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Color(0.69467354, 0.69467354, 0.6946735, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(960, 710)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CreditsButton:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(960, 975)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3w7a"]
+_data = {
+&"RESET": SubResource("Animation_b3w7a"),
+&"intro": SubResource("Animation_pyl7j"),
+&"select_credits": SubResource("Animation_yql1r"),
+&"select_play": SubResource("Animation_4rr2b")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1751761179]
 script = ExtResource("1_pyl7j")
 
 [node name="TempTitleOverlay" type="Sprite2D" parent="." unique_id=506778411]
 material = SubResource("ShaderMaterial_4rr2b")
+position = Vector2(-100, 0)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("3_pyl7j")
 centered = false
 
@@ -24,14 +267,56 @@ centered = false
 position = Vector2(960, 540)
 texture = ExtResource("4_b3w7a")
 
-[node name="Label" type="Label" parent="." unique_id=1699932635]
-offset_left = 854.0
-offset_top = 891.0
-offset_right = 1112.0
-offset_bottom = 1005.0
-theme_override_fonts/font = SubResource("SystemFont_yql1r")
-theme_override_font_sizes/font_size = 80
+[node name="CreditsButton" type="Node2D" parent="." unique_id=129975428]
+modulate = Color(0.69467354, 0.69467354, 0.6946735, 1)
+position = Vector2(960, 975)
+
+[node name="Sprite2D" type="Sprite2D" parent="CreditsButton" unique_id=1650492668]
+scale = Vector2(1, 0.4)
+texture = ExtResource("5_b3w7a")
+
+[node name="Label" type="Label" parent="CreditsButton" unique_id=1436417371]
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 53.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("FontVariation_4rr2b")
+theme_override_font_sizes/font_size = 75
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Node2D" parent="." unique_id=274458013]
+position = Vector2(960, 710)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayButton" unique_id=348180248]
+scale = Vector2(1, 0.6)
+texture = ExtResource("5_b3w7a")
+
+[node name="Label2" type="Label" parent="PlayButton" unique_id=1335155985]
+offset_left = -250.0
+offset_top = -135.0
+offset_right = 250.0
+offset_bottom = 15.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("FontVariation_4rr2b")
+theme_override_font_sizes/font_size = 42
+text = "PRESS Z TO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PlayButton" unique_id=1849901269]
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 100.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = SubResource("FontVariation_4rr2b")
+theme_override_font_sizes/font_size = 100
 text = "DATE!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WhiteOut" type="ColorRect" parent="." unique_id=628111390]
 visible = false
@@ -46,3 +331,5 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019257209]
+libraries/ = SubResource("AnimationLibrary_b3w7a")
+autoplay = &"intro"
