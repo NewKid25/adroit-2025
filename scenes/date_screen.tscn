@@ -20,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="9_gfyte"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="9_va3kr"]
 [ext_resource type="Texture2D" uid="uid://b6oeldl701vln" path="res://assets/art/finediningscene.png" id="10_h3ygb"]
+[ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="10_h60h2"]
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 [ext_resource type="Script" uid="uid://ihgny4txemup" path="res://scripts/sfx_manager.gd" id="21_gfyte"]
 [ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
@@ -30,6 +31,7 @@ shader = ExtResource("7_42wmv")
 shader_parameter/text_color = Color(1, 1, 1, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_o068n"]
+fallbacks = Array[Font]([ExtResource("10_h60h2")])
 base_font = ExtResource("9_gfyte")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjotm"]

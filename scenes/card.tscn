@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dnk4d0a72x4tn" path="res://scripts/ui_card.gd" id="1_d81rb"]
 [ext_resource type="Texture2D" uid="uid://h4lemgtlmvtc" path="res://assets/art/cardbg.png" id="2_6u4wf"]
 [ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="3_ktuci"]
+[ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="4_kg30u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u4wf"]
 draw_center = false
@@ -10,6 +11,7 @@ shadow_color = Color(0, 0, 0, 0.27058825)
 shadow_size = 16
 
 [sub_resource type="FontVariation" id="FontVariation_kg30u"]
+fallbacks = Array[Font]([ExtResource("4_kg30u")])
 base_font = ExtResource("3_ktuci")
 variation_embolden = 0.7
 spacing_glyph = 1

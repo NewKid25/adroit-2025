@@ -7,7 +7,7 @@
 	  },
 	  "nexts": { "0": "id2", "1": "id3", "10": "id4" },
 	  "sprite": null,
-	  "text": "Well, here we are… I just got off a case. I’m hoping you might be able to help lighten my mood."
+	  "text": "Well, here we are... I just got off a case. I'm hoping you might be able to help lighten my mood."
 	},
 	"id2": {
 	  "mood_expectation": {
@@ -16,7 +16,7 @@
 	  },
 	  "nexts": { "0": "id5", "4": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "Yeah, thanks… It was a grisly one. Like nothing I’ve seen before, in all my years. If you’re lucky, you’ll never run into something like that. "
+	  "text": "Yeah, thanks... It was a grisly one. Like nothing I've seen before, in all my years. If you're lucky, you'll never run into something like that. "
 	},
 	"id3": {
 	  "mood_expectation": {
@@ -25,7 +25,7 @@
 	  },
 	  "nexts": { "0": "id5", "4": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "This is no joking matter… It was a grisly one. Like nothing I’ve seen before, in all my years. If you’re lucky, you’ll never run into something like that."
+	  "text": "This is no joking matter... It was a grisly one. Like nothing I've seen before, in all my years. If you're lucky, you'll never run into something like that."
 	},
 	"id4": {
 	  "mood_expectation": {
@@ -34,7 +34,7 @@
 	  },
 	  "nexts": { "0": "id5", "4": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "It was a grisly one. Like nothing I’ve seen before, in all my years. If you’re lucky, you’ll never run into something like that."
+	  "text": "It was a grisly one. Like nothing I've seen before, in all my years. If you're lucky, you'll never run into something like that."
 	},
 	"id5": {
 	  "mood_expectation": {
@@ -43,7 +43,7 @@
 	  },
 	  "nexts": { "0": "id9", "3": "id10", "10": "id11" },
 	  "sprite": null,
-	  "text": "I appreciate it. But what I’ll appreciate more: A stiff drink. And of course, the company helps. "
+	  "text": "I appreciate it. But what I'll appreciate more: A stiff drink. And of course, the company helps. "
 	},
 	"id6": {
 	  "mood_expectation": {
@@ -52,7 +52,7 @@
 	  },
 	  "nexts": { "0": "id9", "3": "id10", "10": "id11" },
 	  "sprite": null,
-	  "text": "Whatever. I’d really appreciate a stiff drink. And maybe the company could help my mood, too."
+	  "text": "Whatever. I'd really appreciate a stiff drink. And maybe the company could help my mood, too."
 	},
 	"id7": {
 	  "mood_expectation": {
@@ -61,7 +61,7 @@
 	  },
 	  "nexts": { "0": "id9", "3": "id10", "10": "id11" },
 	  "sprite": null,
-	  "text": "Whatever. I’d really appreciate a stiff drink. And maybe the company could help my mood, too."
+	  "text": "Whatever. I'd really appreciate a stiff drink. And maybe the company could help my mood, too."
 	},
 	"id8": {
 	  "mood_expectation": {
@@ -70,7 +70,7 @@
 	  },
 	  "nexts": { "0": "id9", "3": "id10", "10": "id11" },
 	  "sprite": null,
-	  "text": " I’d really appreciate a stiff drink. And of course, the company helps."
+	  "text": " I'd really appreciate a stiff drink. And of course, the company helps."
 	},
 	"id9": {
 	  "mood_expectation": {
@@ -79,7 +79,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": null,
-	  "text": "Definitely. You’ve got that air of mystery around you too, I can tell these things… But that shadow can be attractive, you know."
+	  "text": "Definitely. You've got that air of mystery around you too, I can tell these things... But that shadow can be attractive, you know."
 	},
 	"id10": {
 	  "mood_expectation": {
@@ -88,7 +88,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": null,
-	  "text": "You’ve got an air of mystery around you too. I can tell these things. But that shadow could be attractive, you know."
+	  "text": "You've got an air of mystery around you too. I can tell these things. But that shadow could be attractive, you know."
 	},
 	"id11": {
 	  "mood_expectation": {
@@ -97,7 +97,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": null,
-	  "text": "You’ve got that air of mystery around you too, I can tell these things… But that shadow can be attractive, you know."
+	  "text": "You've got that air of mystery around you too, I can tell these things... But that shadow can be attractive, you know."
 	},
 	"id12": {
 	  "mood_expectation": {
@@ -106,7 +106,7 @@
 	  },
 	  "nexts": { "0": "id16", "1": "id17", "10": "id18" },
 	  "sprite": null,
-	  "text": "You have that gleam in your eye. Something behind the pretty face. If I weren’t a private eye, I’d say you were seeing things I can’t. Maybe you are. Ghosts."
+	  "text": "You have that gleam in your eye. Something behind the pretty face. If I weren't a private eye, I'd say you were seeing things I can't. Maybe you are. Ghosts."
 	},
 	"id13": {
 	  "mood_expectation": {
@@ -115,7 +115,7 @@
 	  },
 	  "nexts": { "0": "id16", "1": "id17", "10": "id18" },
 	  "sprite": null,
-	  "text": "…You have a gleam in your eye. Something behind that mug. If I weren’t a private eye, I’d say you were seeing things I can’t. Maybe you are. Ghosts."
+	  "text": "...You have a gleam in your eye. Something behind that mug. If I weren't a private eye, I'd say you were seeing things I can't. Maybe you are. Ghosts."
 	},
 	"id14": {
 	  "mood_expectation": {
@@ -124,7 +124,7 @@
 	  },
 	  "nexts": { "0": "id16", "1": "id17", "10": "id18" },
 	  "sprite": null,
-	  "text": "…You have a gleam in your eye. Something behind that smug mug. If I weren’t a private eye, I’d say you were seeing things I can’t. Maybe you are. Ghosts."
+	  "text": "...You have a gleam in your eye. Something behind that smug mug. If I weren't a private eye, I'd say you were seeing things I can't. Maybe you are. Ghosts."
 	},
 	"id15": {
 	  "mood_expectation": {
@@ -133,19 +133,19 @@
 	  },
 	  "nexts": { "0": "id16", "1": "id17", "10": "id18" },
 	  "sprite": null,
-	  "text": "You have that gleam in your eye. If I weren’t a private eye, I’d say you were seeing things I can’t. Maybe you are. Ghosts."
+	  "text": "You have that gleam in your eye. If I weren't a private eye, I'd say you were seeing things I can't. Maybe you are. Ghosts."
 	},
 	"id16": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": null,
-	  "text": "Ha, exactly. Spooky stories and pretty strangers, to take our attention off the real horrors. So… Thanks for that."
+	  "text": "Ha, exactly. Spooky stories and pretty strangers, to take our attention off the real horrors. So... Thanks for that."
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": null,
-	  "text": "Yeah, sure… We need spooky stories and pretty strangers, to take our attention off the real horrors. I’d thank you for that."
+	  "text": "Yeah, sure... We need spooky stories and pretty strangers, to take our attention off the real horrors. I'd thank you for that."
 	},
 	"id18": {
 	  "mood_expectation": {},

@@ -25,7 +25,7 @@
 	  },
 	  "nexts": { "0": "id5", "3": "id6", "10": "id7" },
 	  "sprite": "schrodiemeh.png",
-	  "text": "Ah, yeah… I just like the ones with the big bows. Not sure if I’m good enough to win one though."
+	  "text": "Ah, yeah... I just like the ones with the big bows. Not sure if I'm good enough to win one though."
 	},
 	"id4": {
 	  "mood_expectation": {
@@ -52,7 +52,7 @@
 	  },
 	  "nexts": { "0": "id8", "2": "id9", "1": "id10", "10": "id11" },
 	  "sprite": "schrodiemeh.png",
-	  "text": "Well, I thought maybe someone else here could win one… We should ride all the rides first though, so we won't need to put it on the roller coaster."
+	  "text": "Well, I thought maybe someone else here could win one... We should ride all the rides first though, so we won't need to put it on the roller coaster."
 	},
 	"id7": {
 	  "mood_expectation": {
@@ -70,7 +70,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": "schrodiehappy.png",
-	  "text": "Aw, yeah… Sounds like it’ll be a really nice night."
+	  "text": "Aw, yeah... Sounds like it'll be a really nice night."
 	},
 	"id9": {
 	  "mood_expectation": {
@@ -79,7 +79,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": "schrodiemeh.png",
-	  "text": "Well, of course… I think it’ll be a really nice night."
+	  "text": "Well, of course... I think it'll be a really nice night."
 	},
 	"id10": {
 	  "mood_expectation": {
@@ -88,7 +88,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": "schrodiemeh.png",
-	  "text": "Yeah, of course, no worries! I think it’ll be a really nice night."
+	  "text": "Yeah, of course, no worries! I think it'll be a really nice night."
 	},
 	"id11": {
 	  "mood_expectation": {
@@ -97,7 +97,7 @@
 	  },
 	  "nexts": { "0": "id12", "3": "id13", "4": "id14", "10": "id15" },
 	  "sprite": "schrodie.png",
-	  "text": "Sounds like it’ll be a really nice night."
+	  "text": "Sounds like it'll be a really nice night."
 	},
 	"id12": {
 	  "mood_expectation": {
@@ -115,7 +115,7 @@
 	  },
 	  "nexts": { "0": "id16", "1": "id17", "5": "id18", "10": "id19" },
 	  "sprite": "schrodiemeh.png",
-	  "text": "Well, not if I beat you to it… Maybe I’ll win myself that teddy bear."
+	  "text": "Well, not if I beat you to it... Maybe I'll win myself that teddy bear."
 	},
 	"id14": {
 	  "mood_expectation": {
@@ -145,19 +145,19 @@
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": "schrodiemeh.png",
-	  "text": "Let’s go have some fun, ride that roller coaster. Race you!"
+	  "text": "Let's go have some fun, ride that roller coaster. Race you!"
 	},
 	"id18": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": "schrodiedispleased.png",
-	  "text": "Let’s go have some fun, ride that roller coaster. Race you?"
+	  "text": "Let's go have some fun, ride that roller coaster. Race you?"
 	},
 	"id19": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": "schrodie.png",
-	  "text": "Let’s go ride that roller coaster. Race you?"
+	  "text": "Let's go ride that roller coaster. Race you?"
 	}
   }
 }

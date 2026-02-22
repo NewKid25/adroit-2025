@@ -34,7 +34,7 @@
 	  },
 	  "nexts": { "0": "id6", "3": "id7", "10": "id8" },
 	  "sprite": "pauldispleased.png",
-	  "text": "Oh, I’m kidding, don’t worry about it. The whole menu looks great. And so do you."
+	  "text": "Oh, I'm kidding, don't worry about it. The whole menu looks great. And so do you."
 	},
 	"id5": {
 	  "mood_expectation": {
@@ -61,7 +61,7 @@
 	  },
 	  "nexts": { "0": "id9", "1": "id10", "5": "id11", "10": "id12" },
 	  "sprite": "paulmeh.png",
-	  "text": "Yeah… Well. I just threw on this old thing from all the Marvel interviews."
+	  "text": "Yeah... Well. I just threw on this old thing from all the Marvel interviews."
 	},
 	"id8": {
 	  "mood_expectation": {
@@ -88,7 +88,7 @@
 	  },
 	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
 	  "sprite": "paulmeh.png",
-	  "text": "Well, y’know. The Antman swag. It’s funny. Anyways, I should pick what to eat- What did you get?"
+	  "text": "Well, y'know. The Antman swag. It's funny. Anyways, I should pick what to eat- What did you get?"
 	},
 	"id11": {
 	  "mood_expectation": {
@@ -97,7 +97,7 @@
 	  },
 	  "nexts": { "0": "id13", "2": "id14", "10": "id15" },
 	  "sprite": "pauldispleased.png",
-	  "text": "No, yeah, y’know. The Antman swag. Anyways, I should just pick what to eat- What did you get?"
+	  "text": "No, yeah, y'know. The Antman swag. Anyways, I should just pick what to eat- What did you get?"
 	},
 	"id12": {
 	  "mood_expectation": {
@@ -133,19 +133,19 @@
 	  },
 	  "nexts": { "0": "id16", "3": "id17", "10": "id18" },
 	  "sprite": "paul_rudd.png",
-	  "text": "Ooh, that’s what I was thinking too… Maybe we are meant for each other."
+	  "text": "Ooh, that's what I was thinking too... Maybe we are meant for each other."
 	},
 	"id16": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": "paulhappy.png",
-	  "text": "Oh, definitely… We can find out for sure over this lovely dinner!"
+	  "text": "Oh, definitely... We can find out for sure over this lovely dinner!"
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": "paulmeh.png",
-	  "text": "We can figure it out later. Over this lovely dinner…"
+	  "text": "We can figure it out later. Over this lovely dinner..."
 	},
 	"id18": {
 	  "mood_expectation": {},

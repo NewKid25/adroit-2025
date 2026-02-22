@@ -7,7 +7,7 @@
 	  },
 	  "nexts": { "0": "id2", "3": "id3", "1": "id4", "10": "id5" },
 	  "sprite": null,
-	  "text": "Ah, hello there! You’re a fascinating specimen, aren’t you?"
+	  "text": "Ah, hello there! You're a fascinating specimen, aren't you?"
 	},
 	"id2": {
 	  "mood_expectation": {
@@ -16,7 +16,7 @@
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "Oh, you are a charmer! Well, if-- wait. Are you… superimposed?"
+	  "text": "Oh, you are a charmer! Well, if-- wait. Are you... superimposed?"
 	},
 	"id3": {
 	  "mood_expectation": {
@@ -25,7 +25,7 @@
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "Ah, I suppose, uh… yes. Well, if-- wait. Are you… superimposed?"
+	  "text": "Ah, I suppose, uh... yes. Well, if-- wait. Are you... superimposed?"
 	},
 	"id4": {
 	  "mood_expectation": {
@@ -34,7 +34,7 @@
 	  },
 	  "nexts": {"0": "id6", "2": "id7", "10": "id8"},
 	  "sprite": null,
-	  "text": "Ah, I suppose, uh… yes. Well, if-- wait. Are you… superimposed?"
+	  "text": "Ah, I suppose, uh... yes. Well, if-- wait. Are you... superimposed?"
 	},
 	"id5": {
 	  "mood_expectation": {
@@ -43,7 +43,7 @@
 	  },
 	  "nexts": { "0": "id6", "2": "id7", "10": "id8" },
 	  "sprite": null,
-	  "text": "Well, if-- wait. Are you… superimposed?"
+	  "text": "Well, if-- wait. Are you... superimposed?"
 	},
 	"id6": {
 	  "mood_expectation": {
@@ -70,7 +70,7 @@
 	  },
 	  "nexts": { "0": "id9", "2": "id10", "4": "id11", "10": "id12" },
 	  "sprite": null,
-	  "text": "Incredible… Quantum mechanics, on a date! You are also on another date, maybe more, yes?"
+	  "text": "Incredible... Quantum mechanics, on a date! You are also on another date, maybe more, yes?"
 	},
 	"id9": {
 	  "mood_expectation": {
@@ -79,7 +79,7 @@
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
 	  "sprite": null,
-	  "text": "I see! Incredible indeed! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow. "
+	  "text": "I see! Incredible indeed! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id10": {
 	  "mood_expectation": {
@@ -88,7 +88,7 @@
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
 	  "sprite": null,
-	  "text": "Well, even still… Incredible! Regardless of my amazement at such innovation, I do hope I can stand out somehow."
+	  "text": "Well, even still... Incredible! Regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id11": {
 	  "mood_expectation": {
@@ -97,7 +97,7 @@
 	  },
 	  "nexts": { "0": "id13", "3": "id14", "4": "id15", "10": "id16" },
 	  "sprite": null,
-	  "text": "I mean, even still… Incredible! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
+	  "text": "I mean, even still... Incredible! Well, regardless of my amazement at such innovation, I do hope I can stand out somehow."
 	},
 	"id12": {
 	  "mood_expectation": {
@@ -115,7 +115,7 @@
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
 	  "sprite": null,
-	  "text": "Excellent! And perhaps I can even get a closer look at such a technological marvel…? "
+	  "text": "Excellent! And perhaps I can even get a closer look at such a technological marvel...? "
 	},
 	"id14": {
 	  "mood_expectation": {
@@ -124,7 +124,7 @@
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
 	  "sprite": null,
-	  "text": "I understand, but still… can I perhaps get a closer look at such a technological marvel? "
+	  "text": "I understand, but still... can I perhaps get a closer look at such a technological marvel? "
 	},
 	"id15": {
 	  "mood_expectation": {
@@ -133,7 +133,7 @@
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
 	  "sprite": null,
-	  "text": "Haha, yes, sure… But I must ask, can I perhaps get a closer look at such a technological marvel?"
+	  "text": "Haha, yes, sure... But I must ask, can I perhaps get a closer look at such a technological marvel?"
 	},
 	"id16": {
 	  "mood_expectation": {
@@ -142,13 +142,13 @@
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
 	  "sprite": null,
-	  "text": "And perhaps I can even get a closer look at such a technological marvel…?"
+	  "text": "And perhaps I can even get a closer look at such a technological marvel...?"
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": null,
-	  "text": "Just spectacular! Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let’s get on with the romantic ritual of cafe dining!"
+	  "text": "Just spectacular! Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 	},
 	"id18": {
 	  "mood_expectation": {},
@@ -160,7 +160,7 @@
 	  "mood_expectation": {},
 	  "nexts": {},
 	  "sprite": null,
-	  "text": "Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let’s get on with the romantic ritual of cafe dining!"
+	  "text": "Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 	}
   }
 }

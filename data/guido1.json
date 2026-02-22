@@ -34,7 +34,7 @@
 	  },
 	  "nexts": { "0": "id6", "1": "id7", "6": "id8", "10": "id9" },
 	  "sprite": "guidodispleased.png",
-	  "text": "Ha ha, yes, of course… Oh, a cat! Is this that Earth thing, a cafe of cats?"
+	  "text": "Ha ha, yes, of course... Oh, a cat! Is this that Earth thing, a cafe of cats?"
 	},
 	"id5": {
 	  "mood_expectation": {
@@ -70,7 +70,7 @@
 	  },
 	  "nexts": { "0": "id10", "3": "id11", "10": "id12" },
 	  "sprite": "guidodispleased.png",
-	  "text": "Oh, um, of course! No one has taken me to either kind of cafe before…"
+	  "text": "Oh, um, of course! No one has taken me to either kind of cafe before..."
 	},
 	"id9": {
 	  "mood_expectation": {
