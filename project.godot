@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://d3hejvnxifxyx"
 [autoload]
 
 MusicPlayer="*uid://bxm0gcb7g7m2a"
+SfxManager="*uid://ihgny4txemup"
 
 [display]
 

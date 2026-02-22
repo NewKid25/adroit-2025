@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnsb8cw6er42y"]
 
 [ext_resource type="Script" uid="uid://bv5u1qrc21avr" path="res://scripts/ui_wowtext.gd" id="1_gnl2n"]
+[ext_resource type="AudioStream" uid="uid://bgm4vn68ng3jq" path="res://assets/sfx/over_funny_reaction.mp3" id="2_5x0hi"]
 
 [node name="TooFar" type="Label" unique_id=699716328]
 anchors_preset = 8
@@ -22,3 +23,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 script = ExtResource("1_gnl2n")
+sound_effect = ExtResource("2_5x0hi")

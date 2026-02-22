@@ -3,7 +3,11 @@ extends Control
 var time = 0.0
 var rot_dir = 0.0
 
+@export var sound_effect:AudioStream
+
 func _ready() -> void:
+	SfxManager.play_sound(sound_effect)
+
 	visible = false
 
 	rot_dir = randf_range(0.5, 2.0)
