@@ -86,6 +86,7 @@ func _ready() -> void:
 	)
 	
 	button.pressed.connect(func(): is_fading_out = true)
+	$GoHomeButton.pressed.connect(go_home)
 
 
 func _process(delta: float):
@@ -110,12 +111,14 @@ func _process(delta: float):
 				is_fading_out = true
 			controller_menu_state += 1
 			highlight_menu_state()
+			UIHelper.joy_shake()
 		if Input.is_action_just_pressed("cancel"):
 			if controller_menu_state != MenuStates.CHARACTER:
 				controller_menu_state -= 1
 				highlight_menu_state()
+				UIHelper.joy_shake()
 			else:
-				get_tree().change_scene_to_file("res://scenes/title.tscn")
+				go_home()
 		if Input.is_action_just_pressed("down"):
 			if controller_menu_state == MenuStates.DATE_NUM:
 				selected_date_index += 1
@@ -248,3 +251,8 @@ func load_date_labels():
 
 func on_date_label_clicked():
 	pass
+
+func go_home():
+	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
+	UIHelper.joy_shake()
+	get_tree().change_scene_to_file("res://scenes/title.tscn")

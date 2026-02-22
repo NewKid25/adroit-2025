@@ -3,6 +3,7 @@ extends Node
 func next_scene():
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
 	MusicPlayer.play()
+	UIHelper.joy_shake()
 
 @onready
 var music: AudioStreamPlayer = $AudioStreamPlayer

@@ -110,6 +110,11 @@ offset_right = 1110.0
 offset_bottom = 1032.0
 text = "DATE!"
 
+[node name="GoHomeButton" parent="." unique_id=388130532 instance=ExtResource("10_16pmm")]
+offset_top = 965.0
+offset_bottom = 1024.0
+text = "Back to title"
+
 [node name="BlackOut" type="ColorRect" parent="." unique_id=1272823264]
 visible = false
 z_index = 1
