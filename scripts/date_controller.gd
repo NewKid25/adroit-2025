@@ -24,6 +24,7 @@ var current_line3: String = ""
 
 var date_deck = Deck.new()
 var outcomes:Array = []
+var loveometers : Array[UILoveometer]
 
 
 func _ready():
@@ -34,6 +35,11 @@ func _ready():
 	current_line2 = conversation2.dialogs.keys()[0]
 	conversation3 = DataService.get_conversation_from_file("res://data/guido1.json")
 	current_line3 = conversation3.dialogs.keys()[0]
+	#get loveometers and associate them with characters
+	loveometers = [$"../Date1/Loveometer", $"../Date3/Loveometer", $"../Date2/Loveometer"]
+	for i in range(3):	
+		GameManager.characters[i].affection_update.connect(loveometers[i].update_love)
+	return
 
 func get_date_number() -> int:
 	return 1
@@ -48,6 +54,7 @@ func begin() -> GameEvent:
 func play_card(card: Card) -> GameEvent:
 	card_removed.emit(card)
 	jump_next(card.mood)
+	GameManager.characters[0].affection = .5
 	card_added.emit(date_deck.cards.pop_front())
 	return get_current_gameevent()
 
