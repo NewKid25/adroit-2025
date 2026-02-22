@@ -7,6 +7,7 @@ signal card_removed(card: Card)
 # TODO: Add emotions here for multiple sprites?
 class ChatEvent:
 	var lines :Array[String] = ["", "", ""]
+	var sprite_paths :Array[String] = ["", "", ""]
 
 class GameEvent:
 	var chat_event: ChatEvent
@@ -62,6 +63,7 @@ func get_current_gameevent() -> GameEvent:
 	for i in range(3):
 		if current_lines[i]:
 			ev.chat_event.lines[i] = conversations[i].dialogs[current_lines[i]].text
+			ev.chat_event.sprite_paths[i] = conversations[i].dialogs[current_lines[i]].sprite
 		else:
 			ev.chat_event.line[i] = ""
 	
