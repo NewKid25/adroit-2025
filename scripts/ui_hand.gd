@@ -37,7 +37,9 @@ func _process(delta: float) -> void:
 		change_selected()
 		animate_cards(delta, false, false)
 		
-		if Input.is_action_just_pressed("play_card"):
+		if Input.is_action_just_pressed("play_card") or \
+			(get_selected_card_node().is_mouse_over and \
+			 Input.is_action_just_pressed("play_card_mouse")):
 			state = UIHandState.CardGoUpToMiddle
 			SfxManager.play_sound(preload("res://assets/sfx/card_use.wav"))
 			card_go_up_timer = 0.0
@@ -217,3 +219,9 @@ func add_card(card: Card) -> void:
 
 func remove_card(card: Card) -> void:
 	get_card_node_by_card(card).queue_free()
+
+func set_selected_to_node(card: UICard) -> void:
+	var idx = card.get_index()
+	if selected != idx:
+		SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
+		selected = idx

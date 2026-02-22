@@ -3,11 +3,20 @@ extends Node2D
 
 var card: Card
 var body_scale: float = 1.0
+var is_mouse_over := false
 
 func _ready():
 	$Body/Centerer/Text.text = card.text
 	scale_text_fit_width($Body/Centerer/Text)
+	$Body/Centerer/Panel.mouse_entered.connect(_on_mouse_entered)
+	$Body/Centerer/Panel.mouse_exited.connect(_on_mouse_exited)
 
+func _on_mouse_entered() -> void:
+	is_mouse_over = true
+	get_parent().set_selected_to_node(self)
+
+func _on_mouse_exited() -> void:
+	is_mouse_over = false
 
 func shake(scl := 1.0) -> void:
 	#$Body.position.x = dir * 15
