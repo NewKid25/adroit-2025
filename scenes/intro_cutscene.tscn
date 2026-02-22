@@ -157,6 +157,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("WhiteGlow:material:shader_parameter/invert")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3438a"]
 resource_name = "cutscene"
@@ -441,6 +453,18 @@ tracks/22/keys = {
 "method": &"next_scene"
 }]
 }
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("WhiteGlow:material:shader_parameter/invert")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wifpd"]
 _data = {
@@ -459,9 +483,10 @@ shader = ExtResource("5_jusdg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pbanw"]
 shader = ExtResource("7_dcu1r")
+shader_parameter/invert = false
 shader_parameter/a = 0.0
-shader_parameter/b = 0.0
-shader_parameter/c = 1.0
+shader_parameter/b = 0.12
+shader_parameter/c = 0.475
 
 [node name="IntroCutscene" type="Node2D" unique_id=1588592665]
 script = ExtResource("1_dw6o5")
@@ -475,7 +500,7 @@ color = Color(0, 0, 0, 1)
 offset_left = 168.0
 offset_top = 145.0
 offset_right = 766.0
-offset_bottom = 204.00801
+offset_bottom = 204.00793
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vuduy")
 theme_override_font_sizes/font_size = 48
@@ -484,16 +509,15 @@ text = "So many fish in the sea..."
 [node name="OneMe" type="Label" parent="." unique_id=27343044]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1150.0
-offset_top = 400.0
+offset_top = 550.0
 offset_right = 1748.0012
-offset_bottom = 459.0039
+offset_bottom = 609.0037
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_vuduy")
 theme_override_font_sizes/font_size = 48
 text = "...but only one me..."
 
 [node name="WhatIf" type="Label" parent="." unique_id=21333450]
-modulate = Color(1, 1, 1, 0)
 offset_left = 460.0
 offset_top = 200.0
 offset_right = 1460.0
@@ -529,7 +553,6 @@ text = "QUANTUM ENTANGLEMENT"
 horizontal_alignment = 1
 
 [node name="Quantum2" type="Label" parent="." unique_id=698026349]
-visible = false
 offset_left = 210.0
 offset_top = 800.0
 offset_right = 1710.0
@@ -565,7 +588,7 @@ material = SubResource("ShaderMaterial_bprnf")
 texture = ExtResource("4_dw6o5")
 
 [node name="WhiteGlow" type="ColorRect" parent="." unique_id=1370778716]
-visible = false
+z_index = 2
 material = SubResource("ShaderMaterial_pbanw")
 anchors_preset = 15
 anchor_right = 1.0

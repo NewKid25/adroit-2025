@@ -5,5 +5,7 @@ func next_scene():
 	MusicPlayer.play()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("play_card") or Input.is_action_just_pressed("play_card_mouse"):
+	UIHelper.debug_fullscreen_toggle_key()
+	
+	if Input.is_action_just_pressed("play_card") or Input.is_action_just_pressed("cancel"):
 		next_scene()
