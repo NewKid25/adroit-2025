@@ -25,12 +25,12 @@ enum UIDS_FocusState {
 
 const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
 	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
-	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_flirty.tscn"),
 	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
-	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
-	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
-	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
-	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_sentimental.tscn"),
+	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_under_sentimental.tscn"),
 }
 
 signal wow_text_complete
@@ -190,7 +190,10 @@ func _process(delta: float) -> void:
 				if wow_texts_character_index == 3:
 					set_state_left()
 			if not state == UIDS_State.SpeakingLeft:
-				spawn_wow(outcome_to_wow_text_scene[controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]])
+				var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
+				print(Enums.CardPlayOutcome.keys()[outcome])
+				if outcome in outcome_to_wow_text_scene.keys():
+					spawn_wow(outcome_to_wow_text_scene[outcome])
 
 	
 	do_focusing(delta)
