@@ -65,9 +65,10 @@ func _ready() -> void:
 	for char:CharSelectBundle in character_list.get_children():
 		char.area.input_event.connect(
 			func(_vp, event, _shape_idx):
-				if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+				if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 					controller_menu_state = MenuStates.DATE_NUM
 					highlight_menu_state()
+					SfxManager.play_sound(preload("res://assets/sfx/card_shuffle.wav"))
 		)
 		char.area.mouse_entered.connect(
 			func():
@@ -75,6 +76,7 @@ func _ready() -> void:
 				highlight_menu_state()
 				selected_char_index = char.char_index
 				highlight_character()
+				SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 		)
 		
 	$WhiteOut.visible = true
@@ -85,7 +87,11 @@ func _ready() -> void:
 			highlight_menu_state()
 	)
 	
-	button.pressed.connect(func(): is_fading_out = true)
+	button.pressed.connect(
+		func(): 
+			is_fading_out = true
+			SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
+	)
 	$GoHomeButton.pressed.connect(go_home)
 
 
@@ -249,13 +255,15 @@ func load_date_labels():
 				selected_date_index = dlabel.get_index()
 				print(selected_date_index)
 				highlight_date_label()
+				SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
 		)
 
 		dlabel.gui_input.connect(
 			func(event):
-				if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+				if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 					controller_menu_state = MenuStates.PLAY
 					highlight_menu_state()
+					SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 		)
 
 
