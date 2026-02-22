@@ -100,6 +100,9 @@ func process_play(mood: Mood) -> void:
 		if Enums.CardPlayOutcome.ALL_SUCCESS in play_outcomes:
 			var score = mood_range.score_mood(mood)
 			GameManager.characters[i].affection += score
+			GameManager.characters[i].cards_correct += 1
+		else:
+			GameManager.characters[i].cards_incorrect += 1
 
 		outcomes.push_back(play_outcomes)
 		current_lines[i] = get_next_line(conversations[i], current_lines[i], mood)
