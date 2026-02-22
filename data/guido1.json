@@ -6,7 +6,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 3.0, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id2", "2": "id3", "4": "id4", "10": "1d5" },
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "This place is very cute... you picked a wonderful place."
 	},
 	"id2": {
@@ -15,7 +15,7 @@
 		"mood_upper_bound": { "flirty": 3, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "1": "id7", "6": "id8", "10": "id9" },
-	  "sprite": null,
+	  "sprite": "guidohappy.png",
 	  "text": "Oh, and it has a cat! Is this that Earth thing, a cafe of cats?"
 	},
 	"id3": {
@@ -24,7 +24,7 @@
 		"mood_upper_bound": { "flirty": 3, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "1": "id7", "6": "id8", "10": "id9" },
-	  "sprite": null,
+	  "sprite": "guido.png",
 	  "text": "Ah, well- Oh, a cat! Is this that Earth thing, a cafe of cats?"
 	},
 	"id4": {
@@ -33,7 +33,7 @@
 		"mood_upper_bound": { "flirty": 3, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "1": "id7", "6": "id8", "10": "id9" },
-	  "sprite": null,
+	  "sprite": "guidodispleased.png",
 	  "text": "Ha ha, yes, of course… Oh, a cat! Is this that Earth thing, a cafe of cats?"
 	},
 	"id5": {
@@ -42,7 +42,7 @@
 		"mood_upper_bound": { "flirty": 3, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id6", "1": "id7", "6": "id8", "10": "id9" },
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "Ooh, look, a cat! Is this that Earth thing, a cafe of cats?"
 	},
 	"id6": {
@@ -51,7 +51,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id10", "3": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "guidohappy.png",
 	  "text": "Ha ha, yes! No one has taken me to either kind of cafe before, I must admit."
 	},
 	"id7": {
@@ -60,7 +60,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id10", "3": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "guido.png",
 	  "text": "Apologies, yes. No one has taken me to either kind of cafe, so I was unsure."
 	},
 	"id8": {
@@ -69,7 +69,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id10", "3": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "guidodispleased.png",
 	  "text": "Oh, um, of course! No one has taken me to either kind of cafe before…"
 	},
 	"id9": {
@@ -78,7 +78,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id10", "3": "id11", "10": "id12" },
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "No one has taken me to either kind of cafe before, I must admit."
 	},
 	"id10": {
@@ -87,7 +87,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "2": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "guidohappy.png",
 	  "text": "Aw, that has very much sweetness! I am happy to be able to visit one with you"
 	},
 	"id11": {
@@ -96,7 +96,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "2": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "guido.png",
 	  "text": "But I am happy to be at one with you, to make my meaning clear."
 	},
 	"id12": {
@@ -105,7 +105,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id13", "2": "id14", "4": "id15", "10": "id16" },
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "I am happy to be able to visit one with you, though!"
 	},
 	"id13": {
@@ -114,7 +114,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "4": "id19", "10": "id20" },
-	  "sprite": null,
+	  "sprite": "guidohappy.png",
 	  "text": "Absolutely! You have been very kind. And proven your keen sense of the right places to get coffee."
 	},
 	"id14": {
@@ -123,7 +123,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "4": "id19", "10": "id20" },
-	  "sprite": null,
+	  "sprite": "guido.png",
 	  "text": "Well, you have been very kind. And proven your keen sense of the right places to get coffee."
 	},
 	"id15": {
@@ -132,7 +132,7 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "4": "id19", "10": "id20" },
-	  "sprite": null,
+	  "sprite": "guidodispleased.png",
 	  "text": "It is no joke, you have been very kind! And proven your keen sense of the right places to get coffee."
 	},
 	"id16": {
@@ -141,32 +141,33 @@
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 5, "sentiment": 1e99999 }
 	  },
 	  "nexts": { "0": "id17", "3": "id18", "4": "id19", "10": "id20" },
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "You have certainly proven your keen sense of the right places to get coffee."
 	},
 	"id17": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "guidohappy.png",
 	  "text": "I feel the same way! Cheers with coffee to that, and each other."
 	},
 	"id18": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "guido.png",
 	  "text": "I really mean this, it is good coffee. Cheers with the good coffee, to each other."
 	},
 	"id19": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "guidodispleased.png",
 	  "text": "I mean this, it is good coffee. Cheers with the good coffee, to each other."
 	},
 	"id20": {
 	  "mood_expectation": {},
 	  "nexts": {},
-	  "sprite": null,
+	  "sprite": "guidopleased.png",
 	  "text": "Cheers with coffee to that, and each other."
 	}
   }
 }
+
