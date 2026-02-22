@@ -323,3 +323,4 @@ bus = &"Sfx"
 [node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("16_v1sbf")]
 offset_top = 965.0
 offset_bottom = 1024.0
+text = "Back to title"
