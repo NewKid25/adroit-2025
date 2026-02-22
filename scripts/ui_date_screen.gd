@@ -159,7 +159,7 @@ func _process(delta: float) -> void:
 			set_state_left()
 	elif state == UIDS_State.AnimatingOut:
 		if not $AnimationPlayer.is_playing():
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://scenes/post_date.tscn")
 	elif state == UIDS_State.SpeakingLeft:
 		speaking_timer += delta * 80
 		$Date1/DateText.text = game_event.chat_event.line1.substr(0, floor(speaking_timer))
