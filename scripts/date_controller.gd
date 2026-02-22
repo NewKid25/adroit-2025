@@ -17,7 +17,7 @@ var DEMO_card_index = 0
 # var conversations : Array[Conversation] = [null, null, null]
 var current_lines : Array[String] = ["", "", ""]
 
-var date_deck = Deck.new()
+var date_deck := Deck.new()
 var outcomes:Array = []
 var loveometers : Array[UILoveometer]
 
