@@ -77,6 +77,7 @@ func on_card_removed(card: Card) -> void:
 
 func on_finish_move(card: Card) -> void:
 	game_event = controller.play_card(card)
+	$FX/CardExplode.emitting = true
 	set_state_wow_text()
 
 func set_state_left():

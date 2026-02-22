@@ -23,6 +23,7 @@
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 [ext_resource type="Script" uid="uid://ihgny4txemup" path="res://scripts/sfx_manager.gd" id="21_gfyte"]
 [ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
+[ext_resource type="Texture2D" uid="uid://ejc7i0ayfyfm" path="res://assets/art/temp_card_particle.png" id="21_o068n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
 shader = ExtResource("7_42wmv")
@@ -41,6 +42,16 @@ shader_parameter/MOVE_SPEED = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdnvl"]
 shader = ExtResource("12_pl322")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gfyte"]
+
+[sub_resource type="Curve" id="Curve_gfyte"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7233093), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_h60h2"]
+offsets = PackedFloat32Array(0, 0.3226601, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.8980392, 1, 1, 1, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjotm"]
 bg_color = Color(0, 0, 0, 1)
@@ -501,6 +512,29 @@ script = ExtResource("9_va3kr")
 [node name="Hand" type="Node2D" parent="." unique_id=404099456]
 position = Vector2(960, 720)
 script = ExtResource("2_7jowm")
+
+[node name="FX" type="Node2D" parent="." unique_id=2050020908]
+
+[node name="CardExplode" type="CPUParticles2D" parent="FX" unique_id=403091823]
+modulate = Color(1, 1, 1, 0.6666667)
+material = SubResource("CanvasItemMaterial_gfyte")
+position = Vector2(960, 540)
+emitting = false
+amount = 30
+texture = ExtResource("21_o068n")
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.56
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+damping_min = 0.557
+damping_max = 1.975
+scale_amount_min = 0.8
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_gfyte")
+color_ramp = SubResource("Gradient_h60h2")
 
 [node name="WowTexts" type="Node2D" parent="." unique_id=640194950]
 z_index = 2
