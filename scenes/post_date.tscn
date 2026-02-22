@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bnueuxo6ldw3l" path="res://scripts/ui_post_date.gd" id="1_101kl"]
 [ext_resource type="Texture2D" uid="uid://dn6u01pyown1q" path="res://assets/art/endscreenbg.png" id="2_semg7"]
-[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_u4h5m"]
+[ext_resource type="Shader" path="res://scenes/title_glow.gdshader" id="2_u4h5m"]
 [ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_2wnl5"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_u4h5m"]
 [ext_resource type="Texture2D" uid="uid://cwq05iu7tfu7w" path="res://assets/art/squareschrodie.png" id="6_ghi1l"]
-[ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="7_jboo6"]
+[ext_resource type="PackedScene" path="res://scenes/loveometer.tscn" id="7_jboo6"]
 [ext_resource type="Texture2D" uid="uid://cfkpgv1ts8mtq" path="res://assets/art/squarepaul.png" id="8_e0wdb"]
 [ext_resource type="Texture2D" uid="uid://6cv0n4y15pe0" path="res://assets/art/squareguido.png" id="9_pc0ql"]
 

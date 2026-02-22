@@ -162,18 +162,18 @@ func _process(delta: float) -> void:
 			get_tree().change_scene_to_file("res://scenes/post_date.tscn")
 	elif state == UIDS_State.SpeakingLeft:
 		speaking_timer += delta * 80
-		$Date1/DateText.text = game_event.chat_event.line1.substr(0, floor(speaking_timer))
-		if speaking_timer > len(game_event.chat_event.line1) + 50:
+		$Date1/DateText.text = game_event.chat_event.lines[0].substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.lines[0]) + 50:
 			set_state_middle()
 	elif state == UIDS_State.SpeakingMiddle:
 		speaking_timer += delta * 80
-		$Date2/DateText.text = game_event.chat_event.line2.substr(0, floor(speaking_timer))
-		if speaking_timer > len(game_event.chat_event.line2) + 50:
+		$Date2/DateText.text = game_event.chat_event.lines[1].substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.lines[1]) + 50:
 			set_state_right()
 	elif state == UIDS_State.SpeakingRight:
 		speaking_timer += delta * 80
-		$Date3/DateText.text = game_event.chat_event.line3.substr(0, floor(speaking_timer))
-		if speaking_timer > len(game_event.chat_event.line3) + 50:
+		$Date3/DateText.text = game_event.chat_event.lines[2].substr(0, floor(speaking_timer))
+		if speaking_timer > len(game_event.chat_event.lines[2]) + 50:
 			if game_event.is_there_more_after_this:
 				set_state_playing()
 			else:
