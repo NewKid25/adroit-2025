@@ -11,6 +11,9 @@ func _process(delta:float):
 
 	position += gravity * delta * SCALAR
 
+	position.x = clampf(position.x, -intensity, intensity)
+	position.y = clampf(position.y, -intensity, intensity)
+
 func reset_shake():
 	intensity = 0
 	position = Vector2.ZERO
