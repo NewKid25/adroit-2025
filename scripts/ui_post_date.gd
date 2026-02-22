@@ -36,7 +36,7 @@ func _ready() -> void:
 					$Center/VBox/Grid/Failed3]
 	for i in range(3):
 		var character = GameManager.characters[i]
-		loveometers[i]._on_update_affection(character.affection, character.goal_affection)
+		loveometers[i].love = character.affection / character.goal_affection
 		loveometer_labels[i].text = str(int(character.affection/character.goal_affection*100)) +"% Affection!"
 		success_labels[i].text = str(character.cards_correct)
 		fail_labels[i].text = str(character.cards_incorrect)

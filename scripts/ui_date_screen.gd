@@ -172,6 +172,7 @@ func _process(delta: float) -> void:
 	if state == UIDS_State.DateIntro:
 		game_event = controller.begin()
 		hand.skip_anim_next_frame = true
+		update_loveometers()
 		add_stashed_cards()
 		set_state_animating_in()
 	elif state == UIDS_State.AnimatingIn:
@@ -215,10 +216,10 @@ func _process(delta: float) -> void:
 			if not state == UIDS_State.SpeakingLeft:
 				var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
 				print(Enums.CardPlayOutcome.keys()[outcome])
+				update_loveometers_idx(wow_texts_character_index)
 				if outcome in outcome_to_wow_text_scene.keys():
 					spawn_wow(outcome_to_wow_text_scene[outcome])
 
-	
 	do_focusing(delta)
 	
 	skip_anim_next_frame = false
@@ -267,3 +268,18 @@ func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33)
 	if (label.has_theme_font_size_override("font_size")):
 		label.remove_theme_font_size_override("font_size")
 	label.add_theme_font_size_override("font_size", font_size)
+
+@onready
+var loveometers: Array[UILoveometer] = [
+	$Date1/Loveometer,
+	$Date2/Loveometer,
+	$Date3/Loveometer
+]
+
+func update_loveometers_idx(idx: int) -> void:
+	loveometers[idx].love = GameManager.characters[idx].affection / GameManager.characters[idx].goal_affection
+
+func update_loveometers() -> void:
+	update_loveometers_idx(0)
+	update_loveometers_idx(1)
+	update_loveometers_idx(2)

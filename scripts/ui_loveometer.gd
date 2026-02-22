@@ -5,9 +5,6 @@ var love := 0.0
 @export
 var skip_anim_next := true
 
-func _on_update_affection(affection:float, goal_affection):
-	love=affection/goal_affection
-
 func _ready() -> void:
 	value = 0
 
