@@ -1,0 +1,576 @@
+[gd_scene format=3 uid="uid://lnmu00vm67me"]
+
+[ext_resource type="Script" uid="uid://d14820u7qa0y5" path="res://scripts/intro_cutscene.gd" id="1_dw6o5"]
+[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="1_vuduy"]
+[ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="2_juow0"]
+[ext_resource type="Script" uid="uid://pvgg1gmw0bgf" path="res://scripts/intro_orbs.gd" id="3_wifpd"]
+[ext_resource type="Texture2D" uid="uid://thlo2jccghtb" path="res://assets/art/Circle.svg" id="4_dw6o5"]
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="5_jusdg"]
+[ext_resource type="Shader" uid="uid://b4fnpw3nu27nl" path="res://scenes/glow_shader.gdshader" id="7_dcu1r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3438a"]
+shader = ExtResource("2_juow0")
+shader_parameter/scale = 1.0
+
+[sub_resource type="Animation" id="Animation_juow0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 145)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WhatIf2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Orbs:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1080)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Orbs/Orbshake:intensity")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Orbs/Orbshake/Orb1:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Orbs/Orbshake/Orb1:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Orbs:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Orbs:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BlackOut:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Quantum:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Quantum:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3438a"]
+resource_name = "cutscene"
+length = 18.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fish:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, 145), Vector2(168, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fish:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 3.7, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OneMe:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1150, 400), Vector2(1150, 550)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OneMe:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4, 4.8, 7.7, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WhatIf:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8, 8.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WhatIf2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(10.5, 11.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Orbs:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 1080), Vector2(960, 540)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Orbs/Orbshake:intensity")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(7.5, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.0]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = false
+tracks/8/path = NodePath("Orbs/Orbshake")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(13),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_shake"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Orbs/Orbshake/Orb1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(13, 13.5, 14.25, 17),
+"transitions": PackedFloat32Array(1, 1, 5.8563395, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(692, 400), Vector2(692, 400), Vector2(10392.305, 6000)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Orbs/Orbshake/Orb1:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(13, 13.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6)]
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Orbs:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(0, -0.24748263, -13.302002, 0.111629486, 6, 11, -0.20709515, -1, 0.20709515, 1, 20, -0.30709553, -7, 0, 0),
+"times": PackedFloat32Array(13, 14, 17)
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Orbs:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BlackOut:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Quantum:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Quantum2:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Orbs/Orbshake/Orb2:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(13, 13.5, 14.25, 17),
+"transitions": PackedFloat32Array(1, 1, 5.8563395, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -800), Vector2(0, -800), Vector2(0, -12000)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Orbs/Orbshake/Orb2:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(13, 13.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Orbs/Orbshake/Orb3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(13, 13.5, 14.25, 17),
+"transitions": PackedFloat32Array(1, 1, 5.8563395, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-692.82, 400), Vector2(-692.82, 400), Vector2(-10392.305, 6000)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Orbs/Orbshake/Orb3:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(13, 13.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Quantum:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(15.8, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Quantum2:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(15.8, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/22/type = "method"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath(".")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(18),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wifpd"]
+_data = {
+&"RESET": SubResource("Animation_juow0"),
+&"cutscene": SubResource("Animation_3438a")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_on3y1"]
+shader = ExtResource("5_jusdg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wo2cs"]
+shader = ExtResource("5_jusdg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bprnf"]
+shader = ExtResource("5_jusdg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbanw"]
+shader = ExtResource("7_dcu1r")
+shader_parameter/a = 0.0
+shader_parameter/b = 0.0
+shader_parameter/c = 1.0
+
+[node name="IntroCutscene" type="Node2D" unique_id=1588592665]
+script = ExtResource("1_dw6o5")
+
+[node name="BlackOut" type="ColorRect" parent="." unique_id=1232313808]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Fish" type="Label" parent="." unique_id=773644935]
+offset_left = 168.0
+offset_top = 145.0
+offset_right = 766.0
+offset_bottom = 204.00801
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 48
+text = "So many fish in the sea..."
+
+[node name="OneMe" type="Label" parent="." unique_id=27343044]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1150.0
+offset_top = 400.0
+offset_right = 1748.0012
+offset_bottom = 459.0039
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 48
+text = "...but only one me..."
+
+[node name="WhatIf" type="Label" parent="." unique_id=21333450]
+modulate = Color(1, 1, 1, 0)
+offset_left = 460.0
+offset_top = 200.0
+offset_right = 1460.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 80
+text = "What if I..."
+horizontal_alignment = 1
+
+[node name="WhatIf2" type="Label" parent="." unique_id=1056236160]
+material = SubResource("ShaderMaterial_3438a")
+offset_left = 460.0
+offset_top = 750.0
+offset_right = 1460.0
+offset_bottom = 947.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 80
+text = "...could be in multiple
+places at ONCE?"
+horizontal_alignment = 1
+
+[node name="Quantum" type="Label" parent="." unique_id=684061291]
+offset_left = 210.0
+offset_top = 200.0
+offset_right = 1710.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 80
+text = "QUANTUM ENTANGLEMENT"
+horizontal_alignment = 1
+
+[node name="Quantum2" type="Label" parent="." unique_id=698026349]
+visible = false
+offset_left = 210.0
+offset_top = 800.0
+offset_right = 1710.0
+offset_bottom = 897.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_vuduy")
+theme_override_font_sizes/font_size = 80
+text = "ACTIVATED"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=983713916]
+libraries/ = SubResource("AnimationLibrary_wifpd")
+autoplay = &"cutscene"
+
+[node name="Orbs" type="Node2D" parent="." unique_id=1964839259]
+position = Vector2(960, 1080)
+scale = Vector2(0.1, 0.1)
+
+[node name="Orbshake" type="Node2D" parent="Orbs" unique_id=1102740044]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_wifpd")
+
+[node name="Orb1" type="Sprite2D" parent="Orbs/Orbshake" unique_id=314129811]
+material = SubResource("ShaderMaterial_on3y1")
+texture = ExtResource("4_dw6o5")
+
+[node name="Orb2" type="Sprite2D" parent="Orbs/Orbshake" unique_id=1911861035]
+material = SubResource("ShaderMaterial_wo2cs")
+texture = ExtResource("4_dw6o5")
+
+[node name="Orb3" type="Sprite2D" parent="Orbs/Orbshake" unique_id=58493526]
+material = SubResource("ShaderMaterial_bprnf")
+texture = ExtResource("4_dw6o5")
+
+[node name="WhiteGlow" type="ColorRect" parent="." unique_id=1370778716]
+visible = false
+material = SubResource("ShaderMaterial_pbanw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2

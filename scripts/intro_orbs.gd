@@ -1,0 +1,16 @@
+extends Node2D
+
+@export var intensity:float = 0
+
+const SCALAR:float = 200
+
+func _process(delta:float):
+	
+	var gravity := position * -1
+	gravity += Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
+
+	position += gravity * delta * SCALAR
+
+func reset_shake():
+	intensity = 0
+	position = Vector2.ZERO

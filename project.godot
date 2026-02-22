@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="adroit-2025"
-run/main_scene="uid://bl5fjw0bvxoik"
+run/main_scene="uid://lnmu00vm67me"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.20392157, 0.38431373, 0.5411765, 1)
 boot_splash/stretch_mode=0
@@ -95,6 +95,4 @@ play_card_mouse={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 anti_aliasing/quality/msaa_2d=1
