@@ -24,7 +24,7 @@ bg_color = Color(0.9019608, 0.45490196, 0.4627451, 1)
 corner_radius_top_left = 5
 corner_radius_bottom_left = 5
 
-[node name="Loveometer1" type="ProgressBar" unique_id=804945615]
+[node name="Loveometer" type="ProgressBar" unique_id=804945615]
 offset_right = 280.0
 offset_bottom = 40.0
 theme_override_styles/background = SubResource("StyleBoxFlat_rdxra")

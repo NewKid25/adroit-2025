@@ -33,6 +33,12 @@ theme_override_fonts/font = SubResource("SystemFont_yql1r")
 theme_override_font_sizes/font_size = 80
 text = "DATE!"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=628111390]
+[node name="WhiteOut" type="ColorRect" parent="." unique_id=628111390]
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="BlackOut" type="ColorRect" parent="." unique_id=1159998034]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)

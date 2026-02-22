@@ -5,9 +5,17 @@
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="2_u4h5m"]
 [ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_2wnl5"]
 [ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_u4h5m"]
+[ext_resource type="Texture2D" uid="uid://cwq05iu7tfu7w" path="res://assets/art/squareschrodie.png" id="6_ghi1l"]
+[ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="7_jboo6"]
+[ext_resource type="Texture2D" uid="uid://cfkpgv1ts8mtq" path="res://assets/art/squarepaul.png" id="8_e0wdb"]
+[ext_resource type="Texture2D" uid="uid://6cv0n4y15pe0" path="res://assets/art/squareguido.png" id="9_pc0ql"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4v5"]
 shader = ExtResource("2_u4h5m")
+
+[sub_resource type="SystemFont" id="SystemFont_ahfw1"]
+font_names = PackedStringArray("Arial")
+font_weight = 600
 
 [node name="Node2D" type="Node2D" unique_id=67385496]
 script = ExtResource("1_101kl")
@@ -38,3 +46,207 @@ z_index = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=741624414]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Grid" type="GridContainer" parent="Center" unique_id=1378588264]
+layout_mode = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 16
+columns = 5
+
+[node name="Padding1" type="Control" parent="Center/Grid" unique_id=1053882872]
+layout_mode = 2
+
+[node name="Padding2" type="Control" parent="Center/Grid" unique_id=316459983]
+layout_mode = 2
+
+[node name="Padding3" type="Control" parent="Center/Grid" unique_id=291392534]
+layout_mode = 2
+
+[node name="LoveText2" type="Label" parent="Center/Grid" unique_id=183351026]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "Successful
+Cards"
+horizontal_alignment = 1
+
+[node name="LoveText3" type="Label" parent="Center/Grid" unique_id=7227844]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "Failed
+Cards"
+horizontal_alignment = 1
+
+[node name="Character1" type="VBoxContainer" parent="Center/Grid" unique_id=1842187275]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sprite" type="Label" parent="Center/Grid/Character1" unique_id=1160670659]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_font_sizes/font_size = 24
+text = "Schrodie"
+horizontal_alignment = 1
+
+[node name="Name" type="TextureRect" parent="Center/Grid/Character1" unique_id=442377377]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("6_ghi1l")
+expand_mode = 2
+
+[node name="Padding" type="Control" parent="Center/Grid/Character1" unique_id=801092907]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+
+[node name="Loveometer1" parent="Center/Grid" unique_id=804945615 instance=ExtResource("7_jboo6")]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LoveText1" type="Label" parent="Center/Grid" unique_id=1845965367]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "100% Love!"
+horizontal_alignment = 1
+
+[node name="Successful1" type="Label" parent="Center/Grid" unique_id=874912642]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="Failed1" type="Label" parent="Center/Grid" unique_id=731009012]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="Character2" type="VBoxContainer" parent="Center/Grid" unique_id=1759823262]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sprite" type="Label" parent="Center/Grid/Character2" unique_id=799253131]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_font_sizes/font_size = 24
+text = "Paul Rudd"
+horizontal_alignment = 1
+
+[node name="Name" type="TextureRect" parent="Center/Grid/Character2" unique_id=737414853]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("8_e0wdb")
+expand_mode = 2
+
+[node name="Padding" type="Control" parent="Center/Grid/Character2" unique_id=2128996056]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+
+[node name="Loveometer2" parent="Center/Grid" unique_id=1359558812 instance=ExtResource("7_jboo6")]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LoveText4" type="Label" parent="Center/Grid" unique_id=1382614757]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "100% Love!"
+horizontal_alignment = 1
+
+[node name="Successful2" type="Label" parent="Center/Grid" unique_id=1956034689]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="Failed2" type="Label" parent="Center/Grid" unique_id=1056596391]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="Character3" type="VBoxContainer" parent="Center/Grid" unique_id=1930451713]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Sprite" type="Label" parent="Center/Grid/Character3" unique_id=2095452755]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_ahfw1")
+theme_override_font_sizes/font_size = 24
+text = "Guido"
+horizontal_alignment = 1
+
+[node name="Name" type="TextureRect" parent="Center/Grid/Character3" unique_id=351939093]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("9_pc0ql")
+expand_mode = 2
+
+[node name="Padding" type="Control" parent="Center/Grid/Character3" unique_id=1228077002]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+
+[node name="Loveometer3" parent="Center/Grid" unique_id=1223596954 instance=ExtResource("7_jboo6")]
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LoveText5" type="Label" parent="Center/Grid" unique_id=1292044616]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "100% Love!"
+horizontal_alignment = 1
+
+[node name="Successful3" type="Label" parent="Center/Grid" unique_id=111665314]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+
+[node name="Failed3" type="Label" parent="Center/Grid" unique_id=755563372]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
