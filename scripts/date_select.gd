@@ -76,6 +76,8 @@ func _ready() -> void:
 				selected_char_index = char.char_index
 				highlight_character()
 		)
+		
+		$WhiteOut.visible = true
 
 	button.mouse_entered.connect(
 		func(): 
@@ -87,6 +89,8 @@ func _ready() -> void:
 
 
 func _process(delta: float):
+	$WhiteOut.color.a -= delta
+	
 	if is_fading_out:
 		fade_timer -= delta
 		$BlackOut.modulate = Color(1, 1, 1, 1 - fade_timer)
@@ -99,7 +103,6 @@ func _process(delta: float):
 				GameManager.characters[i].profile_image = characters[selected_char_index].date_numbers[selected_date_index].profile_images[i]
 
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
-
 	else:	
 		if Input.is_action_just_pressed("play_card"):
 			if controller_menu_state == MenuStates.PLAY:
@@ -123,6 +126,19 @@ func _process(delta: float):
 			if controller_menu_state == MenuStates.CHARACTER:
 				selected_char_index -= 1
 				highlight_character()
+	
+	# LERPS!!!
+	date_labels.position.x = lerp(
+		date_labels.position.x,
+		192.0 if controller_menu_state >= MenuStates.DATE_NUM else -550.0,
+		delta * 10
+	)
+	date_labels.position.y = lerp(
+		date_labels.position.y,
+		576.0 - selected_date_index * 140,
+		delta * 7.0
+	)
+	
 
 
 func highlight_menu_state():
@@ -131,6 +147,7 @@ func highlight_menu_state():
 	if controller_menu_state == MenuStates.CHARACTER:
 		print("yeah modulatin the date labels out")
 		var tween := create_tween()
+		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(character_list, "modulate", Color("#ffffff"), TWEEN_DURATION)
 		tween.parallel().tween_property(date_labels, "modulate", Color("#adadad"), TWEEN_DURATION)
 		tween.parallel().tween_property(button, "modulate", Color("#adadad"), TWEEN_DURATION)
@@ -138,12 +155,14 @@ func highlight_menu_state():
 		print("yeah modulatin the char list out")
 		highlight_date_label()
 		var tween := create_tween()
+		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(character_list, "modulate", Color("#adadad"), TWEEN_DURATION)
 		tween.parallel().tween_property(date_labels, "modulate", Color("#ffffff"), TWEEN_DURATION)
 		tween.parallel().tween_property(button, "modulate", Color("#adadad"), TWEEN_DURATION)
 	if controller_menu_state == MenuStates.PLAY:
 		print("yeah modulatin the both")
 		var tween := create_tween()
+		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(character_list, "modulate", Color("#adadad"), TWEEN_DURATION)
 		tween.parallel().tween_property(date_labels, "modulate", Color("#adadad"), TWEEN_DURATION)
 		tween.parallel().tween_property(button, "modulate", Color("#ffffff"), TWEEN_DURATION)
@@ -159,11 +178,13 @@ func highlight_date_label():
 	for child in date_labels.get_children():
 		if child.get_index() == selected_date_index:
 			var tween := create_tween()
+			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .9, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#ffffff"), TWEEN_DURATION)
 			tween.parallel().tween_property(child, "position.x", -80, TWEEN_DURATION)
 		else:
 			var tween := create_tween()
+			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .8, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#adadad"), TWEEN_DURATION)
 			tween.parallel().tween_property(child, "position.x", -90, TWEEN_DURATION)
@@ -195,7 +216,6 @@ func highlight_character():
 func load_date_labels():
 	for child in date_labels.get_children():
 		child.queue_free()
-		remove_child(child)
 	var y_pos = 0
 	for date in characters[selected_char_index].date_numbers:
 		var dlabel : Label = preload("res://scenes/date_select_label.tscn").instantiate()
