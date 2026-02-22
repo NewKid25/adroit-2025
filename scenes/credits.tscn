@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://hfv88u4wsc7o"]
+
+[ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="1_2fbfq"]
+[ext_resource type="Script" uid="uid://di127k5r1fybt" path="res://scripts/ui_credits.gd" id="1_kyhnv"]
+[ext_resource type="Texture2D" uid="uid://dn6u01pyown1q" path="res://assets/art/endscreenbg.png" id="2_8gwij"]
+[ext_resource type="Texture2D" uid="uid://cclf34sy5xbdy" path="res://assets/art/atomlarger.png" id="3_mah5v"]
+[ext_resource type="Script" uid="uid://bnjia7hs1cdkx" path="res://scripts/ui_atom.gd" id="4_kyhnv"]
+[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="5_mah5v"]
+[ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="6_kyhnv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooihk"]
+shader = ExtResource("1_2fbfq")
+
+[node name="Node2D" type="Node2D" unique_id=948391177]
+script = ExtResource("1_kyhnv")
+
+[node name="Endscreenbg" type="Sprite2D" parent="." unique_id=1686558477]
+material = SubResource("ShaderMaterial_ooihk")
+texture = ExtResource("2_8gwij")
+centered = false
+
+[node name="Atomlarger" type="Sprite2D" parent="Endscreenbg" unique_id=697179249]
+position = Vector2(158, 192)
+texture = ExtResource("3_mah5v")
+script = ExtResource("4_kyhnv")
+speed_mod = 1.3
+
+[node name="Atomlarger2" type="Sprite2D" parent="Endscreenbg" unique_id=1838476603]
+position = Vector2(1819, 964)
+texture = ExtResource("3_mah5v")
+script = ExtResource("4_kyhnv")
+inverted = true
+speed_mod = 1.6
+
+[node name="Label" type="Label" parent="." unique_id=1543608478]
+offset_left = 834.0
+offset_top = 188.0
+offset_right = 1467.0
+offset_bottom = 285.0
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 80
+text = "CRreiditiitiss :)"
+
+[node name="Label2" type="Label" parent="." unique_id=1697929738]
+offset_left = 483.0
+offset_top = 387.0
+offset_right = 1116.0
+offset_bottom = 484.0
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("6_kyhnv")
+theme_override_font_sizes/font_size = 50
+text = "hi :)"
+
+[node name="WhiteOut" type="ColorRect" parent="." unique_id=185744516]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0

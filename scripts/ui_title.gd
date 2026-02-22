@@ -19,13 +19,23 @@ func _process(delta: float) -> void:
 		if fade_time >= 1.0:
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
 		$BlackOut.modulate.a = fade_time
-	elif not $AnimationPlayer.is_playing():
+	#elif not $AnimationPlayer.is_playing():
+	else:
 		if Input.is_action_just_pressed("play_card"):
-			fading_out = true
+			$AnimationPlayer.seek(1000, true)
+			if selected_menu_option == 0:
+				fading_out = true
+			else:
+				get_tree().change_scene_to_file("res://scenes/credits.tscn")
+			SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
 		elif Input.is_action_just_pressed("down") or Input.is_action_just_pressed("right"):
 			selected_menu_option = 1
+			$AnimationPlayer.seek(1000, true)
 			$AnimationPlayer.play("select_credits")
+			SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 
 		elif Input.is_action_just_pressed("up") or Input.is_action_just_pressed("left"):
 			selected_menu_option = 0
+			$AnimationPlayer.seek(1000, true)
 			$AnimationPlayer.play("select_play")
+			SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
