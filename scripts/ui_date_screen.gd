@@ -187,6 +187,7 @@ func _process(delta: float) -> void:
 		set_left_sprite()
 		set_middle_sprite()
 		set_right_sprite()
+		set_names()
 		add_stashed_cards()
 		set_state_animating_in()
 	elif state == UIDS_State.AnimatingIn:
@@ -297,3 +298,8 @@ func update_loveometers() -> void:
 	update_loveometers_idx(0)
 	update_loveometers_idx(1)
 	update_loveometers_idx(2)
+
+func set_names() -> void:
+	$Date1/DateName.text = GameManager.characters[0].displayed_name
+	$Date2/DateName.text = GameManager.characters[1].displayed_name
+	$Date3/DateName.text = GameManager.characters[2].displayed_name

@@ -8,3 +8,6 @@ var cards_correct:int = 0
 var cards_incorrect:int = 0
 
 var conversation:Conversation
+
+var displayed_name: String
+var profile_image: Texture2D

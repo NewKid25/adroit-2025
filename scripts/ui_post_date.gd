@@ -13,6 +13,8 @@ var viscount := 0
 
 var lock_out_time := 3.0
 
+var displayed_names : Array[Label] = [null, null, null]
+var profiles : Array[TextureRect] = [null, null, null]
 var loveometers : Array[UILoveometer] =[null, null, null]
 var loveometer_labels : Array[Label] = [null, null, null]
 var success_labels :  Array[Label] = [null, null, null]
@@ -22,6 +24,12 @@ var fail_labels :  Array[Label] = [null, null, null]
 var to_show = []
 
 func _ready() -> void:
+	displayed_names = [$Center/VBox/Grid/Character1/Sprite,
+						$Center/VBox/Grid/Character2/Sprite,
+						$Center/VBox/Grid/Character3/Sprite]
+	profiles = [$Center/VBox/Grid/Character1/Name,
+				$Center/VBox/Grid/Character2/Name,
+				$Center/VBox/Grid/Character3/Name]
 	loveometers = [$Center/VBox/Grid/Loveometer1,
 					$Center/VBox/Grid/Loveometer2,
 					$Center/VBox/Grid/Loveometer3]
@@ -34,8 +42,11 @@ func _ready() -> void:
 	fail_labels = [$Center/VBox/Grid/Failed1,
 					$Center/VBox/Grid/Failed2,
 					$Center/VBox/Grid/Failed3]
+	
 	for i in range(3):
 		var character = GameManager.characters[i]
+		displayed_names[i].text = character.displayed_name
+		profiles[i].texture = character.profile_image
 		loveometers[i].love = character.affection / character.goal_affection
 		loveometer_labels[i].text = str(int(character.affection/character.goal_affection*100)) +"% Affection!"
 		success_labels[i].text = str(character.cards_correct)

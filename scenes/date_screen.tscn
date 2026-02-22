@@ -34,6 +34,24 @@ shader_parameter/scale = 1.0
 fallbacks = Array[Font]([ExtResource("10_h60h2")])
 base_font = ExtResource("9_gfyte")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ievts"]
+shader = ExtResource("7_42wmv")
+shader_parameter/scale = 0.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ievts"]
+bg_color = Color(0.9372549, 0.8784314, 0.8039216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.32941177, 0.23137255, 0.1764706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjotm"]
 shader = ExtResource("7_mjotm")
 shader_parameter/MOVE_SPEED = -1.0
@@ -408,6 +426,21 @@ theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
 visible_characters_behavior = 1
 
+[node name="DateName" type="Label" parent="Date1" unique_id=944874105]
+material = SubResource("ShaderMaterial_ievts")
+offset_left = 56.0
+offset_top = 438.0
+offset_right = 119.0
+offset_bottom = 479.0
+theme_override_colors/font_shadow_color = Color(0.19793817, 0.12825999, 0.08692192, 1)
+theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = SubResource("FontVariation_o068n")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ievts")
+text = "Guido"
+visible_characters_behavior = 1
+
 [node name="Date3" type="Node2D" parent="." unique_id=694699396]
 position = Vector2(1280, 0)
 
@@ -444,6 +477,23 @@ theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
 visible_characters_behavior = 1
 
+[node name="DateName" type="Label" parent="Date3" unique_id=211938371]
+material = SubResource("ShaderMaterial_ievts")
+offset_left = 56.0
+offset_top = 438.0
+offset_right = 119.0
+offset_bottom = 479.0
+theme_override_colors/font_shadow_color = Color(0.19793817, 0.12825999, 0.08692192, 1)
+theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = SubResource("FontVariation_o068n")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ievts")
+text = "Guido"
+visible_characters_behavior = 1
+
 [node name="Date2" type="Node2D" parent="." unique_id=939320485]
 position = Vector2(640, 0)
 
@@ -478,6 +528,23 @@ theme_override_constants/outline_size = 17
 theme_override_fonts/font = SubResource("FontVariation_o068n")
 theme_override_font_sizes/font_size = 33
 autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="DateName" type="Label" parent="Date2" unique_id=400322326]
+material = SubResource("ShaderMaterial_ievts")
+offset_left = 56.0
+offset_top = 438.0
+offset_right = 119.0
+offset_bottom = 479.0
+theme_override_colors/font_shadow_color = Color(0.19793817, 0.12825999, 0.08692192, 1)
+theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = SubResource("FontVariation_o068n")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ievts")
+text = "Guido"
 visible_characters_behavior = 1
 
 [node name="EnergyBeams" type="Node2D" parent="." unique_id=805464923]
