@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_nfe8y"]
 [ext_resource type="Texture2D" uid="uid://8r7bj03j403n" path="res://assets/art/guido.png" id="5_6n4xi"]
 [ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="7_42wmv"]
+[ext_resource type="Texture2D" uid="uid://cs22pxk547kae" path="res://assets/art/textboxbordered.png" id="7_ievts"]
 [ext_resource type="Shader" uid="uid://ecdf7lh41ynu" path="res://scenes/date_screen.gdshader" id="7_mjotm"]
 [ext_resource type="Script" uid="uid://djuym5m1maudx" path="res://scripts/ui_character_wave.gd" id="7_wgmu0"]
 [ext_resource type="Texture2D" uid="uid://dgdbyryly1unx" path="res://assets/art/atom.png" id="8_6n4xi"]
-[ext_resource type="Texture2D" uid="uid://mayquytyxocg" path="res://assets/art/textboxsize.png" id="8_h3ygb"]
 [ext_resource type="Texture2D" uid="uid://dnxo4sp6u1msf" path="res://assets/art/energyborder.png" id="8_mjotm"]
 [ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="8_pdnvl"]
 [ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="9_gfyte"]
@@ -411,7 +411,7 @@ offset_bottom = 71.0
 
 [node name="Textbox" type="Sprite2D" parent="Date1" unique_id=2132786315]
 position = Vector2(320, 583)
-texture = ExtResource("8_h3ygb")
+texture = ExtResource("7_ievts")
 
 [node name="DateText" type="Label" parent="Date1" unique_id=464429696]
 material = SubResource("ShaderMaterial_pl322")
@@ -462,7 +462,7 @@ offset_bottom = 71.0
 
 [node name="Textbox" type="Sprite2D" parent="Date3" unique_id=1439245815]
 position = Vector2(320, 583)
-texture = ExtResource("8_h3ygb")
+texture = ExtResource("7_ievts")
 
 [node name="DateText" type="Label" parent="Date3" unique_id=1148350856]
 material = SubResource("ShaderMaterial_pl322")
@@ -515,7 +515,7 @@ offset_bottom = 71.0
 
 [node name="Textbox" type="Sprite2D" parent="Date2" unique_id=346796004]
 position = Vector2(320, 583)
-texture = ExtResource("8_h3ygb")
+texture = ExtResource("7_ievts")
 
 [node name="DateText" type="Label" parent="Date2" unique_id=938776797]
 material = SubResource("ShaderMaterial_pl322")

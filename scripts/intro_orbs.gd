@@ -10,6 +10,8 @@ func _process(delta:float):
 	gravity += Vector2(randf_range(-intensity, intensity), randf_range(-intensity, intensity))
 
 	position += gravity * delta * SCALAR
+	position.x = clamp(position.x, -intensity, intensity)
+	position.y = clamp(position.y, -intensity, intensity)
 
 func reset_shake():
 	intensity = 0
