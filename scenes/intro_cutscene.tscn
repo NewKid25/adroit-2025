@@ -550,7 +550,7 @@ offset_bottom = 297.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_vuduy")
 theme_override_font_sizes/font_size = 80
-text = "QUANTUM ENTANGLEMENT"
+text = "QUANTUM SUPERPOSITION"
 horizontal_alignment = 1
 
 [node name="Quantum2" type="Label" parent="." unique_id=698026349]
