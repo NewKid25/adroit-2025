@@ -23,12 +23,12 @@
 [ext_resource type="FontFile" uid="uid://c82h0qhyq53lc" path="res://assets/Arvo-Regular.ttf" id="10_h60h2"]
 [ext_resource type="Shader" uid="uid://8b6kraljq881" path="res://scenes/title_glow.gdshader" id="12_pl322"]
 [ext_resource type="Script" uid="uid://ihgny4txemup" path="res://scripts/sfx_manager.gd" id="21_gfyte"]
-[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
 [ext_resource type="Texture2D" uid="uid://ejc7i0ayfyfm" path="res://assets/art/temp_card_particle.png" id="21_o068n"]
+[ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="22_o068n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pl322"]
 shader = ExtResource("7_42wmv")
-shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/scale = 1.0
 
 [sub_resource type="FontVariation" id="FontVariation_o068n"]
 fallbacks = Array[Font]([ExtResource("10_h60h2")])
@@ -400,7 +400,7 @@ material = SubResource("ShaderMaterial_pl322")
 offset_left = 64.0
 offset_top = 499.0
 offset_right = 576.0
-offset_bottom = 666.0
+offset_bottom = 654.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
 theme_override_fonts/font = SubResource("FontVariation_o068n")
@@ -436,7 +436,7 @@ material = SubResource("ShaderMaterial_pl322")
 offset_left = 64.0
 offset_top = 499.0
 offset_right = 576.0
-offset_bottom = 666.0
+offset_bottom = 655.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
 theme_override_fonts/font = SubResource("FontVariation_o068n")
@@ -472,7 +472,7 @@ material = SubResource("ShaderMaterial_pl322")
 offset_left = 64.0
 offset_top = 499.0
 offset_right = 576.0
-offset_bottom = 666.0
+offset_bottom = 658.0
 theme_override_colors/font_outline_color = Color(0.33333334, 0.22745098, 0.16470589, 1)
 theme_override_constants/outline_size = 17
 theme_override_fonts/font = SubResource("FontVariation_o068n")

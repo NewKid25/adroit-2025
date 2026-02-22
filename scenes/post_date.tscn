@@ -8,15 +8,27 @@
 [ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="6_ahfw1"]
 [ext_resource type="Texture2D" uid="uid://cwq05iu7tfu7w" path="res://assets/art/squareschrodie.png" id="6_ghi1l"]
 [ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="7_elbml"]
+[ext_resource type="Shader" uid="uid://c3q7s6tgx1c18" path="res://scenes/wavy_text.gdshader" id="7_hulum"]
 [ext_resource type="PackedScene" uid="uid://bnl0sk8ytdmst" path="res://scenes/loveometer.tscn" id="7_jboo6"]
 [ext_resource type="Texture2D" uid="uid://cfkpgv1ts8mtq" path="res://assets/art/squarepaul.png" id="8_e0wdb"]
 [ext_resource type="Texture2D" uid="uid://6cv0n4y15pe0" path="res://assets/art/squareguido.png" id="9_pc0ql"]
+[ext_resource type="AudioStream" uid="uid://dyg01prrgko24" path="res://assets/sfx/default_reaction.wav" id="13_defhk"]
+[ext_resource type="AudioStream" uid="uid://33aqswnk8aw7" path="res://assets/sfx/all_success_reaction.wav" id="14_v1sbf"]
+[ext_resource type="AudioStream" uid="uid://db60njj8v5x3p" path="res://assets/sfx/over_sentiment_reaction.wav" id="15_us76w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4v5"]
 shader = ExtResource("2_u4h5m")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elbml"]
+shader = ExtResource("7_hulum")
+shader_parameter/scale = 1.0
+
 [sub_resource type="FontVariation" id="FontVariation_hulum"]
 base_font = ExtResource("6_ahfw1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3xql"]
+shader = ExtResource("7_hulum")
+shader_parameter/scale = 1.0
 
 [sub_resource type="FontVariation" id="FontVariation_c3xql"]
 base_font = ExtResource("7_elbml")
@@ -61,6 +73,7 @@ layout_mode = 2
 theme_override_constants/separation = 64
 
 [node name="Label" type="Label" parent="Center/VBox" unique_id=1311389535]
+material = SubResource("ShaderMaterial_elbml")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.1764706, 1)
 theme_override_constants/outline_size = 20
@@ -85,6 +98,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="LoveText2" type="Label" parent="Center/VBox/Grid" unique_id=183351026]
+material = SubResource("ShaderMaterial_c3xql")
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
@@ -96,6 +110,7 @@ Cards"
 horizontal_alignment = 1
 
 [node name="LoveText3" type="Label" parent="Center/VBox/Grid" unique_id=7227844]
+material = SubResource("ShaderMaterial_c3xql")
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
@@ -138,6 +153,7 @@ size_flags_vertical = 4
 skip_anim_next = false
 
 [node name="LoveText1" type="Label" parent="Center/VBox/Grid" unique_id=1845965367]
+material = SubResource("ShaderMaterial_c3xql")
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
@@ -148,6 +164,7 @@ text = "100% Love!"
 horizontal_alignment = 1
 
 [node name="Successful1" type="Label" parent="Center/VBox/Grid" unique_id=874912642]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -157,6 +174,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Failed1" type="Label" parent="Center/VBox/Grid" unique_id=731009012]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -197,6 +215,7 @@ size_flags_vertical = 4
 skip_anim_next = false
 
 [node name="LoveText4" type="Label" parent="Center/VBox/Grid" unique_id=1382614757]
+material = SubResource("ShaderMaterial_c3xql")
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
@@ -207,6 +226,7 @@ text = "100% Love!"
 horizontal_alignment = 1
 
 [node name="Successful2" type="Label" parent="Center/VBox/Grid" unique_id=1956034689]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -216,6 +236,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Failed2" type="Label" parent="Center/VBox/Grid" unique_id=1056596391]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -256,6 +277,7 @@ size_flags_vertical = 4
 skip_anim_next = false
 
 [node name="LoveText5" type="Label" parent="Center/VBox/Grid" unique_id=1292044616]
+material = SubResource("ShaderMaterial_c3xql")
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
@@ -266,6 +288,7 @@ text = "100% Love!"
 horizontal_alignment = 1
 
 [node name="Successful3" type="Label" parent="Center/VBox/Grid" unique_id=111665314]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -275,6 +298,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Failed3" type="Label" parent="Center/VBox/Grid" unique_id=755563372]
+material = SubResource("ShaderMaterial_c3xql")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
@@ -282,3 +306,15 @@ theme_override_fonts/font = SubResource("FontVariation_c3xql")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
+
+[node name="Blip" type="AudioStreamPlayer" parent="." unique_id=1459329781]
+stream = ExtResource("13_defhk")
+bus = &"Sfx"
+
+[node name="Successful" type="AudioStreamPlayer" parent="." unique_id=739978151]
+stream = ExtResource("14_v1sbf")
+bus = &"Sfx"
+
+[node name="Failed" type="AudioStreamPlayer" parent="." unique_id=1203648086]
+stream = ExtResource("15_us76w")
+bus = &"Sfx"

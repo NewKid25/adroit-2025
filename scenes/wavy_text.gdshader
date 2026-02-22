@@ -1,9 +1,9 @@
 shader_type canvas_item;
 
-uniform vec4 text_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float scale = 1.0;
 
 void vertex() {
-	VERTEX.y += sin(TIME * 2.0 + VERTEX.x * 0.03) * 1.0;
+	VERTEX.y += sin(TIME * 2.0 + VERTEX.x * 0.03) * scale;
 }
 
 void fragment() {

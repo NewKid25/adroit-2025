@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 		
 		if Input.is_action_just_pressed("play_card"):
 			state = UIHandState.CardGoUpToMiddle
-			SfxManager.play_sound(preload("res://assets/sfx/card_use.mp3"))
+			SfxManager.play_sound(preload("res://assets/sfx/card_use.wav"))
 			card_go_up_timer = 0.0
 			card_go_up_card = get_selected_card_node()
 			UIHelper.joy_shake()
@@ -65,21 +65,21 @@ func change_selected():
 		selected -= 1
 		UIHelper.joy_shake()
 		moved = true
-		SfxManager.play_sound(preload("res://assets/sfx/card_left.mp3"))
+		SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 	if Input.is_action_just_pressed("right"):
 		selected += 1
 		UIHelper.joy_shake()
 		moved = true
-		SfxManager.play_sound(preload("res://assets/sfx/card_right.mp3"))
+		SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
 	
 	if Input.is_action_just_pressed("far_left"):
 		selected = 0
 		UIHelper.joy_shake()
-		SfxManager.play_sound(preload("res://assets/sfx/card_left.mp3"))
+		SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 	if Input.is_action_just_pressed("far_right"):
 		selected = 999
 		UIHelper.joy_shake()
-		SfxManager.play_sound(preload("res://assets/sfx/card_right.mp3"))
+		SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
 	
 	if selected < 0:
 		selected = 0

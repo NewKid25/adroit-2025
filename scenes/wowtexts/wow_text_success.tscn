@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c5cnmy2gpwyrt"]
 
 [ext_resource type="Script" uid="uid://bv5u1qrc21avr" path="res://scripts/ui_wowtext.gd" id="1_j3rxm"]
-[ext_resource type="AudioStream" uid="uid://cx3ua1cb3drmd" path="res://assets/sfx/all_success_reaction.mp3" id="2_scyuv"]
+[ext_resource type="AudioStream" uid="uid://33aqswnk8aw7" path="res://assets/sfx/all_success_reaction.wav" id="2_scyuv"]
 
 [node name="TooFar" type="Label" unique_id=699716328]
 anchors_preset = 8

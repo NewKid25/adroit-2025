@@ -60,6 +60,12 @@ func _process(delta: float) -> void:
 			if time_between >= PADDING_TIME:
 				time_between = 0.0
 				to_show[viscount].modulate = Color.WHITE
+				if (viscount % 5) == 3:
+					$Successful.play()
+				elif (viscount % 5) == 4:
+					$Failed.play()
+				else:
+					$Blip.play()
 				viscount += 1
 				UIHelper.joy_shake()
 		if viscount == len(to_show):
