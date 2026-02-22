@@ -33,27 +33,86 @@ script = ExtResource("4_kyhnv")
 inverted = true
 speed_mod = 1.6
 
-[node name="Label" type="Label" parent="." unique_id=1543608478]
-offset_left = 834.0
-offset_top = 188.0
-offset_right = 1467.0
-offset_bottom = 285.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=487857422]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=629178898]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1543608478]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("5_mah5v")
 theme_override_font_sizes/font_size = 80
-text = "CRreiditiitiss :)"
+text = "Credits"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=1697929738]
-offset_left = 483.0
-offset_top = 387.0
-offset_right = 1116.0
-offset_bottom = 484.0
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer" unique_id=1922774600]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2063883755]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 50
+text = "Team"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1050526813]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1793890943]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
 theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("6_kyhnv")
 theme_override_font_sizes/font_size = 50
-text = "hi :)"
+text = "Samuel L. Hirner	
+Honor Christensen
+Caden Rasche"
+tab_stops = PackedFloat32Array(50)
+
+[node name="Label5" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=747616787]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("6_kyhnv")
+theme_override_font_sizes/font_size = 50
+text = "Jasper T. K. Holland
+Allison Collier"
+horizontal_alignment = 2
+tab_stops = PackedFloat32Array(50)
+
+[node name="Label4" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1120388495]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("5_mah5v")
+theme_override_font_sizes/font_size = 50
+text = "Third Party Assets"
+
+[node name="Label6" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1267703562]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0.3254902, 0.22745098, 0.17254902, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("6_kyhnv")
+theme_override_font_sizes/font_size = 50
+text = "Audio from Pixabay by Universfield,
+ALEXIS_GAMING_CAM, CreatorsHome,
+DRAGON-STUDIO, and freesound_community."
+horizontal_alignment = 1
+tab_stops = PackedFloat32Array(50)
 
 [node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("8_ooihk")]
 offset_top = 965.0
