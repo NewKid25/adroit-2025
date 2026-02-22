@@ -38,22 +38,22 @@ var characters : Array[Dictionary] = [
 			}
 		]
 	},
-	# {
-	# 	"date_numbers": [
-	# 		{
-	# 			"label": "Date B1",
-	# 			"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
-	# 			"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-	# 			"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-	# 		},
-	# 		{
-	# 			"label": "Date B2",
-	# 			"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
-	# 			"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-	# 			"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-	# 		}
-	# 	]
-	# }
+	{
+		"date_numbers": [
+			{
+				"label": "Date 1",
+				"conversations": ["res://data/feldspar1.json", "res://data/cassandrajones1.json", "res://data/professorqubit1.json"],
+				"displayed_names": ["Feldspar", "Cassandra", "Prof. Qubit"],
+				"profile_images": [preload("res://assets/art/squarefeldspar.png"), preload("res://assets/art/squarecassandra.png"), preload("res://assets/art/squareprofessor.png")]
+			},
+			# {
+			# 	"label": "Date B2",
+			# 	"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
+			# 	"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
+			# 	"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
+			# }
+		]
+	}
 ]
 
 
