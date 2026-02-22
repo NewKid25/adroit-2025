@@ -80,6 +80,18 @@ func on_finish_move(card: Card) -> void:
 	$FX/CardExplode.emitting = true
 	set_state_wow_text()
 
+func set_left_sprite():
+	if not game_event.chat_event.sprite_paths[0].is_empty():
+		$Date1/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[0])
+
+func set_middle_sprite():
+	if not game_event.chat_event.sprite_paths[1].is_empty():
+		$Date2/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[1])
+
+func set_right_sprite():
+	if not game_event.chat_event.sprite_paths[2].is_empty():
+		$Date3/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[2])
+
 func set_state_left():
 	state = UIDS_State.SpeakingLeft
 	focus = UIDS_FocusState.Left
@@ -88,9 +100,7 @@ func set_state_left():
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
 	scale_text_fit_width($Date1/DateText, game_event.chat_event.lines[0])
-	if not game_event.chat_event.sprite_paths[0].is_empty():
-		$Date1/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[0])
-
+	set_left_sprite()
 
 func set_state_middle():
 	state = UIDS_State.SpeakingMiddle
@@ -100,9 +110,7 @@ func set_state_middle():
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
 	scale_text_fit_width($Date2/DateText, game_event.chat_event.lines[1])
-	if not game_event.chat_event.sprite_paths[1].is_empty():
-		$Date2/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[1])
-
+	set_middle_sprite()
 
 func set_state_right():
 	state = UIDS_State.SpeakingRight
@@ -112,9 +120,7 @@ func set_state_right():
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
 	scale_text_fit_width($Date3/DateText, game_event.chat_event.lines[2])
-	if not game_event.chat_event.sprite_paths[2].is_empty():
-		$Date3/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[2])
-
+	set_right_sprite()
 
 func set_state_playing():
 	state = UIDS_State.Playing
@@ -178,6 +184,9 @@ func _process(delta: float) -> void:
 		game_event = controller.begin()
 		hand.skip_anim_next_frame = true
 		update_loveometers()
+		set_left_sprite()
+		set_middle_sprite()
+		set_right_sprite()
 		add_stashed_cards()
 		set_state_animating_in()
 	elif state == UIDS_State.AnimatingIn:
@@ -266,7 +275,7 @@ func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33)
 		text = label.text
 
 	var total_text_height:float = 1000
-	while (total_text_height > label.size.y):
+	while (total_text_height > 160.0):
 		font_size -= 1
 		total_text_height = label.get_theme_font("font").get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
 
