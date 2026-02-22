@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://6cv0n4y15pe0" path="res://assets/art/squareguido.png" id="9_pc0ql"]
 [ext_resource type="AudioStream" uid="uid://dyg01prrgko24" path="res://assets/sfx/default_reaction.wav" id="13_defhk"]
 [ext_resource type="AudioStream" uid="uid://33aqswnk8aw7" path="res://assets/sfx/all_success_reaction.wav" id="14_v1sbf"]
-[ext_resource type="AudioStream" uid="uid://db60njj8v5x3p" path="res://assets/sfx/over_sentiment_reaction.wav" id="15_us76w"]
+[ext_resource type="AudioStream" uid="uid://dcm5jg2618h5s" path="res://assets/sfx/default_alt.wav" id="15_v1sbf"]
 [ext_resource type="PackedScene" uid="uid://cmm5qeqva8q" path="res://scenes/styled_button.tscn" id="16_v1sbf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ap4v5"]
@@ -316,8 +316,8 @@ bus = &"Sfx"
 stream = ExtResource("14_v1sbf")
 bus = &"Sfx"
 
-[node name="Failed" type="AudioStreamPlayer" parent="." unique_id=1203648086]
-stream = ExtResource("15_us76w")
+[node name="Alt" type="AudioStreamPlayer" parent="." unique_id=1203648086]
+stream = ExtResource("15_v1sbf")
 bus = &"Sfx"
 
 [node name="StyledButton" parent="." unique_id=400037784 instance=ExtResource("16_v1sbf")]

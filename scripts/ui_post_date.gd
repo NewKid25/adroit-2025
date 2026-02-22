@@ -62,6 +62,7 @@ func _ready() -> void:
 
 const BEGIN_TIME = 0.5
 const PADDING_TIME = 0.2
+const PADDING_TIME_PADDING = 0.2
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
@@ -71,13 +72,18 @@ func _process(delta: float) -> void:
 		$BlackOut.modulate.a = 1 - fade_time
 		if fade_time >= BEGIN_TIME:
 			time_between += delta
-			if time_between >= PADDING_TIME:
+			var padding_time = PADDING_TIME
+			if viscount % 5 == 0:
+				padding_time += PADDING_TIME_PADDING
+			if time_between >= padding_time:
 				time_between = 0.0
 				to_show[viscount].modulate = Color.WHITE
 				if (viscount % 5) == 3:
 					$Successful.play()
 				elif (viscount % 5) == 4:
-					$Failed.play()
+					$Alt.play()
+				elif (viscount % 5) == 2:
+					$Alt.play()
 				else:
 					$Blip.play()
 				viscount += 1
