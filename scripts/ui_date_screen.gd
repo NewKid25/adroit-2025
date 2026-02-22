@@ -130,21 +130,29 @@ func set_state_wow_text():
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
+	prints("Immediately after instantiate:", w.global_position)
+	$WowTexts.add_child(w)
+	prints("After childing", w.global_position)
+
 	match wow_texts_character_index:
 		0:
 			focus = UIDS_FocusState.Left
 		1:
 			focus = UIDS_FocusState.Middle
-			w.position.x += get_window().size.x / 2
+
+			w.position.x += get_viewport().content_scale_size.x / 3
 		2:
 			focus = UIDS_FocusState.Right
-			w.position.x += get_window().size.x
+			w.position.x += get_viewport().content_scale_size.x / 3 * 2
+
+	prints("After offsetting:", w.global_position)
+
 
 	w.position.y += 100
 
 	UIHelper.joy_shake()
 	wow_text_timer = 0.9
-	$WowTexts.add_child(w)
+
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
