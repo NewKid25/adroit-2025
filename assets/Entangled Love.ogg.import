@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dct6c6xwkqd5n"
+path="res://.godot/imported/Entangled Love.ogg-baf5bfa6953fdae60aae28f210ef92da.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Entangled Love.ogg"
+dest_files=["res://.godot/imported/Entangled Love.ogg-baf5bfa6953fdae60aae28f210ef92da.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=136.0
+beat_count=0
+bar_beats=4

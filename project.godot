@@ -23,6 +23,10 @@ boot_splash/minimum_display_time=2000
 
 buses/default_bus_layout="uid://d3hejvnxifxyx"
 
+[autoload]
+
+MusicPlayer="*uid://bxm0gcb7g7m2a"
+
 [display]
 
 window/size/viewport_width=1920
