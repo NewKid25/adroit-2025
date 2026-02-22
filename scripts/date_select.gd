@@ -110,9 +110,12 @@ func _process(delta: float):
 				is_fading_out = true
 			controller_menu_state += 1
 			highlight_menu_state()
-		if Input.is_action_just_pressed("cancel") and controller_menu_state != MenuStates.CHARACTER:
-			controller_menu_state -= 1
-			highlight_menu_state()
+		if Input.is_action_just_pressed("cancel"):
+			if controller_menu_state != MenuStates.CHARACTER:
+				controller_menu_state -= 1
+				highlight_menu_state()
+			else:
+				get_tree().change_scene_to_file("res://scenes/title.tscn")
 		if Input.is_action_just_pressed("down"):
 			if controller_menu_state == MenuStates.DATE_NUM:
 				selected_date_index += 1
