@@ -13,9 +13,9 @@ shader = ExtResource("2_pyl7j")
 
 [sub_resource type="FontVariation" id="FontVariation_ia1n6"]
 base_font = ExtResource("6_4rr2b")
-variation_embolden = 0.7
+variation_embolden = 0.14
 variation_transform = Transform2D(1.1, 0, 0, 1, 0, 0)
-spacing_glyph = 5
+spacing_glyph = 15
 
 [sub_resource type="FontVariation" id="FontVariation_4rr2b"]
 base_font = ExtResource("7_yql1r")
@@ -291,12 +291,20 @@ offset_left = -250.0
 offset_top = -50.0
 offset_right = 250.0
 offset_bottom = 53.0
+theme_override_colors/font_outline_color = Color(0.30588236, 0.18039216, 0.16470589, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("FontVariation_ia1n6")
 theme_override_font_sizes/font_size = 75
 text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CreditsButton" unique_id=338788903]
+offset_left = -434.0
+offset_top = -72.0
+offset_right = 444.0
+offset_bottom = 74.0
+flat = true
 
 [node name="PlayButton" type="Node2D" parent="." unique_id=274458013]
 position = Vector2(960, 710)
@@ -310,6 +318,7 @@ offset_left = -250.0
 offset_top = -135.0
 offset_right = 250.0
 offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0.30588236, 0.18039216, 0.16470589, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("FontVariation_4rr2b")
 theme_override_font_sizes/font_size = 42
@@ -322,6 +331,7 @@ offset_left = -250.0
 offset_top = -50.0
 offset_right = 250.0
 offset_bottom = 100.0
+theme_override_colors/font_outline_color = Color(0.30588236, 0.18039216, 0.16470589, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("FontVariation_ia1n6")
 theme_override_font_sizes/font_size = 100
@@ -329,16 +339,25 @@ text = "DATE!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="PlayButton" unique_id=1004254597]
+offset_left = -434.0
+offset_top = -106.0
+offset_right = 444.0
+offset_bottom = 116.0
+flat = true
+
 [node name="WhiteOut" type="ColorRect" parent="." unique_id=628111390]
 visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 
 [node name="BlackOut" type="ColorRect" parent="." unique_id=1159998034]
 visible = false
 modulate = Color(1, 1, 1, 0)
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019257209]
