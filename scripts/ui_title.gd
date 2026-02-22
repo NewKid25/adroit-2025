@@ -3,6 +3,10 @@ extends Node2D
 var fading_out := false
 var fade_time := 0.0
 
+func _ready() -> void:
+	$WhiteOut.visible = true
+	$BlackOut.visible = true
+
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
 	
