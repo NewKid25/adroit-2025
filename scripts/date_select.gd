@@ -109,6 +109,11 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("play_card"):
 			if controller_menu_state == MenuStates.PLAY:
 				is_fading_out = true
+				SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
+			elif controller_menu_state == MenuStates.DATE_NUM:
+				SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
+			elif controller_menu_state == MenuStates.CHARACTER:
+				SfxManager.play_sound(preload("res://assets/sfx/card_shuffle.wav"))
 			controller_menu_state += 1
 			highlight_menu_state()
 			UIHelper.joy_shake()
@@ -117,22 +122,27 @@ func _process(delta: float):
 				controller_menu_state -= 1
 				highlight_menu_state()
 				UIHelper.joy_shake()
+				SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 			else:
 				go_home()
 		if Input.is_action_just_pressed("down"):
 			if controller_menu_state == MenuStates.DATE_NUM:
 				selected_date_index += 1
 				highlight_date_label()
+				SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 			if controller_menu_state == MenuStates.CHARACTER:
 				selected_char_index += 1
 				highlight_character()
+				SfxManager.play_sound(preload("res://assets/sfx/card_left.wav"))
 		if Input.is_action_just_pressed("up"):
 			if controller_menu_state == MenuStates.DATE_NUM:
 				selected_date_index -= 1
 				highlight_date_label()
+				SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
 			if controller_menu_state == MenuStates.CHARACTER:
 				selected_char_index -= 1
 				highlight_character()
+				SfxManager.play_sound(preload("res://assets/sfx/card_right.wav"))
 	
 	# LERPS!!!
 	date_labels.position.x = lerp(
