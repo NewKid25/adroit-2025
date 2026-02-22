@@ -1,0 +1,166 @@
+{
+  "dialogs": {
+	"id1": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id2", "1": "id3", "10": "id4" },
+	  "sprite": "schrodie.png",
+	  "text": "It’s so nice to see you again, I wasn’t sure if I would or not! But it’s nice to have the cat out of the bag- or… box?"
+	},
+	"id2": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 2.0 },
+		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
+	  "sprite": "schrodiehappy.png",
+	  "text": "You get it! I hate waiting like that, I’m terrible at sitting still… do you ever feel like that? Sort of restless?"
+	},
+	"id3": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 2.0 },
+		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
+	  "sprite": "schrodiemeh.png",
+	  "text": "I just mean that I hate waiting like that, I’m terrible at sitting still… do you ever feel like that? Sort of restless?"
+	},
+	"id4": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 2.0 },
+		"mood_upper_bound": { "flirty": 4, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "2": "id6", "4": "id7", "10": "id8" },
+	  "sprite": "schrodie.png",
+	  "text": "I hate waiting like that, I’m terrible at sitting still… do you ever feel like that? Sort of restless?"
+	},
+	"id5": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id9", "3": "id10", "2": "id11", "10": "id12" },
+	  "sprite": "schrodiehappy.png",
+	  "text": "That’s really interesting, I love how people can be so different. And yet, we fit together so well…"
+	},
+	"id6": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id9", "3": "id10", "2": "id11", "10": "id12" },
+	  "sprite": "schrodiemeh.png",
+	  "text": "No, really, I love how people can be so different. And yet, we can still fit together…"
+	},
+	"id7": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id9", "3": "id10", "2": "id11", "10": "id12" },
+	  "sprite": "schrodiedispleased.png",
+	  "text": "No, really, I love how people can be so different. And yet, we can still fit together…"
+	},
+	"id8": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id9", "3": "id10", "2": "id11", "10": "id12" },
+	  "sprite": "schrodie.png",
+	  "text": "That’s interesting, I love how people can be so different. And yet, we fit together so well…"
+	},
+	"id9": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4}
+	  },
+	  "nexts": { "0": "id13", "1": "id14", "5": "id15", "10": "id16" },
+	  "sprite": "schrodiehappy.png",
+	  "text": "A great pair: someone who wins big teddy bears, and someone who is one. Careful though, that might make you a good pincushion for kitty claws!"
+	},
+	"id10": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4}
+	  },
+	  "nexts": { "0": "id13", "1": "id14", "5": "id15", "10": "id16" },
+	  "sprite": "schrodiemeh.png",
+	  "text": "Well, it could make a nice pair: someone who wins big teddy bears, and someone who is one. Careful though, that might make you a good pincushion for kitty claws."
+	},
+	"id11": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4}
+	  },
+	  "nexts": { "0": "id13", "1": "id14", "5": "id15", "10": "id16" },
+	  "sprite": "schrodiemeh.png",
+	  "text": "Well, it could make a nice pair: someone who wins big teddy bears, and someone who is one. Careful though, that might make you a good pincushion for kitty claws."
+	},
+	"id12": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 4}
+	  },
+	  "nexts": { "0": "id13", "1": "id14", "5": "id15", "10": "id16" },
+	  "sprite": "schrodie.png",
+	  "text": "A nice pair: someone who wins big teddy bears, and someone who is one. Careful though, that might make you a good pincushion for kitty claws!"
+	},
+	"id13": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
+	  "sprite": "schrodiehappy.png",
+	  "text": "Hehe, of course. I could never scratch you up though, we don’t want to damage that pretty face!"
+	},
+	"id14": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
+	  "sprite": "schrodiemeh.png",
+	  "text": "Oh no, of course I’d never scratch you! Especially not that pretty face, haha."
+	},
+	"id15": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
+	  "sprite": "schrodiedispleased.png",
+	  "text": "Oh no, of course I’d never scratch you! Especially not that pretty face, haha."
+	},
+	"id16": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 3.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id17", "3": "id18", "10": "id19" },
+	  "sprite": "schrodie.png",
+	  "text": "Hehe, of course. I could never scratch you up though, we don’t want to damage that pretty face!"
+	},
+	"id17": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "schrodiehappy.png",
+	  "text": "I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend next time!"
+	},
+	"id18": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "schrodiemeh.png",
+	  "text": "I mean it, I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend, if there’s a next time."
+	},
+	"id19": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "schrodie.png",
+	  "text": "I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend next time…"
+	}
+  }
+}

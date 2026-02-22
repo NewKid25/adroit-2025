@@ -1,0 +1,139 @@
+{
+  "dialogs": {
+	"id1": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id2", "2": "id3", "10": "id4" },
+	  "sprite": "paul_rudd.png",
+	  "text": "Here we are again! You been up to anything interesting since our dinner?"
+	},
+	"id2": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
+	  "sprite": "paulhappy.png",
+	  "text": "Oh yeah, me too. Been busy with the new movie I'm in, I’m playing a man who lives in a boot, he’s that small. Weird, right?"
+	},
+	"id3": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
+	  "sprite": "paulmeh.png",
+	  "text": "Well, I’ve been busy with the new movie I’m in. I’m playing a man who lives in a boot, he’s that small. Weird, right?"
+	},
+	"id4": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
+	  "sprite": "paul_rudd.png",
+	  "text": "I’ve been busy with the new movie I’m in. I’m playing a man who lives in a boot, he’s that small. Weird, right?"
+	},
+	"id5": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 0.0 }
+	  },
+	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
+	  "sprite": "paulhappy.png",
+	  "text": "It’s fun though! All of the props are, like, giant scissors and stuff. And I look very cute in my costume made from scraps of rags, of course."
+	},
+	"id6": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 0.0 }
+	  },
+	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
+	  "sprite": "paulmeh.png",
+	  "text": "Come on, it’s fun. All of the props are, like, giant scissors and stuff. And I look very cute in my costume made from scraps of rags, of course."
+	},
+	"id7": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 1.0, "funny": 0.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 0.0 }
+	  },
+	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
+	  "sprite": "paul_rudd.png",
+	  "text": "All of the props are, like, giant scissors and stuff. And I look very cute in my costume made from scraps of rags, of course."
+	},
+	"id8": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id11", "1": "id12", "10": "id13" },
+	  "sprite": "paulhappy.png",
+	  "text": "That’s real second date trust, telling you about my unflattering costumes. It’s like telling your embarrassing childhood stories."
+	},
+	"id9": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id11", "1": "id12", "10": "id13" },
+	  "sprite": "paulmeh.png",
+	  "text": "Ouch… I’m showing some second date trust here, telling you about my unflattering costumes. It’s like telling your embarrassing childhood stories."
+	},
+	"id10": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 3.0, "sentiment": 0.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id11", "1": "id12", "10": "id13" },
+	  "sprite": "paul_rudd.png",
+	  "text": "That’s real second date trust, telling you about my unflattering costumes. It’s like telling your embarrassing childhood stories."
+	},
+	"id11": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id14", "2": "id15", "10": "id16" },
+	  "sprite": "paulhappy.png",
+	  "text": "Wow, really? That’s pretty good. When I was a kid, I was just a nerd who liked weird comics."
+	},
+	"id12": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id14", "2": "id15", "10": "id16" },
+	  "sprite": "paulmeh.png",
+	  "text": "I guess that makes sense… When I was a kid, I was just a nerd who liked weird comics."
+	},
+	"id13": {
+	  "mood_expectation": {
+		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 1.0 },
+		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
+	  },
+	  "nexts": { "0": "id14", "2": "id15", "10": "id16" },
+	  "sprite": "paul_rudd.png",
+	  "text": "That’s pretty good. When I was a kid, I was just a nerd who liked weird comics."
+	},
+	"id14": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "paulhappy.png",
+	  "text": "Interesting! You’ll have to tell me more about that. Maybe our next date should see a superhero movie…"
+	},
+	"id15": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "paulmeh.png",
+	  "text": "Well, I’d like to hear more about what you liked too if we go on another date. Maybe a superhero movie, if you like those…"
+	},
+	"id16": {
+	  "mood_expectation": {},
+	  "nexts": {},
+	  "sprite": "paul_rudd.png",
+	  "text": "You’ll have to tell me more about that. Maybe our next date should see a superhero movie…"
+	}
+  }
+}
