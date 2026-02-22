@@ -7,10 +7,10 @@ var body_scale: float = 1.0
 func _ready():
 	$Body/Centerer/Text.text = card.text
 
-func shake() -> void:
+func shake(scl := 1.0) -> void:
 	#$Body.position.x = dir * 15
-	$Body.position.x = randf_range(-10, 10)
-	$Body.position.y = randf_range(-10, 10)
+	$Body.position.x = randf_range(-10 * scl, 10 * scl)
+	$Body.position.y = randf_range(-10 * scl, 10 * scl)
 
 func _process(delta: float) -> void:
 	$Body.position.x = lerp(
