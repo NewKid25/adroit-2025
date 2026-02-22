@@ -39,7 +39,6 @@ func _ready():
 	loveometers = [$"../Date1/Loveometer", $"../Date3/Loveometer", $"../Date2/Loveometer"]
 	for i in range(3):	
 		GameManager.characters[i].affection_update.connect(loveometers[i].update_love)
-	return
 
 func get_date_number() -> int:
 	return 1
