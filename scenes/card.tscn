@@ -11,7 +11,7 @@ shadow_size = 16
 
 [sub_resource type="FontVariation" id="FontVariation_kg30u"]
 base_font = ExtResource("3_ktuci")
-variation_embolden = 0.5
+variation_embolden = 0.7
 spacing_glyph = 1
 
 [node name="Card" type="Node2D" unique_id=500690310]
