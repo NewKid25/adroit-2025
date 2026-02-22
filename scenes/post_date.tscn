@@ -40,8 +40,8 @@ script = ExtResource("4_u4h5m")
 inverted = true
 speed_mod = 1.9
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2132957346]
-visible = false
+[node name="BlackOut" type="ColorRect" parent="." unique_id=2132957346]
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 offset_right = 1920.0
 offset_bottom = 1080.0

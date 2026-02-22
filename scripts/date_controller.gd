@@ -29,7 +29,8 @@ func _ready():
 	for i in range(3): current_lines[i] = conversations[i].dialogs.keys()[0]
 	#get loveometers and associate them with characters
 	loveometers = [$"../Date1/Loveometer", $"../Date2/Loveometer", $"../Date3/Loveometer"]
-	for i in range(3):	
+	GameManager.characters = [Character.new(), Character.new(), Character.new()]
+	for i in range(3):
 		GameManager.characters[i].affection_update.connect(loveometers[i]._on_update_affection)
 
 func get_date_number() -> int:
