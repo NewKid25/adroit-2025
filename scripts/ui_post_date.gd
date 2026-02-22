@@ -43,8 +43,11 @@ func _ready() -> void:
 	
 	$BlackOut.visible = true
 	to_show = $Center/VBox/Grid.get_children().slice(5)
+	to_show.push_back($StyledButton)
 	for it in to_show:
 		it.modulate = Color.TRANSPARENT
+	
+	$StyledButton.pressed.connect(leave_pressed)
 
 const BEGIN_TIME = 0.5
 const PADDING_TIME = 0.2
@@ -79,5 +82,11 @@ func _process(delta: float) -> void:
 		if lock_out_time > 0:
 			lock_out_time -= delta
 		elif Input.is_action_just_pressed("play_card"):
-			state = UIPD_State.FadingOut
-			fade_time = 0.0
+			leave_pressed()
+
+func leave_pressed() -> void:
+	if state != UIPD_State.Main:
+		return
+	state = UIPD_State.FadingOut
+	fade_time = 0.0
+	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
