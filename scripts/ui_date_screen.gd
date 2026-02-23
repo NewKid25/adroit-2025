@@ -119,17 +119,17 @@ func animate_focus(node: CanvasItem, focused: bool, delta: float) -> void:
 	node.modulate = node.modulate.lerp(target, delta)
 
 func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33):	
-	var font_size:int = default_font_size + 1
+	var font_size := default_font_size + 1
+	var font := label.get_theme_font("font")
+	
 	if text.is_empty():
 		text = label.text
 	
 	var total_text_height:float = 1000
 	while (total_text_height > 160.0):
 		font_size -= 1
-		total_text_height = label.get_theme_font("font").get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
+		total_text_height = font.get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
 	
-	if (label.has_theme_font_size_override("font_size")):
-		label.remove_theme_font_size_override("font_size")
 	label.add_theme_font_size_override("font_size", font_size)
 
 func set_left_sprite():
