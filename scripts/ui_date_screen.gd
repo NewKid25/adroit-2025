@@ -23,27 +23,11 @@ enum UIDS_FocusState {
 	Right
 }
 
-const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
-	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
-	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_flirty.tscn"),
-	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
-	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_sentimental.tscn"),
-	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
-	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
-	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_under_sentimental.tscn"),
-}
-
-signal wow_text_complete
-
-var state := UIDS_State.DateIntro
+var state := UIStateMachine.new()
 var focus := UIDS_FocusState.None
 var skip_anim_next_frame := true
 var game_event: DateController.GameEvent
-var speaking_timer := 0.0
-var wow_text_timer := 0.0
 var stashed_cards: Array[Card] = []
-var wow_texts_character_index := 0
-var wow_texts_outcome_index := 0
 
 @onready
 var controller: DateController = $DateController
@@ -62,23 +46,91 @@ func _ready() -> void:
 	# TODO: Glow?
 	#$GlowShader.visible = true
 	
-	_process(1.0/60.0)
+	state.add_state_reflect(UIDS_State.DateIntro, self, "date_intro")
+	state.add_state_reflect(UIDS_State.AnimatingIn, self, "animating_in")
+	state.add_state_reflect(UIDS_State.AnimatingOut, self, "animating_out")
+	state.add_state_reflect(UIDS_State.SpeakingLeft, self, "speaking_left")
+	state.add_state_reflect(UIDS_State.SpeakingMiddle, self, "speaking_middle")
+	state.add_state_reflect(UIDS_State.SpeakingRight, self, "speaking_right")
+	state.add_state_reflect(UIDS_State.Playing, self, "playing")
+	state.add_state_reflect(UIDS_State.WowText, self, "wow_text")
+	
+	state.set_state_to(UIDS_State.DateIntro)
 
-func on_card_added(card: Card) -> void:
-	stashed_cards.push_back(card)
+func _process(delta: float) -> void:
+	UIHelper.debug_fullscreen_toggle_key()
+	
+	state.call_process(delta)
 
-func add_stashed_cards() -> void:
-	for card in stashed_cards:
-		hand.add_card(card)
-	stashed_cards.clear()
+	do_focusing(delta)
+	
+	skip_anim_next_frame = false
 
-func on_card_removed(card: Card) -> void:
-	hand.remove_card(card)
+#region State Machine Getter Helpers
 
-func on_finish_move(card: Card) -> void:
-	game_event = controller.play_card(card)
-	$FX/CardExplode.emitting = true
-	set_state_wow_text()
+func is_left_focused() -> bool:
+	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Left)
+
+func is_middle_focused() -> bool:
+	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Middle)
+
+func is_right_focused() -> bool:
+	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Right)
+
+func is_hand_focused() -> bool:
+	return (focus == UIDS_FocusState.All)
+
+#endregion
+
+#region UI Helpers
+
+@onready
+var loveometers: Array[UILoveometer] = [
+	$Date1/Loveometer,
+	$Date2/Loveometer,
+	$Date3/Loveometer
+]
+
+func update_loveometers_idx(idx: int) -> void:
+	loveometers[idx].love = GameManager.characters[idx].affection / GameManager.characters[idx].goal_affection
+
+func update_loveometers() -> void:
+	update_loveometers_idx(0)
+	update_loveometers_idx(1)
+	update_loveometers_idx(2)
+
+func set_names() -> void:
+	$Date1/DateName.text = GameManager.characters[0].displayed_name
+	$Date2/DateName.text = GameManager.characters[1].displayed_name
+	$Date3/DateName.text = GameManager.characters[2].displayed_name
+
+func do_focusing(delta: float) -> void:
+	animate_focus($Date1, is_left_focused(), delta)
+	animate_focus($Date2, is_middle_focused(), delta)
+	animate_focus($Date3, is_right_focused(), delta)
+	animate_focus($HandBackground, is_hand_focused(), delta)
+
+func animate_focus(node: CanvasItem, focused: bool, delta: float) -> void:
+	var target = FOCUSED_MODULATE if focused else UNFOCUSED_MODULATE
+	delta *= 6
+	if skip_anim_next_frame:
+		delta = 1
+	# TODO: This can break if the game runs terrible? Is that wanted?
+	node.modulate = node.modulate.lerp(target, delta)
+
+func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33):	
+	var font_size:int = default_font_size + 1
+	if text.is_empty():
+		text = label.text
+	
+	var total_text_height:float = 1000
+	while (total_text_height > 160.0):
+		font_size -= 1
+		total_text_height = label.get_theme_font("font").get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
+	
+	if (label.has_theme_font_size_override("font_size")):
+		label.remove_theme_font_size_override("font_size")
+	label.add_theme_font_size_override("font_size", font_size)
 
 func set_left_sprite():
 	if not game_event.chat_event.sprite_paths[0].is_empty():
@@ -92,8 +144,92 @@ func set_right_sprite():
 	if not game_event.chat_event.sprite_paths[2].is_empty():
 		$Date3/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[2])
 
-func set_state_left():
-	state = UIDS_State.SpeakingLeft
+func add_stashed_cards() -> void:
+	for card in stashed_cards:
+		hand.add_card(card)
+	stashed_cards.clear()
+
+#endregion
+
+#region Signal Handlers
+
+func on_card_added(card: Card) -> void:
+	stashed_cards.push_back(card)
+
+func on_card_removed(card: Card) -> void:
+	hand.remove_card(card)
+
+func on_finish_move(card: Card) -> void:
+	game_event = controller.play_card(card)
+	$FX/CardExplode.emitting = true
+	state.set_state_to(UIDS_State.WowText)
+
+
+#endregion
+
+#region State Date Intro
+
+func enter_state_date_intro():
+	game_event = controller.begin()
+	hand.skip_anim_next_frame = true
+	update_loveometers()
+	set_left_sprite()
+	set_middle_sprite()
+	set_right_sprite()
+	set_names()
+	add_stashed_cards()
+	state.set_state_to(UIDS_State.AnimatingIn)
+
+func exit_state_date_intro():
+	pass
+
+func process_state_date_intro(_delta: float):
+	pass
+
+#endregion
+
+#region State Animating In
+
+func enter_state_animating_in():
+	focus = UIDS_FocusState.None
+	hand.state = UIHand.UIHandState.Hidden
+	$Overlays/StartText.text = "Dates %d" % controller.get_date_number()
+	animator.play("start")
+
+func exit_state_animating_in():
+	pass
+
+func process_state_animating_in(_delta: float):
+	if not $AnimationPlayer.is_playing():
+		state.set_state_to(UIDS_State.SpeakingLeft)
+
+#endregion
+
+#region State Animating Out
+
+func enter_state_animating_out():
+	focus = UIDS_FocusState.All
+	hand.state = UIHand.UIHandState.Hidden
+	animator.play("end")
+
+func exit_state_animating_out():
+	pass
+
+func process_state_animating_out(_delta: float):
+	if not $AnimationPlayer.is_playing():
+		get_tree().change_scene_to_file("res://scenes/post_date.tscn")
+
+#endregion
+
+#region State Speaking General Variables
+
+var speaking_timer := 0.0
+
+#endregion
+
+#region State Speaking Left
+
+func enter_state_speaking_left():
 	focus = UIDS_FocusState.Left
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
@@ -102,8 +238,21 @@ func set_state_left():
 	scale_text_fit_width($Date1/DateText, game_event.chat_event.lines[0])
 	set_left_sprite()
 
-func set_state_middle():
-	state = UIDS_State.SpeakingMiddle
+func exit_state_speaking_left():
+	pass
+
+func process_state_speaking_left(delta: float):
+	speaking_timer += delta * 80
+	$Date1/DateText.text = game_event.chat_event.lines[0]
+	$Date1/DateText.visible_characters = floor(speaking_timer)
+	if speaking_timer > len(game_event.chat_event.lines[0]) + 50:
+		state.set_state_to(UIDS_State.SpeakingMiddle)
+
+#endregion
+
+#region State Speaking Middle
+
+func enter_state_speaking_middle():
 	focus = UIDS_FocusState.Middle
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
@@ -112,8 +261,21 @@ func set_state_middle():
 	scale_text_fit_width($Date2/DateText, game_event.chat_event.lines[1])
 	set_middle_sprite()
 
-func set_state_right():
-	state = UIDS_State.SpeakingRight
+func exit_state_speaking_middle():
+	pass
+
+func process_state_speaking_middle(delta: float):
+	speaking_timer += delta * 80
+	$Date2/DateText.text = game_event.chat_event.lines[1]
+	$Date2/DateText.visible_characters = floor(speaking_timer)
+	if speaking_timer > len(game_event.chat_event.lines[1]) + 50:
+		state.set_state_to(UIDS_State.SpeakingRight)
+
+#endregion
+
+#region State Speaking Right
+
+func enter_state_speaking_right():
 	focus = UIDS_FocusState.Right
 	speaking_timer = 0.0
 	hand.state = UIHand.UIHandState.Hidden
@@ -122,34 +284,78 @@ func set_state_right():
 	scale_text_fit_width($Date3/DateText, game_event.chat_event.lines[2])
 	set_right_sprite()
 
-func set_state_playing():
-	state = UIDS_State.Playing
+func exit_state_speaking_right():
+	pass
+
+func process_state_speaking_right(delta: float):
+	speaking_timer += delta * 80
+	$Date3/DateText.text = game_event.chat_event.lines[2]
+	$Date3/DateText.visible_characters = floor(speaking_timer)
+	if speaking_timer > len(game_event.chat_event.lines[2]) + 50:
+		if game_event.is_there_more_after_this:
+			state.set_state_to(UIDS_State.Playing)
+		else:
+			state.set_state_to(UIDS_State.AnimatingOut)
+
+#endregion
+
+#region State Playing
+
+func enter_state_playing():
 	focus = UIDS_FocusState.All
 	hand.state = UIHand.UIHandState.Playing
 	add_stashed_cards()
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/card_shuffle.wav"))
 
-func set_state_animating_in():
-	state = UIDS_State.AnimatingIn
-	focus = UIDS_FocusState.None
-	hand.state = UIHand.UIHandState.Hidden
-	$Overlays/StartText.text = "Dates %d" % controller.get_date_number()
-	animator.play("start")
+func exit_state_playing():
+	pass
 
-func set_state_animating_out():
-	state = UIDS_State.AnimatingOut
-	focus = UIDS_FocusState.All
-	hand.state = UIHand.UIHandState.Hidden
-	animator.play("end")
+func process_state_playing(_delta: float):
+	pass
 
-func set_state_wow_text():
-	state = UIDS_State.WowText
+#endregion
+
+#region State Wow Text
+
+const outcome_to_wow_text_scene:Dictionary[Enums.CardPlayOutcome, PackedScene] = {
+	Enums.CardPlayOutcome.ALL_SUCCESS: preload("res://scenes/wowtexts/wow_text_success.tscn"),
+	Enums.CardPlayOutcome.OVER_FLIRTY: preload("res://scenes/wowtexts/wow_text_over_flirty.tscn"),
+	Enums.CardPlayOutcome.OVER_FUNNY: preload("res://scenes/wowtexts/wow_text_over_funny.tscn"),
+	Enums.CardPlayOutcome.OVER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_over_sentimental.tscn"),
+	Enums.CardPlayOutcome.UNDER_FLIRTY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_FUNNY: preload("res://scenes/wowtexts/wow_text_under_funny.tscn"),
+	Enums.CardPlayOutcome.UNDER_SENTIMENT: preload("res://scenes/wowtexts/wow_text_under_sentimental.tscn"),
+}
+
+var wow_text_timer := 0.0
+var wow_texts_character_index := 0
+var wow_texts_outcome_index := 0
+
+func enter_state_wow_text():
 	hand.state = UIHand.UIHandState.Hidden
 
 	wow_texts_character_index = 0
 	wow_texts_outcome_index = -1
 
+func exit_state_wow_text():
+	pass
+
+func process_state_wow_text(delta: float):
+	wow_text_timer -= delta
+	if wow_text_timer < 0:
+		wow_texts_outcome_index += 1
+		if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
+			wow_texts_character_index += 1
+			wow_texts_outcome_index = 0
+			if wow_texts_character_index == 3:
+				state.set_state_to(UIDS_State.SpeakingLeft)
+				return
+		var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
+		print(Enums.CardPlayOutcome.keys()[outcome])
+		update_loveometers_idx(wow_texts_character_index)
+		if outcome in outcome_to_wow_text_scene.keys():
+			spawn_wow(outcome_to_wow_text_scene[outcome])
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
@@ -176,130 +382,4 @@ func spawn_wow(wow):
 	UIHelper.joy_shake()
 	wow_text_timer = 0.9
 
-
-func _process(delta: float) -> void:
-	UIHelper.debug_fullscreen_toggle_key()
-	
-	if state == UIDS_State.DateIntro:
-		game_event = controller.begin()
-		hand.skip_anim_next_frame = true
-		update_loveometers()
-		set_left_sprite()
-		set_middle_sprite()
-		set_right_sprite()
-		set_names()
-		add_stashed_cards()
-		set_state_animating_in()
-	elif state == UIDS_State.AnimatingIn:
-		if not $AnimationPlayer.is_playing():
-			set_state_left()
-	elif state == UIDS_State.AnimatingOut:
-		if not $AnimationPlayer.is_playing():
-			get_tree().change_scene_to_file("res://scenes/post_date.tscn")
-	elif state == UIDS_State.SpeakingLeft:
-		speaking_timer += delta * 80
-		$Date1/DateText.text = game_event.chat_event.lines[0]
-		$Date1/DateText.visible_characters = floor(speaking_timer)
-		if speaking_timer > len(game_event.chat_event.lines[0]) + 50:
-			set_state_middle()
-	elif state == UIDS_State.SpeakingMiddle:
-		speaking_timer += delta * 80
-		$Date2/DateText.text = game_event.chat_event.lines[1]
-		$Date2/DateText.visible_characters = floor(speaking_timer)
-		if speaking_timer > len(game_event.chat_event.lines[1]) + 50:
-			set_state_right()
-	elif state == UIDS_State.SpeakingRight:
-		speaking_timer += delta * 80
-		$Date3/DateText.text = game_event.chat_event.lines[2]
-		$Date3/DateText.visible_characters = floor(speaking_timer)
-		if speaking_timer > len(game_event.chat_event.lines[2]) + 50:
-			if game_event.is_there_more_after_this:
-				set_state_playing()
-			else:
-				set_state_animating_out()
-	elif state == UIDS_State.Playing:
-		pass
-	elif state == UIDS_State.WowText:
-		wow_text_timer -= delta
-		if wow_text_timer < 0:
-			wow_texts_outcome_index += 1
-			if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
-				wow_texts_character_index += 1
-				wow_texts_outcome_index = 0
-				if wow_texts_character_index == 3:
-					set_state_left()
-			if not state == UIDS_State.SpeakingLeft:
-				var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
-				print(Enums.CardPlayOutcome.keys()[outcome])
-				update_loveometers_idx(wow_texts_character_index)
-				if outcome in outcome_to_wow_text_scene.keys():
-					spawn_wow(outcome_to_wow_text_scene[outcome])
-
-	do_focusing(delta)
-	
-	skip_anim_next_frame = false
-
-func do_focusing(delta: float) -> void:
-	cmod($Date1, is_left_focused(), delta)
-	cmod($Date2, is_middle_focused(), delta)
-	cmod($Date3, is_right_focused(), delta)
-	cmod($HandBackground, is_hand_focused(), delta)
-
-func cmod(node: CanvasItem, focused: bool, delta: float) -> void:
-	var target = FOCUSED_MODULATE if focused else UNFOCUSED_MODULATE
-	delta *= 6
-	if skip_anim_next_frame:
-		delta = 1
-	# TODO: This can break if the game runs terrible? Is that wanted?
-	node.modulate = node.modulate.lerp(target, delta)
-
-#region State Machine Getter Helpers
-
-func is_left_focused() -> bool:
-	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Left)
-
-func is_middle_focused() -> bool:
-	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Middle)
-
-func is_right_focused() -> bool:
-	return (focus == UIDS_FocusState.All) or (focus == UIDS_FocusState.Right)
-
-func is_hand_focused() -> bool:
-	return (focus == UIDS_FocusState.All)
-
 #endregion
-
-
-func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33):	
-	var font_size:int = default_font_size + 1
-	if text.is_empty():
-		text = label.text
-
-	var total_text_height:float = 1000
-	while (total_text_height > 160.0):
-		font_size -= 1
-		total_text_height = label.get_theme_font("font").get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, label.size.x, font_size).y
-
-	if (label.has_theme_font_size_override("font_size")):
-		label.remove_theme_font_size_override("font_size")
-	label.add_theme_font_size_override("font_size", font_size)
-
-@onready
-var loveometers: Array[UILoveometer] = [
-	$Date1/Loveometer,
-	$Date2/Loveometer,
-	$Date3/Loveometer
-]
-
-func update_loveometers_idx(idx: int) -> void:
-	loveometers[idx].love = GameManager.characters[idx].affection / GameManager.characters[idx].goal_affection
-
-func update_loveometers() -> void:
-	update_loveometers_idx(0)
-	update_loveometers_idx(1)
-	update_loveometers_idx(2)
-
-func set_names() -> void:
-	$Date1/DateName.text = GameManager.characters[0].displayed_name
-	$Date2/DateName.text = GameManager.characters[1].displayed_name
-	$Date3/DateName.text = GameManager.characters[2].displayed_name

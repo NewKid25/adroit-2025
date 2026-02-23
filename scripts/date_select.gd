@@ -204,13 +204,13 @@ func highlight_date_label():
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .9, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#ffffff"), TWEEN_DURATION)
-			tween.parallel().tween_property(child, "position.x", -80, TWEEN_DURATION)
+			#tween.parallel().tween_property(child, "position.x", -80, TWEEN_DURATION)
 		else:
 			var tween := create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .8, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#adadad"), TWEEN_DURATION)
-			tween.parallel().tween_property(child, "position.x", -90, TWEEN_DURATION)
+			#tween.parallel().tween_property(child, "position.x", -90, TWEEN_DURATION)
 
 
 func highlight_character():
