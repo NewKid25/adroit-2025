@@ -94,11 +94,6 @@ var loveometers: Array[UILoveometer] = [
 func update_loveometers_idx(idx: int) -> void:
 	loveometers[idx].love = GameManager.characters[idx].affection / GameManager.characters[idx].goal_affection
 
-func update_loveometers() -> void:
-	update_loveometers_idx(0)
-	update_loveometers_idx(1)
-	update_loveometers_idx(2)
-
 func set_names() -> void:
 	$Date1/DateName.text = GameManager.characters[0].displayed_name
 	$Date2/DateName.text = GameManager.characters[1].displayed_name
@@ -117,6 +112,11 @@ func animate_focus(node: CanvasItem, focused: bool, delta: float) -> void:
 		delta = 1
 	# TODO: This can break if the game runs terrible? Is that wanted?
 	node.modulate = node.modulate.lerp(target, delta)
+
+func set_dialog_text_scaled(label: Label, text: String):
+	label.text = text
+	scale_text_fit_width(label)
+	label.visible_characters = 0
 
 func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33):	
 	var font_size := default_font_size + 1
@@ -164,7 +164,6 @@ func on_finish_move(card: Card) -> void:
 	$FX/CardExplode.emitting = true
 	state.set_state_to(UIDS_State.WowText)
 
-
 #endregion
 
 #region State Date Intro
@@ -172,12 +171,19 @@ func on_finish_move(card: Card) -> void:
 func enter_state_date_intro():
 	game_event = controller.begin()
 	hand.skip_anim_next_frame = true
-	update_loveometers()
+	
+	update_loveometers_idx(0)
+	update_loveometers_idx(1)
+	update_loveometers_idx(2)
+	
 	set_left_sprite()
 	set_middle_sprite()
 	set_right_sprite()
+	
 	set_names()
+	
 	add_stashed_cards()
+	
 	state.set_state_to(UIDS_State.AnimatingIn)
 
 func exit_state_date_intro():
@@ -235,7 +241,7 @@ func enter_state_speaking_left():
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
-	scale_text_fit_width($Date1/DateText, game_event.chat_event.lines[0])
+	set_dialog_text_scaled($Date1/DateText, game_event.chat_event.lines[0])
 	set_left_sprite()
 
 func exit_state_speaking_left():
@@ -243,7 +249,6 @@ func exit_state_speaking_left():
 
 func process_state_speaking_left(delta: float):
 	speaking_timer += delta * 80
-	$Date1/DateText.text = game_event.chat_event.lines[0]
 	$Date1/DateText.visible_characters = floor(speaking_timer)
 	if speaking_timer > len(game_event.chat_event.lines[0]) + 50:
 		state.set_state_to(UIDS_State.SpeakingMiddle)
@@ -258,7 +263,7 @@ func enter_state_speaking_middle():
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
-	scale_text_fit_width($Date2/DateText, game_event.chat_event.lines[1])
+	set_dialog_text_scaled($Date2/DateText, game_event.chat_event.lines[1])
 	set_middle_sprite()
 
 func exit_state_speaking_middle():
@@ -266,7 +271,6 @@ func exit_state_speaking_middle():
 
 func process_state_speaking_middle(delta: float):
 	speaking_timer += delta * 80
-	$Date2/DateText.text = game_event.chat_event.lines[1]
 	$Date2/DateText.visible_characters = floor(speaking_timer)
 	if speaking_timer > len(game_event.chat_event.lines[1]) + 50:
 		state.set_state_to(UIDS_State.SpeakingRight)
@@ -281,7 +285,7 @@ func enter_state_speaking_right():
 	hand.state = UIHand.UIHandState.Hidden
 	UIHelper.joy_shake()
 	SfxManager.play_sound(preload("res://assets/sfx/default_reaction.wav"))
-	scale_text_fit_width($Date3/DateText, game_event.chat_event.lines[2])
+	set_dialog_text_scaled($Date3/DateText, game_event.chat_event.lines[2])
 	set_right_sprite()
 
 func exit_state_speaking_right():
@@ -289,7 +293,6 @@ func exit_state_speaking_right():
 
 func process_state_speaking_right(delta: float):
 	speaking_timer += delta * 80
-	$Date3/DateText.text = game_event.chat_event.lines[2]
 	$Date3/DateText.visible_characters = floor(speaking_timer)
 	if speaking_timer > len(game_event.chat_event.lines[2]) + 50:
 		if game_event.is_there_more_after_this:
