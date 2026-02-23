@@ -346,19 +346,21 @@ func exit_state_wow_text():
 
 func process_state_wow_text(delta: float):
 	wow_text_timer -= delta
-	if wow_text_timer < 0:
-		wow_texts_outcome_index += 1
-		if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
-			wow_texts_character_index += 1
-			wow_texts_outcome_index = 0
-			if wow_texts_character_index == 3:
-				state.set_state_to(UIDS_State.SpeakingLeft)
-				return
-		var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
-		print(Enums.CardPlayOutcome.keys()[outcome])
-		update_loveometers_idx(wow_texts_character_index)
-		if outcome in outcome_to_wow_text_scene.keys():
-			spawn_wow(outcome_to_wow_text_scene[outcome])
+	if wow_text_timer > 0:
+		return
+	
+	wow_texts_outcome_index += 1
+	if wow_texts_outcome_index == controller.outcomes[wow_texts_character_index].size():
+		wow_texts_character_index += 1
+		wow_texts_outcome_index = 0
+		if wow_texts_character_index == 3:
+			state.set_state_to(UIDS_State.SpeakingLeft)
+			return
+	
+	var outcome = controller.outcomes[wow_texts_character_index][wow_texts_outcome_index]
+	update_loveometers_idx(wow_texts_character_index)
+	if outcome in outcome_to_wow_text_scene.keys():
+		spawn_wow(outcome_to_wow_text_scene[outcome])
 
 func spawn_wow(wow):
 	var w = wow.instantiate()
