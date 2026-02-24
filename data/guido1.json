@@ -5,7 +5,7 @@
 		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 2.0 },
 		"mood_upper_bound": { "flirty": 1e99999, "funny": 3.0, "sentiment": 1e99999 }
 	  },
-	  "nexts": { "0": "id2", "2": "id3", "4": "id4", "10": "1d5" },
+	  "nexts": { "0": "id2", "2": "id3", "4": "id4", "10": "id5" },
 	  "sprite": "guidopleased.png",
 	  "text": "This place is very cute... you picked a wonderful place."
 	},
