@@ -132,6 +132,11 @@ func scale_text_fit_width(label:Label, text:String="", default_font_size:int=33)
 	
 	label.add_theme_font_size_override("font_size", font_size)
 
+func set_backgrounds():
+	$Date1/Datearea.texture = GameManager.characters[0].background
+	$Date2/Datearea.texture = GameManager.characters[1].background
+	$Date3/Datearea.texture = GameManager.characters[2].background
+
 func set_left_sprite():
 	if not game_event.chat_event.sprite_paths[0].is_empty():
 		$Date1/Sprite.texture = load("res://assets/art/" + game_event.chat_event.sprite_paths[0])
@@ -175,6 +180,8 @@ func enter_state_date_intro():
 	update_loveometers_idx(0)
 	update_loveometers_idx(1)
 	update_loveometers_idx(2)
+	
+	set_backgrounds()
 	
 	set_left_sprite()
 	set_middle_sprite()

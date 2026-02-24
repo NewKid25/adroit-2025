@@ -28,13 +28,15 @@ var characters : Array[Dictionary] = [
 				"label": "Date 1",
 				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
 				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
+				"profile_images": ["res://assets/art/squareschrodie.png", "res://assets/art/squarepaul.png", "res://assets/art/squareguido.png"],
+				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
 			},
 			{
 				"label": "Date 2",
 				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
 				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
+				"profile_images": ["res://assets/art/squareschrodie.png", "res://assets/art/squarepaul.png", "res://assets/art/squareguido.png"],
+				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
 			}
 		]
 	},
@@ -44,7 +46,8 @@ var characters : Array[Dictionary] = [
 				"label": "Date 1",
 				"conversations": ["res://data/feldspar1.json", "res://data/cassandrajones1.json", "res://data/professorqubit1.json"],
 				"displayed_names": ["Feldspar", "Cassandra", "Prof. Qubit"],
-				"profile_images": [preload("res://assets/art/squarefeldspar.png"), preload("res://assets/art/squarecassandra.png"), preload("res://assets/art/squareprofessor.png")]
+				"profile_images": ["res://assets/art/squarefeldspar.png", "res://assets/art/squarecassandra.png", "res://assets/art/squareprofessor.png"],
+				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
 			},
 			# {
 			# 	"label": "Date B2",
@@ -107,7 +110,8 @@ func _process(delta: float):
 			for i in range(3):
 				GameManager.characters[i].conversation = DataService.get_conversation_from_file(characters[selected_char_index].date_numbers[selected_date_index].conversations[i])
 				GameManager.characters[i].displayed_name = characters[selected_char_index].date_numbers[selected_date_index].displayed_names[i]
-				GameManager.characters[i].profile_image = characters[selected_char_index].date_numbers[selected_date_index].profile_images[i]
+				GameManager.characters[i].profile_image = load(characters[selected_char_index].date_numbers[selected_date_index].profile_images[i])
+				GameManager.characters[i].background = load(characters[selected_char_index].date_numbers[selected_date_index].backgrounds[i])
 			GameManager.date_idx = selected_date_index + 1
 
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
