@@ -2,6 +2,19 @@
 
 [ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_ycap1"]
 [ext_resource type="Script" uid="uid://ol61oobgtef7" path="res://editor/editor.gd" id="2_fjngd"]
+[ext_resource type="Texture2D" uid="uid://cs22pxk547kae" path="res://assets/art/textboxbordered.png" id="3_er7c6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j82do"]
+texture = ExtResource("3_er7c6")
+texture_margin_left = 7.0
+texture_margin_top = 8.0
+texture_margin_right = 10.0
+texture_margin_bottom = 13.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjngd"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
 
 [node name="Editor" type="Control" unique_id=943870841]
 layout_mode = 3
@@ -62,7 +75,205 @@ metadata/_tab_index = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Split" unique_id=1826455553]
+[node name="Button" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer" unique_id=233612643]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Create New Character Set (Unimplemented)"
+
+[node name="DialogNodes" type="VSplitContainer" parent="VBoxContainer/Split" unique_id=2111868643]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Split/DialogNodes" unique_id=955046968]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer" unique_id=134758397]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=1434842458]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1713683130]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1330946972]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2014315317]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1270255295]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=952036447]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1173835295]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "2"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1646538985]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1010900479]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1859044705]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1652160939]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1761165780]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=215106857]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=667169022]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1187775442]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=199545995]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=832324738]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=529574463]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1080295307]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=1591282978]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1140184730]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=231282902]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1926176463]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1392958458]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1456948144]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=626400892]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=1180923897]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1940615539]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2071264118]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=162741880]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=823578790]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j82do")
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1842507805]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1373013717]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[node name="Panel" type="PanelContainer" parent="VBoxContainer/Split/DialogNodes" unique_id=1332771134]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjngd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/Panel" unique_id=1898034104]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/Split/DialogNodes/Panel/HBoxContainer" unique_id=91472004]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer/Split/DialogNodes/Panel/HBoxContainer" unique_id=662134204]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Split/DialogNodes/Panel/HBoxContainer" unique_id=247688393]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/Panel/HBoxContainer/ScrollContainer" unique_id=1915629997]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Padding" type="Control" parent="VBoxContainer/Split" unique_id=1432982589]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 

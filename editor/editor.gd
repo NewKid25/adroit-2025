@@ -1,6 +1,8 @@
 extends Control
 
 var saved := false
+var dialog_loaded := false
+var loaded_character_set := -1
 
 func _ready():
 	set_window_scaling_enabled()
