@@ -16,9 +16,23 @@ class DialogRow:
 	var cols: Array[DialogNode] = []
 
 class DateInfo:
+	var label := ""
+	
 	var path_left := ""
+	var bg_left := ""
+	var name_left := ""
+	var profile_left := ""
+	
 	var path_middle := ""
+	var bg_middle := ""
+	var name_middle := ""
+	var profile_middle := ""
+	
 	var path_right := ""
+	var bg_right := ""
+	var name_right := ""
+	var profile_right := ""
+	
 
 class CharacterSet:
 	var dates: Array[DateInfo] = []
@@ -28,13 +42,15 @@ var dialog_loaded := false
 var loaded_character_set := -1
 var loaded_date_idx := -1
 
-
-
+var charactersets: Array[CharacterSet] = []
 var rows: Array[DialogRow] = []
 var used_key_cache: Array[String] = []
 
 @onready
 var dialog_list: ELEDialogList = $VBoxContainer/Split/DialogNodes/ScrollContainer/DialogList
+
+@onready
+var node_character_sets: ELECharacterSets = $VBoxContainer/Split/VBoxContainer/CharacterSets
 
 func _ready():
 	set_window_scaling_enabled()
@@ -42,10 +58,11 @@ func _ready():
 	
 	make_quit_confirmation_actually_quit()
 	
+	load_characters()
+	update_characters()
+	
 	load_rows()
 	update_rows()
-	
-	print(serialize_rows_to_json())
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	match index:
@@ -195,3 +212,46 @@ func serialize_rows_to_json() -> String:
 			}
 	
 	return JSON.stringify({"dialogs": obj}, "\t", false)
+
+func load_characters():
+	var json = JSON.parse_string(FileAccess.get_file_as_string("res://data/characters.json"))
+	for cset in json:
+		var obj := CharacterSet.new()
+		
+		for date in cset["date_numbers"]:
+			var obj2 := DateInfo.new()
+			obj2.label = date["label"]
+			
+			obj2.path_left = date["conversations"][0]
+			obj2.path_middle = date["conversations"][1]
+			obj2.path_right = date["conversations"][2]
+			
+			obj2.name_left = date["displayed_names"][0]
+			obj2.name_middle = date["displayed_names"][1]
+			obj2.name_right = date["displayed_names"][2]
+			
+			obj2.profile_left = date["profile_images"][0]
+			obj2.profile_middle = date["profile_images"][1]
+			obj2.profile_right = date["profile_images"][2]
+			
+			obj2.bg_left = date["backgrounds"][0]
+			obj2.bg_middle = date["backgrounds"][1]
+			obj2.bg_right = date["backgrounds"][2]
+			
+			obj.dates.push_back(obj2)
+		
+		charactersets.push_back(obj)
+
+func update_characters():
+	for cset in charactersets:
+		var node = node_character_sets.add_set()
+		for date in cset.dates:
+			var node2 = node.add_date()
+			node2.set_bckgs(date.bg_left, date.bg_middle, date.bg_right)
+			node2.set_name_data(
+				date.label,
+				date.name_left, date.path_left,
+				date.name_middle, date.path_middle,
+				date.name_right, date.path_right
+			)
+			node2.set_profiles(date.profile_left, date.profile_middle, date.profile_right)

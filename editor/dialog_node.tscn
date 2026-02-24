@@ -52,6 +52,7 @@ layout_mode = 2
 texture = ExtResource("2_gdc6m")
 
 [node name="DialogText" type="Label" parent="DialogRect" unique_id=186081288]
+custom_minimum_size = Vector2(336, 120)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

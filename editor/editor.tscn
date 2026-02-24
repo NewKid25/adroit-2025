@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_ycap1"]
 [ext_resource type="Script" uid="uid://ol61oobgtef7" path="res://editor/editor.gd" id="2_fjngd"]
-[ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="3_6j37k"]
+[ext_resource type="Script" uid="uid://cx3dmco302t6f" path="res://editor/character_sets.gd" id="3_3meo8"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_j82do"]
 [ext_resource type="Script" uid="uid://tp1ualna8qyk" path="res://editor/dialog_list.gd" id="5_3meo8"]
 [ext_resource type="PackedScene" uid="uid://qpk85gdxmfg4" path="res://editor/dialog_row.tscn" id="6_swf4p"]
@@ -40,10 +40,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBar" type="MenuBar" parent="VBoxContainer" unique_id=975976180]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=595646637]
 layout_mode = 2
 
-[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/MenuBar" unique_id=276736797]
+[node name="MenuBar" type="MenuBar" parent="VBoxContainer/HBoxContainer" unique_id=975976180]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/HBoxContainer/MenuBar" unique_id=276736797]
 oversampling_override = 1.0
 title = "File"
 size = Vector2i(110, 100)
@@ -52,6 +56,10 @@ item_0/text = "Save"
 item_0/id = 0
 item_1/text = "Quit"
 item_1/id = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=106855887]
+layout_mode = 2
+text = "Open File: NOTHING!!"
 
 [node name="Split" type="HSplitContainer" parent="VBoxContainer" unique_id=704531347]
 layout_mode = 2
@@ -63,107 +71,20 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 current_tab = 0
 
-[node name="Character Sets" type="ScrollContainer" parent="VBoxContainer/Split/VBoxContainer" unique_id=412978122]
+[node name="CharacterSets" type="ScrollContainer" parent="VBoxContainer/Split/VBoxContainer" unique_id=412978122]
 layout_mode = 2
 horizontal_scroll_mode = 0
+script = ExtResource("3_3meo8")
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Split/VBoxContainer/Character Sets" unique_id=829347339]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Split/VBoxContainer/CharacterSets" unique_id=193240221]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer" unique_id=1585250146]
-layout_mode = 2
-text = "Character Set 1"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer" unique_id=1055971253]
+[node name="OnlySets" type="VBoxContainer" parent="VBoxContainer/Split/VBoxContainer/CharacterSets/VBoxContainer" unique_id=454939564]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer" unique_id=1771576808]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("3_6j37k")
-expand_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/TextureRect" unique_id=1857292193]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_j82do")
-expand_mode = 3
-
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer" unique_id=1916104668]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("3_6j37k")
-expand_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/TextureRect2" unique_id=706383514]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_j82do")
-expand_mode = 3
-
-[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer" unique_id=1985424946]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("3_6j37k")
-expand_mode = 3
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/TextureRect3" unique_id=1587881016]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_j82do")
-expand_mode = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer" unique_id=834326820]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HFlowContainer" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/ScrollContainer" unique_id=866672926]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=796059544]
-layout_mode = 2
-text = "Left"
-
-[node name="Button2" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=211997754]
-layout_mode = 2
-text = "Middle"
-
-[node name="Button3" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=583928038]
-layout_mode = 2
-text = "Right"
-
-[node name="Button4" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=516101153]
-layout_mode = 2
-text = "Edit Backgrounds (Unimpl)"
-
-[node name="Button2" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer" unique_id=37163130]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Add Another Date (Unimplemented)"
-
-[node name="Button" type="Button" parent="VBoxContainer/Split/VBoxContainer/Character Sets/VBoxContainer" unique_id=233612643]
+[node name="Button" type="Button" parent="VBoxContainer/Split/VBoxContainer/CharacterSets/VBoxContainer" unique_id=233612643]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Create New Character Set (Unimplemented)"
@@ -330,7 +251,7 @@ size = Vector2i(500, 109)
 dialog_text = "Are you sure you want to delete this dialog node? This action may be irreversible!"
 cancel_button_text = "Don't!"
 
-[connection signal="index_pressed" from="VBoxContainer/MenuBar/PopupMenu" to="." method="_on_popup_menu_index_pressed"]
+[connection signal="index_pressed" from="VBoxContainer/HBoxContainer/MenuBar/PopupMenu" to="." method="_on_popup_menu_index_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/TextEdit" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_text_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/ChangeImage" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_change_image_pressed"]
 [connection signal="pressed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Remove" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_remove_pressed"]

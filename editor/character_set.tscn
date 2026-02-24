@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://hteo2xlnbt8w"]
+
+[ext_resource type="Script" uid="uid://b7atx332isn2i" path="res://editor/character_set.gd" id="1_1ms1r"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_swf4p"]
+color = Color(0.30249533, 0.30249542, 0.30249524, 1)
+
+[node name="CharacterSet" type="VBoxContainer" unique_id=1384379338]
+offset_right = 614.0
+offset_bottom = 262.0
+script = ExtResource("1_1ms1r")
+
+[node name="Label" type="Label" parent="." unique_id=394780029]
+layout_mode = 2
+text = "Character Set 1"
+horizontal_alignment = 1
+
+[node name="OnlyDates" type="VBoxContainer" parent="." unique_id=1627169838]
+layout_mode = 2
+
+[node name="AddDate" type="Button" parent="." unique_id=647559582]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Add Another Date (Unimplemented)"
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=2033825132]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_swf4p")
+
+[connection signal="pressed" from="AddDate" to="." method="_on_add_date_pressed"]
