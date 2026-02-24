@@ -44,6 +44,8 @@ func _ready():
 	
 	load_rows()
 	update_rows()
+	
+	print(serialize_rows_to_json())
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	match index:
@@ -86,11 +88,11 @@ func mark_title_game():
 
 func load_rows():
 	rows.clear()
-	used_key_cache.clear()
 	
-	var json: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/schrodie1.json"))["dialogs"]
+	var json: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/schrodie2.json"))["dialogs"]
 	
 	var node = json.keys()[0]
+	used_key_cache.assign(json.keys())
 	
 	var row := DialogRow.new()
 	var root := DialogNode.new()
@@ -120,10 +122,7 @@ func load_rows():
 		nnexts = null
 
 func update_rows():
-	for row in rows:
-		print("--- ROW ---")
-		for col in row.cols:
-			print("- (%s) %s" % [Enums.CardPlayOutcome.keys()[col.trigger], col.text])
+	#debug_print_rows()
 	
 	var drow := dialog_list.get_row(0)
 	drow.mark_first_row()
@@ -149,6 +148,12 @@ func update_rows():
 			drow.set_trigger(j, rows[i].cols[j].trigger)
 			drow.set_text(j, rows[i].cols[j].text)
 
+func debug_print_rows():
+	for row in rows:
+		print("--- ROW ---")
+		for col in row.cols:
+			print("- (%s) %s" % [Enums.CardPlayOutcome.keys()[col.trigger], col.text])
+
 ## Doesn't load col.key
 func load_col(col: DialogNode, data: Dictionary):
 	if len(data["mood_expectation"]) > 0:
@@ -160,3 +165,33 @@ func load_col(col: DialogNode, data: Dictionary):
 		col.sentiment_max = data["mood_expectation"]["mood_upper_bound"]["sentiment"]
 	col.sprite = data["sprite"]
 	col.text = data["text"]
+
+func serialize_rows_to_json() -> String:
+	var obj = {}
+	
+	for i in range(len(rows)):
+		var row = rows[i]
+		var nexts = {}
+		if i < len(rows) - 1:
+			for col in rows[i + 1].cols:
+				nexts[str(col.trigger)] = col.key
+		for col in row.cols:
+			obj[col.key] = {
+				"mood_expectation": {
+					"mood_lower_bound": {
+						"flirty": col.flirty_min,
+						"funny": col.funny_min,
+						"sentiment": col.sentiment_min
+					},
+					"mood_upper_bound": {
+						"flirty": col.flirty_max,
+						"funny": col.funny_max,
+						"sentiment": col.sentiment_max
+					},
+				},
+				"nexts": nexts,
+				"sprite": col.sprite,
+				"text": col.text
+			}
+	
+	return JSON.stringify({"dialogs": obj}, "\t", false)
