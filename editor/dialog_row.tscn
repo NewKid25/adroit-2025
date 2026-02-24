@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://qpk85gdxmfg4"]
+
+[ext_resource type="Script" uid="uid://g3jtmbrcujcb" path="res://editor/dialog_row.gd" id="1_c3vq8"]
+[ext_resource type="PackedScene" uid="uid://0h2g5v8mjvyq" path="res://editor/dialog_node.tscn" id="2_nurbn"]
+
+[node name="DialogRow" type="HBoxContainer" unique_id=1592799768]
+script = ExtResource("1_c3vq8")
+
+[node name="RowIndex" type="Label" parent="." unique_id=3310129]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "2"
+horizontal_alignment = 1
+
+[node name="DialogNode" parent="." unique_id=587451650 instance=ExtResource("2_nurbn")]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="." unique_id=1603152479]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="AddAnother" type="Button" parent="." unique_id=1974035792]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Add Another"
+
+[connection signal="pressed" from="AddAnother" to="." method="_on_add_another_pressed"]

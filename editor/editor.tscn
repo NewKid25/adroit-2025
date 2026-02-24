@@ -3,10 +3,9 @@
 [ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_ycap1"]
 [ext_resource type="Script" uid="uid://ol61oobgtef7" path="res://editor/editor.gd" id="2_fjngd"]
 [ext_resource type="Texture2D" uid="uid://cmyy36anguxnt" path="res://assets/art/cafescene.png" id="3_6j37k"]
-[ext_resource type="Texture2D" uid="uid://cs22pxk547kae" path="res://assets/art/textboxbordered.png" id="3_er7c6"]
 [ext_resource type="Texture2D" uid="uid://b2cs0cghguj0d" path="res://assets/art/paul_rudd.png" id="4_j82do"]
-[ext_resource type="Script" uid="uid://g3jtmbrcujcb" path="res://editor/dialog_row.gd" id="5_6hpnh"]
-[ext_resource type="Script" uid="uid://uqw5h5vdi8ye" path="res://editor/dialog_node.gd" id="6_swf4p"]
+[ext_resource type="Script" uid="uid://tp1ualna8qyk" path="res://editor/dialog_list.gd" id="5_3meo8"]
+[ext_resource type="PackedScene" uid="uid://qpk85gdxmfg4" path="res://editor/dialog_row.tscn" id="6_swf4p"]
 [ext_resource type="Script" uid="uid://cwog6vjtjisyc" path="res://editor/dialog_inspector.gd" id="8_aws7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjngd"]
@@ -177,86 +176,13 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer" unique_id=134758397]
+[node name="DialogList" type="VBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer" unique_id=134758397]
 layout_mode = 2
 theme_override_constants/separation = 50
+script = ExtResource("5_3meo8")
 
-[node name="DialogRow" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer" unique_id=952036447]
+[node name="DialogRow" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/DialogList" unique_id=1592799768 instance=ExtResource("6_swf4p")]
 layout_mode = 2
-script = ExtResource("5_6hpnh")
-
-[node name="RowIndex" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow" unique_id=1173835295]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-text = "2"
-horizontal_alignment = 1
-
-[node name="DialogNode" type="VBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow" unique_id=273803729]
-layout_mode = 2
-script = ExtResource("6_swf4p")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode" unique_id=450890826]
-layout_mode = 2
-alignment = 1
-
-[node name="Trigger" type="OptionButton" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/HBoxContainer" unique_id=194557540]
-layout_mode = 2
-size_flags_horizontal = 4
-selected = 8
-item_count = 11
-popup/item_0/text = "All Success"
-popup/item_0/id = 0
-popup/item_1/text = "Under Funny"
-popup/item_1/id = 1
-popup/item_2/text = "Under Sentiment"
-popup/item_2/id = 2
-popup/item_3/text = "Under Flirty"
-popup/item_3/id = 3
-popup/item_4/text = "Over Funny"
-popup/item_4/id = 4
-popup/item_5/text = "Over Sentiment"
-popup/item_5/id = 5
-popup/item_6/text = "Over Flirty"
-popup/item_6/id = 6
-popup/item_7/text = "All Over"
-popup/item_7/id = 7
-popup/item_8/text = "All Under"
-popup/item_8/id = 8
-popup/item_9/text = "All Fail"
-popup/item_9/id = 9
-popup/item_10/text = "Default"
-popup/item_10/id = 10
-
-[node name="Open" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/HBoxContainer" unique_id=1515029086]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Open"
-
-[node name="Numbers" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/HBoxContainer" unique_id=188252983]
-layout_mode = 2
-text = "(0; 0) (0; 0) (0; 0)"
-
-[node name="DialogRect" type="TextureRect" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode" unique_id=518833041]
-layout_mode = 2
-texture = ExtResource("3_er7c6")
-
-[node name="DialogText" type="Label" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/DialogRect" unique_id=638597982]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-autowrap_mode = 3
-
-[node name="Padding" type="Control" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow" unique_id=1652160939]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="AddAnother" type="Button" parent="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow" unique_id=1761165780]
-layout_mode = 2
-size_flags_vertical = 4
-text = "Add Another"
 
 [node name="DialogInspector" type="PanelContainer" parent="VBoxContainer/Split/DialogNodes" unique_id=1332771134]
 layout_mode = 2
@@ -405,6 +331,12 @@ dialog_text = "Are you sure you want to delete this dialog node? This action may
 cancel_button_text = "Don't!"
 
 [connection signal="index_pressed" from="VBoxContainer/MenuBar/PopupMenu" to="." method="_on_popup_menu_index_pressed"]
-[connection signal="item_selected" from="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/HBoxContainer/Trigger" to="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode" method="_on_trigger_changed"]
-[connection signal="pressed" from="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode/HBoxContainer/Open" to="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/DialogNode" method="_on_open_pressed"]
-[connection signal="pressed" from="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow/AddAnother" to="VBoxContainer/Split/DialogNodes/ScrollContainer/VBoxContainer/DialogRow" method="_on_add_another_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/TextEdit" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/ChangeImage" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_change_image_pressed"]
+[connection signal="pressed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer/Remove" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_remove_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/FlirtyMin" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/FunnyMin" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/SentimentMin" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/FlirtyMax" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/FunnyMax" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Split/DialogNodes/DialogInspector/HBoxContainer/ScrollContainer/VBoxContainer/GridContainer/SentimentMax" to="VBoxContainer/Split/DialogNodes/DialogInspector" method="_on_mood_value_changed"]

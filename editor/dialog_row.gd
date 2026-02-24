@@ -13,22 +13,26 @@ func mark_row_idx(rowid: int):
 func mark_first_row():
 	$DialogNode.mark_first_row()
 	$AddAnother.visible = false
+	mark_row_idx(0)
+
+func set_range(colid: int, min1, max1, min2, max2, min3, max3):
+	get_child(colid + 1).set_range(min1, max1, min2, max2, min3, max3)
 
 func set_trigger(colid: int, trigger: int):
-	get_child(colid).set_trigger(trigger)
+	get_child(colid + 1).set_trigger(trigger)
 
 func set_text(colid: int, text: String):
-	get_child(colid).set_text(text)
+	get_child(colid + 1).set_text(text)
 
 func remove_col_idx(colid: int):
 	assert(colid < cols)
-	get_child(colid).queue_free()
+	get_child(colid + 1).queue_free()
 	cols -= 1
 
 func add_column() -> int:
-	var n = $DialogNode.duplicate()
+	var n = preload("res://editor/dialog_node.tscn").instantiate()
 	add_child(n)
-	move_child(n, cols)
+	move_child(n, cols + 1)
 	cols += 1
 	return cols - 1
 

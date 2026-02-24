@@ -6,7 +6,7 @@ func set_text(txt):
 
 func set_range(min1, max1, min2, max2, min3, max3):
 	$HBoxContainer/Numbers.text =            \
-		"(%f; %f) (%f; %f) (%f; %f)" %       \
+		"(%.1f; %.1f) (%.1f; %.1f) (%.1f; %.1f)" %       \
 		[min1, max1, min2, max2, min3, max3]
 
 func mark_first_row():
