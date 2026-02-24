@@ -1,8 +1,20 @@
 extends Control
 
+class DialogNode:
+	var text := ""
+	var sprite := ""
+	var flirty_min := 0.0
+	var flirty_max := 0.0
+	var funny_min := 0.0
+	var funny_max := 0.0
+	var sentiment_min := 0.0
+	var sentiment_max := 0.0
+	var trigger := Enums.CardPlayOutcome.ALL_SUCCESS
+
 var saved := false
 var dialog_loaded := false
 var loaded_character_set := -1
+var loaded_date_idx := -1
 
 func _ready():
 	set_window_scaling_enabled()
