@@ -21,46 +21,13 @@ var fade_timer:float = 1.0
 static var selected_char_index:int = 0
 static var selected_date_index:int = 0
 
-var characters : Array[Dictionary] = [
-	{
-		"date_numbers": [
-			{
-				"label": "Date 1",
-				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
-				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": ["res://assets/art/squareschrodie.png", "res://assets/art/squarepaul.png", "res://assets/art/squareguido.png"],
-				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
-			},
-			{
-				"label": "Date 2",
-				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
-				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": ["res://assets/art/squareschrodie.png", "res://assets/art/squarepaul.png", "res://assets/art/squareguido.png"],
-				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
-			}
-		]
-	},
-	{
-		"date_numbers": [
-			{
-				"label": "Date 1",
-				"conversations": ["res://data/feldspar1.json", "res://data/cassandrajones1.json", "res://data/professorqubit1.json"],
-				"displayed_names": ["Feldspar", "Cassandra", "Prof. Qubit"],
-				"profile_images": ["res://assets/art/squarefeldspar.png", "res://assets/art/squarecassandra.png", "res://assets/art/squareprofessor.png"],
-				"backgrounds": ["res://assets/art/carnivalscenepurple.png", "res://assets/art/finediningscene.png", "res://assets/art/cafescene.png"]
-			},
-			# {
-			# 	"label": "Date B2",
-			# 	"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
-			# 	"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-			# 	"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-			# }
-		]
-	}
-]
+var characters : Array
 
 
 func _ready() -> void:
+	var s = FileAccess.get_file_as_string("res://data/characters.json")
+	characters = JSON.parse_string(s)
+	
 	load_date_labels()
 	highlight_character()
 	highlight_menu_state()
