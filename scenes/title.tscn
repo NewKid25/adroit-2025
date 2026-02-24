@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://du7ufnglhc3di" path="res://assets/art/titlebutton.png" id="5_b3w7a"]
 [ext_resource type="FontFile" uid="uid://cws3cyfufsiah" path="res://assets/atwriter.ttf" id="6_4rr2b"]
 [ext_resource type="FontFile" uid="uid://bba72d0803y5s" path="res://assets/Arvo-Bold.ttf" id="7_yql1r"]
+[ext_resource type="PackedScene" uid="uid://cmm5qeqva8q" path="res://scenes/styled_button.tscn" id="8_ia1n6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rr2b"]
 shader = ExtResource("2_pyl7j")
@@ -363,3 +364,10 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1019257209]
 libraries/ = SubResource("AnimationLibrary_b3w7a")
 autoplay = &"intro"
+
+[node name="EditorButton" parent="." unique_id=400037784 instance=ExtResource("8_ia1n6")]
+offset_left = 100.0
+offset_top = 84.0
+offset_right = 385.0
+offset_bottom = 143.0
+text = "Open the editor"

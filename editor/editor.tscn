@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://2u14xth0swvf"]
+
+[ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_ycap1"]
+[ext_resource type="Script" uid="uid://ol61oobgtef7" path="res://editor/editor.gd" id="2_fjngd"]
+
+[node name="Editor" type="Control" unique_id=943870841]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ycap1")
+script = ExtResource("2_fjngd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1321509252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1278320432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="VBoxContainer" unique_id=975976180]
+layout_mode = 2
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/MenuBar" unique_id=276736797]
+oversampling_override = 1.0
+title = "File"
+size = Vector2i(110, 100)
+item_count = 2
+item_0/text = "Save"
+item_0/id = 0
+item_1/text = "Quit"
+item_1/id = 1
+
+[node name="Split" type="HSplitContainer" parent="VBoxContainer" unique_id=704531347]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="TabContainer" parent="VBoxContainer/Split" unique_id=296946382]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+current_tab = 0
+
+[node name="Character Sets" type="ScrollContainer" parent="VBoxContainer/Split/VBoxContainer" unique_id=412978122]
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Split/VBoxContainer/Character Sets" unique_id=829347339]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Split" unique_id=1826455553]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuitConfirmation" type="ConfirmationDialog" parent="." unique_id=2105509429]
+oversampling_override = 1.0
+position = Vector2i(0, 30)
+size = Vector2i(298, 100)
+dialog_text = "There are unsaved changes! Are you sure you want to quit?"
+cancel_button_text = "Keep Working"
+
+[connection signal="index_pressed" from="VBoxContainer/MenuBar/PopupMenu" to="." method="_on_popup_menu_index_pressed"]

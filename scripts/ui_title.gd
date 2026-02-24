@@ -14,6 +14,9 @@ func _ready() -> void:
 	$CreditsButton/Button.mouse_entered.connect(_on_credits_button_enter)
 	$PlayButton/Button.mouse_entered.connect(_on_play_button_enter)
 
+	$EditorButton.pressed.connect(_on_editor_button_push)
+	$EditorButton.visible = OS.is_debug_build()
+
 func _on_credits_button_enter():
 	if fading_out:
 		return
@@ -47,6 +50,9 @@ func _on_play_button_push():
 	fading_out = true
 	SfxManager.play_sound(preload("res://assets/sfx/default_alt.wav"))
 	UIHelper.joy_shake()
+
+func _on_editor_button_push():
+	get_tree().change_scene_to_file("res://editor/editor.tscn")
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
