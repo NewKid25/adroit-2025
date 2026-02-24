@@ -7,7 +7,7 @@ signal edit_moodranges(am: float, aM: float, bm: float, bM: float, cm: float, cM
 signal edit_text(new_text: String)
 
 func set_image(path: String):
-	$HBoxContainer/TextureRect.texture = load(path)
+	$HBoxContainer/TextureRect.texture = load("res://assets/art/%s" % path)
 
 func set_text(text: String):
 	$HBoxContainer/TextEdit.text = text

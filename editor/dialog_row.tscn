@@ -19,9 +19,20 @@ layout_mode = 2
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 
-[node name="AddAnother" type="Button" parent="." unique_id=1974035792]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1698863431]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="AddAnother" type="Button" parent="VBoxContainer" unique_id=1974035792]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Add Another"
 
-[connection signal="pressed" from="AddAnother" to="." method="_on_add_another_pressed"]
+[node name="AddAnother2" type="Button" parent="VBoxContainer" unique_id=327929853]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Remove"
+
+[connection signal="pressed" from="VBoxContainer/AddAnother" to="." method="_on_add_another_pressed"]
+[connection signal="pressed" from="VBoxContainer/AddAnother2" to="." method="_on_add_another_pressed"]

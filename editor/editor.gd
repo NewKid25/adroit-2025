@@ -33,14 +33,30 @@ class DateInfo:
 	var name_right := ""
 	var profile_right := ""
 	
+	func get_sided_path(side):
+		match side:
+			0:
+				return path_left
+			1:
+				return path_middle
+			2:
+				return path_right
 
 class CharacterSet:
 	var dates: Array[DateInfo] = []
 
-var saved := false
+var saved := true
 var dialog_loaded := false
 var loaded_character_set := -1
 var loaded_date_idx := -1
+var loaded_side := -1
+
+var selected_row := -1
+var selected_col := -1
+
+const SIDE_LEFT = 0
+const SIDE_MIDDLE = 1
+const SIDE_RIGHT = 2
 
 var charactersets: Array[CharacterSet] = []
 var rows: Array[DialogRow] = []
@@ -48,9 +64,10 @@ var used_key_cache: Array[String] = []
 
 @onready
 var dialog_list: ELEDialogList = $VBoxContainer/Split/DialogNodes/ScrollContainer/DialogList
-
 @onready
 var node_character_sets: ELECharacterSets = $VBoxContainer/Split/VBoxContainer/CharacterSets
+@onready
+var dialog_inspector: ELEDialogInspector = $VBoxContainer/Split/DialogNodes/DialogInspector
 
 func _ready():
 	set_window_scaling_enabled()
@@ -61,8 +78,7 @@ func _ready():
 	load_characters()
 	update_characters()
 	
-	load_rows()
-	update_rows()
+	select_character(0, 0, SIDE_LEFT)
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	match index:
@@ -106,7 +122,10 @@ func mark_title_game():
 func load_rows():
 	rows.clear()
 	
-	var json: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/schrodie2.json"))["dialogs"]
+	var json: Dictionary = \
+		JSON.parse_string(FileAccess.get_file_as_string(
+			charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side)
+		))["dialogs"]
 	
 	var node = json.keys()[0]
 	used_key_cache.assign(json.keys())
@@ -255,3 +274,25 @@ func update_characters():
 				date.name_right, date.path_right
 			)
 			node2.set_profiles(date.profile_left, date.profile_middle, date.profile_right)
+
+func select_character(setid, dateid, side):
+	loaded_character_set = setid
+	loaded_date_idx = dateid
+	loaded_side = side
+	
+	load_rows()
+	update_rows()
+	
+	$VBoxContainer/HBoxContainer/LoadedFile.text = "Open File: %s" % charactersets[setid].dates[dateid].get_sided_path(side)
+	
+	select_col(0, 0)
+
+func select_col(rowid, colid):
+	selected_row = rowid
+	selected_col = colid
+	
+	var data = rows[rowid].cols[colid]
+	
+	dialog_inspector.set_image(data.sprite)
+	dialog_inspector.set_text(data.text)
+	dialog_inspector.set_moods(data.flirty_min, data.flirty_max, data.funny_min, data.funny_max, data.sentiment_min, data.sentiment_max)

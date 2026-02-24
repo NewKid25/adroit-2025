@@ -12,7 +12,7 @@ func mark_row_idx(rowid: int):
 
 func mark_first_row():
 	$DialogNode.mark_first_row()
-	$AddAnother.visible = false
+	$VBoxContainer/AddAnother.visible = false
 	mark_row_idx(0)
 
 func set_range(colid: int, min1, max1, min2, max2, min3, max3):
