@@ -189,11 +189,40 @@ func load_characters():
 		
 		charactersets.push_back(obj)
 
+func serialize_characters_to_json() -> String:
+	var chars = []
+	for cset in charactersets:
+		var csetj = []
+		for date in cset.dates:
+			csetj.append({
+				"label": date.label,
+				"conversations": [date.path_left, date.path_middle, date.path_right],
+				"displayed_names": [date.name_left, date.name_middle, date.name_right],
+				"profile_images": [date.profile_left, date.profile_middle, date.profile_right],
+				"backgrounds": [date.bg_left, date.bg_middle, date.bg_right]
+			})
+		chars.append({
+			"date_numbers": csetj
+		})
+	return JSON.stringify(chars, "\t", false, false)
+
 func debug_print_rows():
 	for row in rows:
 		print("--- ROW ---")
 		for col in row.cols:
 			print("- (%s) %s" % [Enums.CardPlayOutcome.keys()[col.trigger], col.text])
 
+var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+func generate_word(chars, length):
+	var word := ""
+	var n_char = len(chars)
+	for i in range(length):
+		word += chars[randi() % n_char]
+	return word
+
 func rand_key() -> String:
-	return ""
+	var w = generate_word(characters, 8)
+	while w in used_key_cache:
+		w = generate_word(characters, 8)
+	return w

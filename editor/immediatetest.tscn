@@ -47,26 +47,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="HSplitContainer" unique_id=862684872]
+[node name="VSplitContainer2" type="VSplitContainer" parent="HSplitContainer" unique_id=355466232]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
-current_tab = 0
+split_offsets = PackedInt32Array(59)
+split_offset = 59
 
-[node name="CharacterList" type="Control" parent="HSplitContainer/TabContainer" unique_id=462317272]
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer/VSplitContainer2" unique_id=862684872]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+tab_0/title = "Character List"
+
+[node name="CharacterList" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer" unique_id=462317272]
+layout_mode = 2
+size_flags_vertical = 3
 script = ExtResource("2_odp6b")
-renderer = NodePath("../../..")
+renderer = NodePath("../../../..")
 metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
 metadata/_tab_index = 0
+metadata/_tab_name = "Character List"
 
-[node name="Info" type="Control" parent="HSplitContainer/TabContainer" unique_id=1050056292]
+[node name="Info" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer" unique_id=1050056292]
 visible = false
 layout_mode = 2
 script = ExtResource("2_odp6b")
-renderer = NodePath("../../..")
+renderer = NodePath("../../../..")
 metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
 metadata/_tab_index = 1
+
+[node name="TabContainer2" type="TabContainer" parent="HSplitContainer/VSplitContainer2" unique_id=602414362]
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Date Editor"
+
+[node name="DateEditor" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer2" unique_id=1426820463]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+metadata/_tab_index = 0
+metadata/_tab_name = "Date Editor"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer" unique_id=1166396409]
 layout_mode = 2
@@ -83,6 +107,7 @@ metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 current_tab = 0
+tab_0/title = "Dialog Inspector"
 
 [node name="DialogInspector" type="Control" parent="HSplitContainer/VSplitContainer/TabContainer" unique_id=1642556657]
 layout_mode = 2
@@ -90,3 +115,4 @@ script = ExtResource("2_odp6b")
 renderer = NodePath("../../../..")
 metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
 metadata/_tab_index = 0
+metadata/_tab_name = "Dialog Inspector"

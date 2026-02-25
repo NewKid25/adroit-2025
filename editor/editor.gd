@@ -44,11 +44,15 @@ func quit():
 	else:
 		$QuitConfirmation.show()
 
+func write_to_file(path, data):
+	var f = FileAccess.open(path, FileAccess.WRITE)
+	f.store_string(data + "\n")
+	f.close()
+
 func save():
 	var path = charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side)
 	var json = serialize_rows_to_json()
-	var f = FileAccess.open(path, FileAccess.WRITE)
-	f.store_string(json + "\n")
+	write_to_file(path, json)
 	saved = true
 
 func make_quit_confirmation_actually_quit():
@@ -94,6 +98,11 @@ func select_col(rowid, colid):
 
 
 func _CharacterList_gui(gui: ELEGui, _delta: float) -> void:
+	gui.scroll()
+	gui.expand()
+	gui.vbox()
+	gui.expand()
+	
 	for i in range(len(charactersets)):
 		var cset = charactersets[i]
 		gui.label("Character Set %d" % (i + 1))
@@ -134,6 +143,9 @@ func _CharacterList_gui(gui: ELEGui, _delta: float) -> void:
 			gui.end()
 			gui.end()
 			gui.end()
+	
+	gui.end()
+	gui.end()
 
 func _DialogInspector_gui(gui: ELEGui, _delta: float) -> void:
 	var node: DialogNode = rows[selected_row].cols[selected_col]
@@ -268,6 +280,40 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 		rows.insert(add_row_after + 1, row)
 		select_col(add_row_after + 1, 0)
 
+var dateeditor_needs_save := false
+var dateeditor_cooldown := 0.0
+
+## Date Editor Save If Changed
+func desic(new, old):
+	if new != old:
+		dateeditor_needs_save = true
+		dateeditor_cooldown = 1.0
+	return new
+
+func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
+	var date = charactersets[loaded_character_set].dates[loaded_date_idx]
+	
+	gui.scroll()
+	gui.expand()
+	gui.vbox()
+	gui.expand()
+	
+	gui.label("Backgrounds")
+	gui.line(date.bg_left)
+	gui.line(date.bg_middle)
+	gui.line(date.bg_right)
+	gui.label("Profiles")
+	gui.line(date.profile_left)
+	gui.line(date.profile_middle)
+	gui.line(date.profile_right)
+	gui.label("Names")
+	date.name_left = desic(gui.line(date.name_left), date.name_left)
+	date.name_middle = desic(gui.line(date.name_middle), date.name_middle)
+	date.name_right = desic(gui.line(date.name_right), date.name_right)
+	
+	gui.end()
+	gui.end()
+
 func _Info_gui(gui: ELEGui, _delta: float) -> void:
 	gui.scroll()
 	gui.expand()
@@ -341,5 +387,13 @@ func _input(ev: InputEvent) -> void:
 		not event.button_mask & MOUSE_BUTTON_MASK_RIGHT:
 		return
 	var scroller: ScrollContainer = $HSplitContainer/VSplitContainer/NodeView.get_child(0).get_child(0)
-	scroller.scroll_horizontal -= event.relative.x
-	scroller.scroll_vertical -= event.relative.y
+	scroller.scroll_horizontal -= floor(event.relative.x)
+	scroller.scroll_vertical -= floor(event.relative.y)
+
+func _process(delta: float) -> void:
+	if dateeditor_needs_save:
+		dateeditor_cooldown -= delta
+		if dateeditor_cooldown <= 0:
+			dateeditor_needs_save = false
+			
+			write_to_file("res://data/characters.json", serialize_characters_to_json())
