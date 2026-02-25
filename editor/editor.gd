@@ -340,7 +340,7 @@ func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
 			charactersets.remove_at(loaded_character_set)
 		select_character(0, 0, SIDE_LEFT)
 		dateeditor_needsave()
-	if gui.button("Duplicate"):
+	if gui.button("Duplicate with empty dialog"):
 		var newdate = date.duplicate()
 		newdate.path_left = "res://data/%s.json" % rand_key()
 		newdate.path_middle = "res://data/%s.json" % rand_key()
