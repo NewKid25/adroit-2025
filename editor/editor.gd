@@ -125,11 +125,11 @@ func _CharacterList_gui(gui: ELEGui, _delta: float) -> void:
 			gui.vbox()
 			gui.expand()
 			gui.hflow()
-			if gui.button("Left", issel and loaded_side == SIDE_LEFT):
+			if gui.button(date.name_left, issel and loaded_side == SIDE_LEFT):
 				select_character(i, j, SIDE_LEFT)
-			if gui.button("Middle", issel and loaded_side == SIDE_MIDDLE):
+			if gui.button(date.name_middle, issel and loaded_side == SIDE_MIDDLE):
 				select_character(i, j, SIDE_MIDDLE)
-			if gui.button("Right", issel and loaded_side == SIDE_RIGHT):
+			if gui.button(date.name_right, issel and loaded_side == SIDE_RIGHT):
 				select_character(i, j, SIDE_RIGHT)
 			gui.end()
 			gui.wrapped_label(
