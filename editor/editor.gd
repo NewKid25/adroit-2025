@@ -44,6 +44,13 @@ func quit():
 	else:
 		$QuitConfirmation.show()
 
+func save():
+	var path = charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side)
+	var json = serialize_rows_to_json()
+	var f = FileAccess.open(path, FileAccess.WRITE)
+	f.store_string(json + "\n")
+	saved = true
+
 func make_quit_confirmation_actually_quit():
 	$QuitConfirmation.confirmed.connect(actually_quit)
 	get_tree().auto_accept_quit = false
@@ -221,13 +228,14 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 			gui.hbox()
 			if gui.button("Open", selected_row == i and selected_col == j):
 				select_col(i, j)
-			if did_change(gui.options(col.trigger, Enums.CardPlayOutcome.keys()), col.trigger):
-				col.trigger = changedval
-				saved = false
-			gui.label("(%.1f; %.1f) (%.1f; %.1f) (%.1f; %.1f)" %
-				[col.flirty_min, col.flirty_max,
-				col.funny_min, col.funny_max,
-				col.sentiment_min, col.sentiment_max])
+			if not first:
+				if did_change(gui.options(col.trigger, Enums.CardPlayOutcome.keys()), col.trigger):
+					col.trigger = changedval
+					saved = false
+				gui.label("(%.1f; %.1f) (%.1f; %.1f) (%.1f; %.1f)" %
+					[col.flirty_min, col.flirty_max,
+					col.funny_min, col.funny_max,
+					col.sentiment_min, col.sentiment_max])
 			gui.end()
 			
 			gui.texturerect_full(preload("res://assets/art/textboxbordered.png"))
@@ -256,7 +264,7 @@ func _Info_gui(gui: ELEGui, _delta: float) -> void:
 	gui.vbox()
 	gui.expand()
 	if gui.button("Save", saved):
-		saved = true
+		save()
 	if gui.button("Quit"):
 		quit()
 	gui.label("Open file: %s" % charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side))

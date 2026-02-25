@@ -222,7 +222,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -244,7 +244,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -266,7 +266,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -288,7 +288,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -302,26 +302,78 @@
 			"text": "They do serve me well enough, though. For I can use them for one of the dating rituals I learned, and we may walk with our hands held together!"
 		},
 		"id15": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidohappy.png",
 			"text": "Stupendous! I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
 		},
 		"id16": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guido.png",
 			"text": "Oh, perhaps not, then. But I would have much happiness to walk with you, even without hands being held."
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidodispleased.png",
 			"text": "I do mean it… I would have much happiness to walk with you further, with or without hands being held."
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidopleased.png",
 			"text": "I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
 		}

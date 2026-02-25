@@ -29,7 +29,7 @@
 					"sentiment": 2.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -51,7 +51,7 @@
 					"sentiment": 2.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -73,7 +73,7 @@
 					"sentiment": 2.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -185,7 +185,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -207,7 +207,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -229,7 +229,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -251,7 +251,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -348,20 +348,59 @@
 			"text": "Hehe, of course. I could never scratch you up though, we don’t want to damage that pretty face!"
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodiehappy.png",
 			"text": "I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend next time!"
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodiemeh.png",
 			"text": "I mean it, I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend, if there’s a next time."
 		},
 		"id19": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodie.png",
 			"text": "I’m glad I got to see it again. And maybe I could keep seeing it…? We can combine our powers to get teddy a friend next time…"
 		}

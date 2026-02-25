@@ -274,20 +274,59 @@
 			"text": "That’s pretty good. When I was a kid, I was just a nerd who liked weird comics."
 		},
 		"id14": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paulhappy.png",
 			"text": "Interesting! You’ll have to tell me more about that. Maybe our next date should see a superhero movie…"
 		},
 		"id15": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paulmeh.png",
 			"text": "Well, I’d like to hear more about what you liked too if we go on another date. Maybe a superhero movie, if you like those…"
 		},
 		"id16": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paul_rudd.png",
 			"text": "You’ll have to tell me more about that. Maybe our next date should see a superhero movie…"
 		}

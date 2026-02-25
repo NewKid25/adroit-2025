@@ -327,26 +327,78 @@
 			"text": "Well, not if I beat you to it. Maybe I will win that teddy bear!"
 		},
 		"id16": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodiehappy.png",
 			"text": "Let's go ride that roller coaster then! Race you!"
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodiemeh.png",
 			"text": "Let's go have some fun, ride that roller coaster. Race you!"
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodiedispleased.png",
 			"text": "Let's go have some fun, ride that roller coaster. Race you?"
 		},
 		"id19": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "schrodie.png",
 			"text": "Let's go ride that roller coaster. Race you?"
 		}

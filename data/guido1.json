@@ -30,7 +30,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 3,
+					"flirty": 3.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -52,7 +52,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 3,
+					"flirty": 3.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -74,7 +74,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 3,
+					"flirty": 3.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -96,7 +96,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 3,
+					"flirty": 3.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -203,7 +203,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -225,7 +225,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -247,7 +247,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 3,
+					"funny": 3.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -269,7 +269,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -291,7 +291,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -313,7 +313,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -335,7 +335,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -349,26 +349,78 @@
 			"text": "You have certainly proven your keen sense of the right places to get coffee."
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidohappy.png",
 			"text": "I feel the same way! Cheers with coffee to that, and each other."
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guido.png",
 			"text": "I really mean this, it is good coffee. Cheers with the good coffee, to each other."
 		},
 		"id19": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidodispleased.png",
 			"text": "I mean this, it is good coffee. Cheers with the good coffee, to each other."
 		},
 		"id20": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "guidopleased.png",
 			"text": "Cheers with coffee to that, and each other."
 		}

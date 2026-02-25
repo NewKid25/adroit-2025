@@ -30,7 +30,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -52,7 +52,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -74,7 +74,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -179,7 +179,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -201,7 +201,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -223,7 +223,7 @@
 					"sentiment": 0.0
 				},
 				"mood_upper_bound": {
-					"flirty": 4,
+					"flirty": 4.0,
 					"funny": 1e99999,
 					"sentiment": 1e99999
 				}
@@ -326,26 +326,78 @@
 			"text": "It's sort of... wavy. Like the ocean... Or the wind, on its journey through a field of flowers."
 		},
 		"id16": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "feldsparhappy.png",
 			"text": "Aw, what a beautiful thought... You'd match a sapphire... or maybe a topaz. I can find you just the right stone, birdie."
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "feldsparmeh.png",
 			"text": "Come on, look inward... You'd match a sapphire. Or maybe a topaz. I can find you just the right stone, birdie."
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "feldsparmeh.png",
 			"text": "Come on, look inward... You'd match a sapphire. Or maybe a topaz. I can find you just the right stone, birdie."
 		},
 		"id19": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "feldspar.png",
 			"text": "What a beautiful thought... You'd match a sapphire... or maybe a topaz. I can find you just the right stone, birdie."
 		}

@@ -10,7 +10,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 3
+					"sentiment": 3.0
 				}
 			},
 			"nexts": {
@@ -116,7 +116,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -138,7 +138,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -160,7 +160,7 @@
 				"mood_upper_bound": {
 					"flirty": 1e99999,
 					"funny": 1e99999,
-					"sentiment": 4
+					"sentiment": 4.0
 				}
 			},
 			"nexts": {
@@ -320,20 +320,59 @@
 			"text": "Ooh, that's what I was thinking too... Maybe we are meant for each other."
 		},
 		"id16": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paulhappy.png",
 			"text": "Oh, definitely... We can find out for sure over this lovely dinner!"
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paulmeh.png",
 			"text": "We can figure it out later. Over this lovely dinner..."
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "paul_rudd.png",
 			"text": "Well, we'll just have to find out over this lovely dinner!"
 		}

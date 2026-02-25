@@ -115,7 +115,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -137,7 +137,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -159,7 +159,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 4,
+					"funny": 4.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -181,7 +181,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -203,7 +203,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -225,7 +225,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -247,7 +247,7 @@
 				},
 				"mood_upper_bound": {
 					"flirty": 1e99999,
-					"funny": 5,
+					"funny": 5.0,
 					"sentiment": 1e99999
 				}
 			},
@@ -345,20 +345,59 @@
 			"text": "And perhaps I can even get a closer look at such a technological marvel...?"
 		},
 		"id17": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "professorhappy.png",
 			"text": "Just spectacular! Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 		},
 		"id18": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "professormeh.png",
 			"text": "Very well then. I shall be forgiving if you say a little nonsense for the sake of the others. Shall we get on with the romantic ritual of cafe dining?"
 		},
 		"id19": {
-			"mood_expectation": {},
-			"nexts": {},
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
 			"sprite": "professor.png",
 			"text": "Well, I shall be forgiving if you say a little nonsense for the sake of the others, and let's get on with the romantic ritual of cafe dining!"
 		}
