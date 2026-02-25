@@ -334,7 +334,26 @@ func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
 			loaded_date_idx = 0
 			charactersets.append(cset)
 		dateeditor_needsave()
+	if gui.button("Remove (NO CONFIRM! DOESN'T DELETE DIALOG!)", loaded_character_set == 0 and loaded_date_idx == 0):
+		charactersets[loaded_character_set].dates.erase(date)
+		if len(charactersets[loaded_character_set].dates) == 0:
+			charactersets.remove_at(loaded_character_set)
+		select_character(0, 0, SIDE_LEFT)
+		dateeditor_needsave()
+	if gui.button("Duplicate"):
+		var newdate = date.duplicate()
+		newdate.path_left = "res://data/%s.json" % rand_key()
+		newdate.path_middle = "res://data/%s.json" % rand_key()
+		newdate.path_right = "res://data/%s.json" % rand_key()
+		DirAccess.copy_absolute("res://data/template.json", newdate.path_left)
+		DirAccess.copy_absolute("res://data/template.json", newdate.path_middle)
+		DirAccess.copy_absolute("res://data/template.json", newdate.path_right)
+		charactersets[loaded_character_set].dates.append(newdate)
+		select_character(loaded_character_set, len(charactersets[loaded_character_set].dates) - 1, SIDE_LEFT)
+		dateeditor_needsave()
 	
+	gui.label("Label")
+	date.label = desic(gui.line(date.label), date.label)
 	gui.label("Backgrounds")
 	gui.line(date.bg_left)
 	gui.line(date.bg_middle)

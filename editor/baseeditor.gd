@@ -64,6 +64,32 @@ class DateInfo:
 				return path_middle
 			2:
 				return path_right
+	
+	func duplicate():
+		var date = DateInfo.new()
+		date.label = label
+		date.path_left = path_left
+		date.bg_left = bg_left
+		date.bgt_left = bgt_left
+		date.name_left = name_left
+		date.profile_left = profile_left
+		date.profilet_left = profilet_left
+		
+		date.path_middle = path_middle
+		date.bg_middle = bg_middle
+		date.bgt_middle = bgt_middle
+		date.name_middle = name_middle
+		date.profile_middle = profile_middle
+		date.profilet_middle = profilet_middle
+		
+		date.path_right = path_right
+		date.bg_right = bg_right
+		date.bgt_right = bgt_right
+		date.name_right = name_right
+		date.profile_right = profile_right
+		date.profilet_right = profilet_right
+		
+		return date
 
 class CharacterSet:
 	var dates: Array[DateInfo] = []
