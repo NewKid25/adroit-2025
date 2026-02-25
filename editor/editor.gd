@@ -15,6 +15,8 @@ const SIDE_RIGHT = 2
 
 var changedval
 
+var all_cards: Array[Card]
+
 func _ready():
 	MusicPlayer.stop()
 	set_window_scaling_enabled()
@@ -24,6 +26,7 @@ func _ready():
 	
 	load_characters()
 	select_character(0, 0, SIDE_LEFT)
+	all_cards = DataService.get_all_cards()
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	match index:
@@ -136,8 +139,45 @@ func _DialogInspector_gui(gui: ELEGui, _delta: float) -> void:
 		saved = false
 	gui.expand()
 	
+	gui.scroll()
+	gui.expand()
 	gui.vbox()
+	gui.expand_horiz()
 	
+	gui.label("Sprite Path")
+	if did_change(gui.line(node.sprite), node.sprite):
+		saved = false
+		node.sprite = changedval
+		var path = "res://assets/art/%s" % node.sprite
+		if ResourceLoader.exists(path):
+			node.spritet = load(path)
+		else:
+			node.spritet = preload("res://assets/art/EDITOR_unknown_sprite.png")
+	
+	gui.grid(4)
+	gui.expand()
+	if true:
+		gui.label("")
+		gui.expand_horiz()
+		gui.label("Flirty")
+		gui.expand_horiz()
+		gui.label("Funny")
+		gui.expand_horiz()
+		gui.label("Sentiment")
+		gui.expand_horiz()
+		
+		gui.label("Min")
+		node.flirty_min = set_saved(gui.spin(node.flirty_min, 0, 1, 0.1, true, true), node.flirty_min)
+		node.funny_min = set_saved(gui.spin(node.funny_min, 0, 1, 0.1, true, true), node.funny_min)
+		node.sentiment_min = set_saved(gui.spin(node.sentiment_min, 0, 1, 0.1, true, true), node.sentiment_min)
+		
+		gui.label("Max")
+		node.flirty_max = set_saved(gui.spin(node.flirty_max, 0, 1, 0.1, true, true), node.flirty_max)
+		node.funny_max = set_saved(gui.spin(node.funny_max, 0, 1, 0.1, true, true), node.funny_max)
+		node.sentiment_max = set_saved(gui.spin(node.sentiment_max, 0, 1, 0.1, true, true), node.sentiment_max)
+	gui.end()
+	
+	gui.end()
 	gui.end()
 	
 	gui.end()
@@ -164,7 +204,13 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 			gui.hbox()
 			if gui.button("Open", selected_row == i and selected_col == j):
 				select_col(i, j)
-			gui.options(col.trigger, Enums.CardPlayOutcome.keys())
+			if did_change(gui.options(col.trigger, Enums.CardPlayOutcome.keys()), col.trigger):
+				col.trigger = changedval
+				saved = false
+			gui.label("(%.1f; %.1f) (%.1f; %.1f) (%.1f; %.1f)" %
+				[col.flirty_min, col.flirty_max,
+				col.funny_min, col.funny_max,
+				col.sentiment_min, col.sentiment_max])
 			gui.end()
 			
 			gui.texturerect_full(preload("res://assets/art/textboxbordered.png"))
@@ -179,16 +225,59 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 	gui.end()
 
 func _Info_gui(gui: ELEGui, _delta: float) -> void:
+	gui.scroll()
+	gui.expand()
+	gui.vbox()
+	gui.expand()
 	if gui.button("Save", saved):
 		saved = true
 	if gui.button("Quit"):
 		quit()
 	gui.label("Open file: %s" % charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side))
+	
+	gui.scroll()
+	gui.expand()
+	var sortedcards = all_cards.map(get_card_result)
+	sortedcards.sort_custom(card_result_sorter)
+	sortedcards = sortedcards.map(stringify_card_result)
+	gui.label("Card reactions to the selected dialog:\n%s" %
+		"\n".join(sortedcards))
+	gui.end()
+	
+	gui.end()
+	gui.end()
 
+var mrcache: MoodRange = null
+
+func get_card_result(card: Card):
+	if mrcache == null:
+		mrcache = MoodRange.new()
+		mrcache.mood_lower_bound = Mood.new()
+		mrcache.mood_upper_bound = Mood.new()
+	
+	var cur: DialogNode = rows[selected_row].cols[selected_col]
+	mrcache.mood_lower_bound.flirty = cur.flirty_min
+	mrcache.mood_lower_bound.funny = cur.funny_min
+	mrcache.mood_lower_bound.sentiment = cur.sentiment_min
+	mrcache.mood_upper_bound.flirty = cur.flirty_max
+	mrcache.mood_upper_bound.funny = cur.funny_max
+	mrcache.mood_upper_bound.sentiment = cur.sentiment_max
+	return [card, mrcache.compare_mood(card.mood)]
+
+func stringify_card_result(res):
+	return "[%s] %s" % [" ".join(res[1].map(func(x): return Enums.CardPlayOutcome.keys()[x].to_pascal_case())), res[0].text]
+
+func card_result_sorter(a, b):
+	return a[1][0] < b[1][0]
 
 func did_change(new, old):
 	changedval = new
 	return new != old
+
+func set_saved(new, old):
+	if new != old:
+		saved = false
+	return new
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
@@ -196,3 +285,14 @@ func _notification(what: int) -> void:
 			get_tree().quit()
 		else:
 			quit()
+
+func _input(ev: InputEvent) -> void:
+	if ev is not InputEventMouseMotion:
+		return
+	var event: InputEventMouseMotion = ev
+	if not event.button_mask & MOUSE_BUTTON_MASK_MIDDLE and \
+		not event.button_mask & MOUSE_BUTTON_MASK_RIGHT:
+		return
+	var scroller: ScrollContainer = $HSplitContainer/VSplitContainer/ColorRect/NodeView.get_child(0).get_child(0)
+	scroller.scroll_horizontal -= event.relative.x
+	scroller.scroll_vertical -= event.relative.y
