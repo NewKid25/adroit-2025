@@ -182,7 +182,7 @@ func _DialogInspector_gui(gui: ELEGui, _delta: float) -> void:
 	
 	gui.grid(4)
 	gui.expand()
-	if true:
+	if selected_row != 0:
 		gui.label("")
 		gui.expand_horiz()
 		gui.label("Flirty")
@@ -213,6 +213,7 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 	gui.expand()
 	gui.vbox()
 	gui.vpad(40)
+	var add_row_after = -1
 	for i in len(rows):
 		var row = rows[i]
 		var first = i == 0
@@ -251,12 +252,21 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 		
 		gui.hbox()
 		gui.hpad(30)
-		gui.button("Add Row Here")
+		if gui.button("Add Row Here"):
+			add_row_after = i
 		gui.end()
 		
 		gui.vpad(15)
 	gui.end()
 	gui.end()
+	
+	if add_row_after != -1:
+		var row := DialogRow.new()
+		var node := rows[0].cols[0].duplicate(rand_key())
+		node.text = "New Row Text"
+		row.cols.append(node)
+		rows.insert(add_row_after + 1, row)
+		select_col(add_row_after + 1, 0)
 
 func _Info_gui(gui: ELEGui, _delta: float) -> void:
 	gui.scroll()
@@ -267,9 +277,10 @@ func _Info_gui(gui: ELEGui, _delta: float) -> void:
 		save()
 	if gui.button("Quit"):
 		quit()
-	gui.label("Open file: %s" % charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side))
+	gui.wrapped_label("Open file: %s" % charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side))
 	
-	gui.label("Selected dialog key: \"%s\"" % rows[selected_row].cols[selected_col].key)
+	gui.wrapped_label("Selected dialog key \"%s\" is at coordinates (%d; %d)" %
+		[rows[selected_row].cols[selected_col].key, selected_row, selected_col])
 	
 	gui.scroll()
 	gui.expand()
