@@ -3,6 +3,8 @@
 class_name ELEGui
 extends Control
 
+@export var renderer: NodePath
+
 var boxes: Array[Control] = [];
 var used: Array[Control] = [];
 var notused: Array[Control] = [];
@@ -12,19 +14,22 @@ var _layout := VBoxContainer.new();
 var _last_control;
 
 var _default = {
-	Control:{
+	GUIControl:{
 		"size_flags_horizontal":0,
 		"size_flags_vertical":0,
 	},
-	BaseButton:{
+	GUIBaseButton:{
 		"action_mode":BaseButton.ACTION_MODE_BUTTON_PRESS,
 		"mouse_default_cursor_shape":CURSOR_POINTING_HAND,
 	},
-	ColorPickerButton:{
+	GUIPickColor:{
 		"rect_min_size":Vector2(20, 20),
 	},
-	TextureRect:{
+	GUITextureRect:{
 		"expand_mode":TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+	},
+	GUITextEdit:{
+		"wrap_mode":TextEdit.LINE_WRAPPING_BOUNDARY
 	}
 };
 var property = {};
@@ -60,7 +65,7 @@ func _ready():
 	_layout.set_anchors_and_offsets_preset(PRESET_FULL_RECT);
 
 func _process(delta):
-	get_parent().get_parent().propagate_call("_%s_gui" % get_parent().name, [delta]);
+	get_node(renderer).callv("_%s_gui" % name, [self, delta]);
 	
 	move_to_front();
 	layout = true;
@@ -124,13 +129,23 @@ func _toggle(type, text, state) -> bool:
 
 func label(text) -> void:
 	_get_control(GUILabel, text);
-func texturerect(texture: Texture2D) -> void:
+func wrapped_label(text) -> void:
+	var l: GUILabel = _get_control(GUILabel, text)
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+func texturerect(texture: Texture2D, minheight=null, fitheight:=false) -> void:
 	var _c = _get_control(GUITextureRect)
 	if _c.texture != texture:
 		_c.texture = texture
+	if fitheight:
+		_c.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+	else:
 		_c.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
-func button(text) -> bool:
-	return _get_control(GUIButton, text).base.get_changed();
+	if minheight:
+		_c.custom_minimum_size.y = minheight
+func button(text, disabled:=false) -> bool:
+	var b: GUIButton = _get_control(GUIButton, text)
+	b.disabled = disabled
+	return b.base.get_changed() and not disabled;
 func buttonpress(text) -> bool:
 	var b = _get_control(GUIButton, text);
 	b.base.get_changed();
@@ -178,6 +193,11 @@ func line(text:String) -> String:
 	if !l.base.get_changed() && l.text != text:
 		l.text = text;
 	return l.text;
+func textedit(text:String) -> String:
+	var l = _get_control(GUITextEdit);
+	if !l.base.get_changed() && l.text != text:
+		l.text = text;
+	return l.text;
 
 func _get_box(type):
 	var box = _get_control(type);
@@ -213,17 +233,23 @@ func margin(left:int=0, top:int=0, right:int=0, bottom:int=0) -> bool:
 func center() -> bool:
 	_get_box(GUICenter);
 	return true;
-func scroll(fill:=true) -> bool:
+func scroll() -> bool:
 	_get_box(GUIScroll);
 	return true;
+func hflow() -> bool:
+	_get_box(GUIHFlow)
+	return true
 func end() -> void:
 	boxes.pop_back();
-func expandbox_vert() -> void:
-	if boxes[-1].size_flags_vertical != Control.SIZE_EXPAND_FILL:
-		boxes[-1].size_flags_vertical = Control.SIZE_EXPAND_FILL
-func expandbox_horiz() -> void:
-	if boxes[-1].size_flags_horizontal != Control.SIZE_EXPAND_FILL:
-		boxes[-1].size_flags_horizontal = Control.SIZE_EXPAND_FILL
+func expand_vert() -> void:
+	if used[-1].size_flags_vertical != Control.SIZE_EXPAND_FILL:
+		used[-1].size_flags_vertical = Control.SIZE_EXPAND_FILL
+func expand_horiz() -> void:
+	if used[-1].size_flags_horizontal != Control.SIZE_EXPAND_FILL:
+		used[-1].size_flags_horizontal = Control.SIZE_EXPAND_FILL
+func expand() -> void:
+	expand_vert()
+	expand_horiz()
 
 class GUIControl extends Control:
 	var base = GUIBase.new(self);
@@ -241,6 +267,8 @@ class GUICenter extends CenterContainer:
 	var base = GUIBase.new(self);
 class GUIScroll extends ScrollContainer:
 	var base = GUIBase.new(self);
+class GUIHFlow extends HFlowContainer:
+	var base = GUIBase.new(self)
 
 class GUILabel extends Label:
 	var base = GUIBase.new(self);
@@ -268,6 +296,8 @@ class GUIOptions extends OptionButton:
 				add_item(str(txt));
 class GUILine extends LineEdit:
 	var base = GUIBase.new(self, "text_changed");
+class GUITextEdit extends TextEdit:
+	var base = GUIBase.new(self, "text_changed")
 class GUIPickColor extends ColorPickerButton:
 	var base = GUIBase.new(self, "color_changed");
 class GUIProgress extends ProgressBar:
