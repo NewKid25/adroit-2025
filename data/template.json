@@ -1,0 +1,23 @@
+{
+	"dialogs": {
+		"id1": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 2.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+                
+            },
+			"sprite": "schrodie.png",
+			"text": "This is so exciting! I hope I can win a giant teddy bear."
+		}
+	}
+}

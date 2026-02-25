@@ -286,9 +286,12 @@ var dateeditor_cooldown := 0.0
 ## Date Editor Save If Changed
 func desic(new, old):
 	if new != old:
-		dateeditor_needs_save = true
-		dateeditor_cooldown = 1.0
+		dateeditor_needsave()
 	return new
+
+func dateeditor_needsave():
+	dateeditor_needs_save = true
+	dateeditor_cooldown = 1.0
 
 func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
 	var date = charactersets[loaded_character_set].dates[loaded_date_idx]
@@ -297,6 +300,40 @@ func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
 	gui.expand()
 	gui.vbox()
 	gui.expand()
+	
+	if gui.button("Move up", loaded_character_set == 0 and loaded_date_idx == 0):
+		charactersets[loaded_character_set].dates.erase(date)
+		if loaded_date_idx > 0:
+			charactersets[loaded_character_set].dates.insert(loaded_date_idx - 1, date)
+			loaded_date_idx -= 1
+		else:
+			loaded_date_idx = len(charactersets[loaded_character_set - 1].dates)
+			charactersets[loaded_character_set - 1].dates.insert(len(charactersets[loaded_character_set - 1].dates), date)
+			loaded_character_set -= 1
+			
+			if len(charactersets[loaded_character_set + 1].dates) == 0 and \
+					loaded_character_set == len(charactersets) - 2:
+				charactersets.pop_back()
+		dateeditor_needsave()
+	if gui.button("Move down",
+			loaded_character_set == len(charactersets) - 1 and
+			loaded_date_idx == len(charactersets[loaded_character_set].dates) - 1 and
+			loaded_date_idx == 0):
+		charactersets[loaded_character_set].dates.erase(date)
+		if loaded_date_idx < len(charactersets[loaded_character_set].dates):
+			charactersets[loaded_character_set].dates.insert(loaded_date_idx + 1, date)
+			loaded_date_idx += 1
+		elif loaded_character_set < len(charactersets) - 1:
+			charactersets[loaded_character_set + 1].dates.insert(0, date)
+			loaded_character_set += 1
+			loaded_date_idx = 0
+		else:
+			var cset = CharacterSet.new()
+			cset.dates.append(date)
+			loaded_character_set = len(charactersets)
+			loaded_date_idx = 0
+			charactersets.append(cset)
+		dateeditor_needsave()
 	
 	gui.label("Backgrounds")
 	gui.line(date.bg_left)
