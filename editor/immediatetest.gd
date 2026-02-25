@@ -35,3 +35,6 @@ func _CharacterList_gui(_delta: float):
 func did_change(new, old):
 	changedval = new
 	return new != old
+
+func _on_window_close_requested() -> void:
+	get_window().grab_focus()

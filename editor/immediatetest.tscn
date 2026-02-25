@@ -34,3 +34,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_odp6b")
 metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+
+[connection signal="close_requested" from="CharacterList" to="." method="_on_window_close_requested"]
