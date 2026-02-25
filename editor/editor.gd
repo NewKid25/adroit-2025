@@ -71,6 +71,9 @@ func mark_title_game():
 	get_window().title = ProjectSettings.get_setting("application/config/name")
 
 func select_character(setid, dateid, side):
+	if not saved:
+		$CannotLoadUnsaved.show()
+		return
 	loaded_character_set = setid
 	loaded_date_idx = dateid
 	loaded_side = side
@@ -144,6 +147,22 @@ func _DialogInspector_gui(gui: ELEGui, _delta: float) -> void:
 	gui.vbox()
 	gui.expand_horiz()
 	
+	gui.hbox()
+	if gui.button("Remove (NO CONFIRM!)", selected_row == 0):
+		rows[selected_row].cols.erase(node)
+		if rows[selected_row].cols.is_empty():
+			rows.remove_at(selected_row)
+			select_col(0, 0)
+		else:
+			select_col(selected_row, max(0, selected_col - 1))
+		saved = false
+	if gui.button("Duplicate", selected_row == 0):
+		rows[selected_row].cols.push_back(node.duplicate(rand_key()))
+		select_col(selected_row, len(rows[selected_row].cols) - 1)
+		saved = false
+	gui.expand_horiz()
+	gui.end()
+	
 	gui.label("Sprite Path")
 	if did_change(gui.line(node.sprite), node.sprite):
 		saved = false
@@ -186,9 +205,7 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 	gui.scroll()
 	gui.expand()
 	gui.vbox()
-	gui.control()
-	gui.min_size(null, 40)
-	gui.end()
+	gui.vpad(40)
 	for i in len(rows):
 		var row = rows[i]
 		var first = i == 0
@@ -221,6 +238,15 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 			gui.end()
 		
 		gui.end()
+		
+		gui.vpad(15)
+		
+		gui.hbox()
+		gui.hpad(30)
+		gui.button("Add Row Here")
+		gui.end()
+		
+		gui.vpad(15)
 	gui.end()
 	gui.end()
 
@@ -234,6 +260,8 @@ func _Info_gui(gui: ELEGui, _delta: float) -> void:
 	if gui.button("Quit"):
 		quit()
 	gui.label("Open file: %s" % charactersets[loaded_character_set].dates[loaded_date_idx].get_sided_path(loaded_side))
+	
+	gui.label("Selected dialog key: \"%s\"" % rows[selected_row].cols[selected_col].key)
 	
 	gui.scroll()
 	gui.expand()

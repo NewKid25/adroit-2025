@@ -13,6 +13,21 @@ class DialogNode:
 	var sentiment_min := 0.0
 	var sentiment_max := 0.0
 	var trigger := Enums.CardPlayOutcome.ALL_SUCCESS
+	
+	func duplicate(newkey: String) -> DialogNode:
+		var node = DialogNode.new()
+		node.key = newkey
+		node.text = text
+		node.sprite = sprite
+		node.spritet = spritet
+		node.flirty_min = flirty_min
+		node.flirty_max = flirty_max
+		node.funny_min = funny_min
+		node.funny_max = funny_max
+		node.sentiment_min = sentiment_min
+		node.sentiment_max = sentiment_max
+		node.trigger = trigger
+		return node
 
 class DialogRow:
 	var cols: Array[DialogNode] = []
@@ -179,3 +194,6 @@ func debug_print_rows():
 		print("--- ROW ---")
 		for col in row.cols:
 			print("- (%s) %s" % [Enums.CardPlayOutcome.keys()[col.trigger], col.text])
+
+func rand_key() -> String:
+	return ""

@@ -270,6 +270,14 @@ func fullrect():
 func text_centered():
 	var l: GUILabel = used[-1]
 	l.base.set_property("horizontal_alignment", HORIZONTAL_ALIGNMENT_CENTER)
+func hpad(pad):
+	control()
+	min_size(pad)
+	end()
+func vpad(pad):
+	control()
+	min_size(null, pad)
+	end()
 
 
 class GUIControl extends Control:
