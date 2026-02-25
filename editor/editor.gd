@@ -355,13 +355,49 @@ func _DateEditor_gui(gui: ELEGui, _delta: float) -> void:
 	gui.label("Label")
 	date.label = desic(gui.line(date.label), date.label)
 	gui.label("Backgrounds")
-	gui.line(date.bg_left)
-	gui.line(date.bg_middle)
-	gui.line(date.bg_right)
+	if did_change(gui.line(date.bg_left), date.bg_left):
+		date.bg_left = changedval
+		if ResourceLoader.exists(date.bg_left):
+			date.bgt_left = load(date.bg_left)
+		else:
+			date.bgt_left = preload("res://assets/art/EDITOR_unknown_background.png")
+		dateeditor_needsave()
+	if did_change(gui.line(date.bg_middle), date.bg_middle):
+		date.bg_middle = changedval
+		if ResourceLoader.exists(date.bg_middle):
+			date.bgt_middle = load(date.bg_middle)
+		else:
+			date.bgt_middle = preload("res://assets/art/EDITOR_unknown_background.png")
+		dateeditor_needsave()
+	if did_change(gui.line(date.bg_right), date.bg_right):
+		date.bg_right = changedval
+		if ResourceLoader.exists(date.bg_right):
+			date.bgt_right = load(date.bg_right)
+		else:
+			date.bgt_right = preload("res://assets/art/EDITOR_unknown_background.png")
+		dateeditor_needsave()
 	gui.label("Profiles")
-	gui.line(date.profile_left)
-	gui.line(date.profile_middle)
-	gui.line(date.profile_right)
+	if did_change(gui.line(date.profile_left), date.profile_left):
+		date.profile_left = changedval
+		if ResourceLoader.exists(date.profile_left):
+			date.profilet_left = load(date.profile_left)
+		else:
+			date.profilet_left = preload("res://assets/art/EDITOR_unknown_pfp.png")
+		dateeditor_needsave()
+	if did_change(gui.line(date.profile_middle), date.profile_middle):
+		date.profile_middle = changedval
+		if ResourceLoader.exists(date.profile_middle):
+			date.profilet_middle = load(date.profile_middle)
+		else:
+			date.profilet_middle = preload("res://assets/art/EDITOR_unknown_pfp.png")
+		dateeditor_needsave()
+	if did_change(gui.line(date.profile_right), date.profile_right):
+		date.profile_right = changedval
+		if ResourceLoader.exists(date.profile_right):
+			date.profilet_right = load(date.profile_right)
+		else:
+			date.profilet_right = preload("res://assets/art/EDITOR_unknown_pfp.png")
+		dateeditor_needsave()
 	gui.label("Names")
 	date.name_left = desic(gui.line(date.name_left), date.name_left)
 	date.name_middle = desic(gui.line(date.name_middle), date.name_middle)
