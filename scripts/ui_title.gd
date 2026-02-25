@@ -52,7 +52,7 @@ func _on_play_button_push():
 	UIHelper.joy_shake()
 
 func _on_editor_button_push():
-	get_tree().change_scene_to_file("res://editor/editor.tscn")
+	get_tree().change_scene_to_file("res://editor/immediatetest.tscn")
 
 func _process(delta: float) -> void:
 	UIHelper.debug_fullscreen_toggle_key()
