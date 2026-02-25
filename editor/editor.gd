@@ -143,7 +143,40 @@ func _DialogInspector_gui(gui: ELEGui, _delta: float) -> void:
 	gui.end()
 
 func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
-	pass
+	gui.scroll()
+	gui.expand()
+	gui.vbox()
+	gui.control()
+	gui.min_size(null, 40)
+	gui.end()
+	for i in len(rows):
+		var row = rows[i]
+		var first = i == 0
+		
+		gui.hbox(40)
+		gui.label(i + 1)
+		gui.text_centered()
+		gui.min_size(60)
+		
+		for j in range(len(row.cols)):
+			var col: DialogNode = row.cols[j]
+			gui.vbox()
+			gui.hbox()
+			if gui.button("Open", selected_row == i and selected_col == j):
+				select_col(i, j)
+			gui.options(col.trigger, Enums.CardPlayOutcome.keys())
+			gui.end()
+			
+			gui.texturerect_full(preload("res://assets/art/textboxbordered.png"))
+			gui.use_as_box()
+			gui.wrapped_label(col.text, Color.BLACK)
+			gui.fullrect()
+			gui.end()
+			gui.end()
+		
+		gui.end()
+	gui.end()
+	gui.end()
 
 func _Info_gui(gui: ELEGui, _delta: float) -> void:
 	if gui.button("Save", saved):

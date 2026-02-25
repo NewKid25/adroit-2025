@@ -129,19 +129,27 @@ func _toggle(type, text, state) -> bool:
 
 func label(text) -> void:
 	_get_control(GUILabel, text);
-func wrapped_label(text) -> void:
+func wrapped_label(text, color=null) -> void:
 	var l: GUILabel = _get_control(GUILabel, text)
-	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-func texturerect(texture: Texture2D, minheight=null, fitheight:=false) -> void:
+	l.base.set_property("autowrap_mode", TextServer.AUTOWRAP_WORD_SMART)
+	if color != null:
+		l.base.set_property("theme_override_colors/font_color", color)
+func texturerect(texture: Texture2D, minheight=null, fitheight:=false, full:=false) -> void:
 	var _c = _get_control(GUITextureRect)
 	if _c.texture != texture:
 		_c.texture = texture
-	if fitheight:
-		_c.expand_mode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+	if full:
+		_c.base.set_property("expand_mode", TextureRect.EXPAND_KEEP_SIZE)
+	elif fitheight:
+		_c.base.set_property("expand_mode", TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL)
 	else:
-		_c.expand_mode = TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL
+		_c.base.set_property("expand_mode", TextureRect.EXPAND_FIT_WIDTH_PROPORTIONAL)
 	if minheight:
-		_c.custom_minimum_size.y = minheight
+		var sz = _c.custom_minimum_size
+		sz.y = minheight
+		_c.base.set_property("custom_minimum_size", sz)
+func texturerect_full(texture: Texture2D):
+	texturerect(texture, null, false, true)
 func button(text, disabled:=false) -> bool:
 	var b: GUIButton = _get_control(GUIButton, text)
 	b.disabled = disabled
@@ -241,15 +249,28 @@ func hflow() -> bool:
 	return true
 func end() -> void:
 	boxes.pop_back();
+func use_as_box() -> void:
+	boxes.append(used[-1])
 func expand_vert() -> void:
-	if used[-1].size_flags_vertical != Control.SIZE_EXPAND_FILL:
-		used[-1].size_flags_vertical = Control.SIZE_EXPAND_FILL
+	used[-1].base.set_property("size_flags_vertical", Control.SIZE_EXPAND_FILL)
 func expand_horiz() -> void:
-	if used[-1].size_flags_horizontal != Control.SIZE_EXPAND_FILL:
-		used[-1].size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	used[-1].base.set_property("size_flags_horizontal", Control.SIZE_EXPAND_FILL)
 func expand() -> void:
 	expand_vert()
 	expand_horiz()
+func min_size(wid=null, hei=null) -> void:
+	var ms = used[-1].custom_minimum_size
+	if wid:
+		ms.x = wid
+	if hei:
+		ms.y = hei
+	used[-1].base.set_property("custom_minimum_size", ms)
+func fullrect():
+	used[-1].set_anchors_and_offsets_preset(PRESET_FULL_RECT);
+func text_centered():
+	var l: GUILabel = used[-1]
+	l.base.set_property("horizontal_alignment", HORIZONTAL_ALIGNMENT_CENTER)
+
 
 class GUIControl extends Control:
 	var base = GUIBase.new(self);
@@ -324,9 +345,8 @@ class GUIBase:
 	func set_property(p, v):
 		if !defs.has(p):
 			defs[p] = node.get(p);
-		if node.get(p) != v:
-			edited.append(p);
-			node.set(p, v);
+		edited.append(p);
+		node.set(p, v);
 	func revert():
 		for p in edited:
 			var def = defs.get(p);
