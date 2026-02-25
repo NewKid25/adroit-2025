@@ -293,6 +293,6 @@ func _input(ev: InputEvent) -> void:
 	if not event.button_mask & MOUSE_BUTTON_MASK_MIDDLE and \
 		not event.button_mask & MOUSE_BUTTON_MASK_RIGHT:
 		return
-	var scroller: ScrollContainer = $HSplitContainer/VSplitContainer/ColorRect/NodeView.get_child(0).get_child(0)
+	var scroller: ScrollContainer = $HSplitContainer/VSplitContainer/NodeView.get_child(0).get_child(0)
 	scroller.scroll_horizontal -= event.relative.x
 	scroller.scroll_vertical -= event.relative.y

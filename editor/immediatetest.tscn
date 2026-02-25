@@ -21,6 +21,16 @@ size = Vector2i(500, 109)
 dialog_text = "There are unsaved changes! Are you sure you want to quit?"
 cancel_button_text = "Keep Working"
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1204088306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
 [node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=380257178]
 layout_mode = 1
 anchors_preset = 15
@@ -54,20 +64,11 @@ metadata/_tab_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="HSplitContainer/VSplitContainer" unique_id=1204088306]
+[node name="NodeView" type="Control" parent="HSplitContainer/VSplitContainer" unique_id=977359086]
 layout_mode = 2
 size_flags_vertical = 3
-color = Color(0.75639874, 0.0019720132, 0.93013555, 1)
-
-[node name="NodeView" type="Control" parent="HSplitContainer/VSplitContainer/ColorRect" unique_id=977359086]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("2_odp6b")
-renderer = NodePath("../../../..")
+renderer = NodePath("../../..")
 metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
 
 [node name="TabContainer" type="TabContainer" parent="HSplitContainer/VSplitContainer" unique_id=2033638688]

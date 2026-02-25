@@ -67,7 +67,7 @@ func _ready():
 func _process(delta):
 	get_node(renderer).callv("_%s_gui" % name, [self, delta]);
 	
-	move_to_front();
+	#move_to_front();
 	layout = true;
 	assert(boxes.size() == 0, "Not all containers are closed. Use GUI.end() to close containers.");
 	boxes.clear();
