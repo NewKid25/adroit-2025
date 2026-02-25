@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cjeiy0idtbid6"]
+
+[ext_resource type="Script" uid="uid://cane0dnbewa2s" path="res://editor/immediatetest.gd" id="1_4d8ga"]
+[ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_odp6b"]
+[ext_resource type="Script" uid="uid://bcdib5qdmmxlr" path="res://editor/GUI.gd" id="2_odp6b"]
+
+[node name="Immediatetest" type="Control" unique_id=504913093]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_odp6b")
+script = ExtResource("1_4d8ga")
+
+[node name="CharacterList" type="Window" parent="." unique_id=1866635400]
+oversampling_override = 1.0
+title = "Character List"
+position = Vector2i(115, 30)
+size = Vector2i(377, 645)
+
+[node name="Panel" type="Panel" parent="CharacterList" unique_id=654930746]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ELEGui" type="Control" parent="CharacterList" unique_id=462317272]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_odp6b")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
