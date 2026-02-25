@@ -65,6 +65,9 @@ func _ready():
 	_layout.set_anchors_and_offsets_preset(PRESET_FULL_RECT);
 
 func _process(delta):
+	if not is_visible_in_tree():
+		return
+	
 	get_node(renderer).callv("_%s_gui" % name, [self, delta]);
 	
 	#move_to_front();
