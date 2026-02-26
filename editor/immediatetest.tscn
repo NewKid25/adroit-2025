@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cjeiy0idtbid6"]
+
+[ext_resource type="Theme" uid="uid://cpu5y4uke26il" path="res://editor/editor_theme.tres" id="1_odp6b"]
+[ext_resource type="Script" uid="uid://bcdib5qdmmxlr" path="res://editor/GUI.gd" id="2_odp6b"]
+[ext_resource type="Script" uid="uid://ol61oobgtef7" path="res://editor/editor.gd" id="2_puu7v"]
+
+[node name="ImmediateEditor" type="Control" unique_id=504913093]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_odp6b")
+script = ExtResource("2_puu7v")
+
+[node name="QuitConfirmation" type="ConfirmationDialog" parent="." unique_id=1502194834]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(500, 109)
+dialog_text = "There are unsaved changes! Are you sure you want to quit?"
+cancel_button_text = "Keep Working"
+
+[node name="CannotLoadUnsaved" type="AcceptDialog" parent="." unique_id=939195272]
+oversampling_override = 1.0
+title = "Refusing to open"
+initial_position = 2
+size = Vector2i(314, 166)
+dialog_text = "You cannot load another dialog file without saving. Please either save or quit and reload."
+dialog_autowrap = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1204088306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=380257178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer2" type="VSplitContainer" parent="HSplitContainer" unique_id=355466232]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+split_offsets = PackedInt32Array(59)
+split_offset = 59
+
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer/VSplitContainer2" unique_id=862684872]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+tab_0/title = "Character List"
+
+[node name="CharacterList" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer" unique_id=462317272]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+metadata/_tab_index = 0
+metadata/_tab_name = "Character List"
+
+[node name="Info" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer" unique_id=1050056292]
+visible = false
+layout_mode = 2
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+metadata/_tab_index = 1
+
+[node name="TabContainer2" type="TabContainer" parent="HSplitContainer/VSplitContainer2" unique_id=602414362]
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Date Editor"
+
+[node name="DateEditor" type="Control" parent="HSplitContainer/VSplitContainer2/TabContainer2" unique_id=1426820463]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+metadata/_tab_index = 0
+metadata/_tab_name = "Date Editor"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer" unique_id=1166396409]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NodeView" type="Control" parent="HSplitContainer/VSplitContainer" unique_id=977359086]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+
+[node name="TabContainer" type="TabContainer" parent="HSplitContainer/VSplitContainer" unique_id=2033638688]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Dialog Inspector"
+
+[node name="DialogInspector" type="Control" parent="HSplitContainer/VSplitContainer/TabContainer" unique_id=1642556657]
+layout_mode = 2
+script = ExtResource("2_odp6b")
+renderer = NodePath("../../../..")
+metadata/_custom_type_script = "uid://bcdib5qdmmxlr"
+metadata/_tab_index = 0
+metadata/_tab_name = "Dialog Inspector"

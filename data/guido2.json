@@ -1,154 +1,381 @@
 {
-  "dialogs": {
-	"id1": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 0.0, "sentiment": 2.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id2", "2": "id3", "10": "id4" },
-	  "sprite": "guidopleased.png",
-	  "text": "I am very glad to have secured another outing with you! I have been studying the Earth customs for these occasions. What is your ideal date?"
-	},
-	"id2": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
-	  "sprite": "guidohappy.png",
-	  "text": "Yes, I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
-	},
-	"id3": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
-	  "sprite": "guido.png",
-	  "text": "I ask because I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
-	},
-	"id4": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 0.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id5", "1": "id6", "10": "id7" },
-	  "sprite": "guidopleased.png",
-	  "text": "I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
-	},
-	"id5": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
-	  "sprite": "guidohappy.png",
-	  "text": "Ooh, stargazing is indeed perhaps similar! I have been happy to leave the choice of setting in your five-fingered hands, though."
-	},
-	"id6": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
-	  "sprite": "guido.png",
-	  "text": "I do not truly plan on taking you out of your breathable atmosphere. The choice of setting is in your five-fingered hands."
-	},
-	"id7": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 1.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id8", "3": "id9", "10": "id10" },
-	  "sprite": "guidopleased.png",
-	  "text": "Stargazing is perhaps similar, yes. I have been happy to leave the choice of setting in your five-fingered hands, though."
-	},
-	"id8": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id11", "3": "id12", "1": "id13", "10": "id14" },
-	  "sprite": "guidohappy.png",
-	  "text": "They are nice hands, truly. I am sometimes jealous. My own hands are limited in the gestures they can accomplish…"
-	},
-	"id9": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id11", "3": "id12", "1": "id13", "10": "id14" },
-	  "sprite": "guido.png",
-	  "text": "I mean to compliment your keen mind and nice hands. My own are limited in the gestures they can accomplish…"
-	},
-	"id10": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 1.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 1e99999, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id11", "3": "id12", "1": "id13", "10": "id14" },
-	  "sprite": "guidopleased.png",
-	  "text": "They are nice hands, yes. I am sometimes jealous. My own hands are limited in the gestures they can accomplish…"
-	},
-	"id11": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id15", "3": "id16", "4": "id17", "10": "id18" },
-	  "sprite": "guidohappy.png",
-	  "text": "They do serve me well enough, though. For I can use them for one of the dating rituals I learned, and we may walk with our hands held together!"
-	},
-	"id12": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id15", "3": "id16", "4": "id17", "10": "id18" },
-	  "sprite": "guido.png",
-	  "text": "Perhaps I do not make my intent clear enough. I can perhaps clarify with one of the dating rituals I learned, we may walk with our hands held together?"
-	},
-	"id13": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id15", "3": "id16", "4": "id17", "10": "id18" },
-	  "sprite": "guido.png",
-	  "text": "Perhaps I make myself sound too serious. I can perhaps clarify with one of the dating rituals I learned, we may walk with our hands held together?"
-	},
-	"id14": {
-	  "mood_expectation": {
-		"mood_lower_bound": { "flirty": 2.0, "funny": 0.0, "sentiment": 0.0 },
-		"mood_upper_bound": { "flirty": 1e99999, "funny": 3, "sentiment": 1e99999 }
-	  },
-	  "nexts": { "0": "id15", "3": "id16", "4": "id17", "10": "id18" },
-	  "sprite": "guidopleased.png",
-	  "text": "They do serve me well enough, though. For I can use them for one of the dating rituals I learned, and we may walk with our hands held together!"
-	},
-	"id15": {
-	  "mood_expectation": {},
-	  "nexts": {},
-	  "sprite": "guidohappy.png",
-	  "text": "Stupendous! I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
-	},
-	"id16": {
-	  "mood_expectation": {},
-	  "nexts": {},
-	  "sprite": "guido.png",
-	  "text": "Oh, perhaps not, then. But I would have much happiness to walk with you, even without hands being held."
-	},
-	"id17": {
-	  "mood_expectation": {},
-	  "nexts": {},
-	  "sprite": "guidodispleased.png",
-	  "text": "I do mean it… I would have much happiness to walk with you further, with or without hands being held."
-	},
-	"id18": {
-	  "mood_expectation": {},
-	  "nexts": {},
-	  "sprite": "guidopleased.png",
-	  "text": "I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
+	"dialogs": {
+		"id1": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 2.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id2",
+				"2": "id3",
+				"10": "id4"
+			},
+			"sprite": "guidopleased.png",
+			"text": "I am very glad to have secured another outing with you! I have been studying the Earth customs for these occasions. What is your ideal date?"
+		},
+		"id2": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id5",
+				"1": "id6",
+				"10": "id7"
+			},
+			"sprite": "guidohappy.png",
+			"text": "Yes, I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
+		},
+		"id3": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id5",
+				"1": "id6",
+				"10": "id7"
+			},
+			"sprite": "guido.png",
+			"text": "I ask because I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
+		},
+		"id4": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id5",
+				"1": "id6",
+				"10": "id7"
+			},
+			"sprite": "guidopleased.png",
+			"text": "I have seen this question asked often. I do not have sureness for my own answer though… perhaps I could take you to space."
+		},
+		"id5": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 1.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id8",
+				"3": "id9",
+				"10": "id10"
+			},
+			"sprite": "guidohappy.png",
+			"text": "Ooh, stargazing is indeed perhaps similar! I have been happy to leave the choice of setting in your five-fingered hands, though."
+		},
+		"id6": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 1.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id8",
+				"3": "id9",
+				"10": "id10"
+			},
+			"sprite": "guido.png",
+			"text": "I do not truly plan on taking you out of your breathable atmosphere. The choice of setting is in your five-fingered hands."
+		},
+		"id7": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 1.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id8",
+				"3": "id9",
+				"10": "id10"
+			},
+			"sprite": "guidopleased.png",
+			"text": "Stargazing is perhaps similar, yes. I have been happy to leave the choice of setting in your five-fingered hands, though."
+		},
+		"id8": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id11",
+				"3": "id12",
+				"1": "id13",
+				"10": "id14"
+			},
+			"sprite": "guidohappy.png",
+			"text": "They are nice hands, truly. I am sometimes jealous. My own hands are limited in the gestures they can accomplish…"
+		},
+		"id9": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id11",
+				"3": "id12",
+				"1": "id13",
+				"10": "id14"
+			},
+			"sprite": "guido.png",
+			"text": "I mean to compliment your keen mind and nice hands. My own are limited in the gestures they can accomplish…"
+		},
+		"id10": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 1.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 1e99999,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id11",
+				"3": "id12",
+				"1": "id13",
+				"10": "id14"
+			},
+			"sprite": "guidopleased.png",
+			"text": "They are nice hands, yes. I am sometimes jealous. My own hands are limited in the gestures they can accomplish…"
+		},
+		"id11": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 3.0,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id15",
+				"3": "id16",
+				"4": "id17",
+				"10": "id18"
+			},
+			"sprite": "guidohappy.png",
+			"text": "They do serve me well enough, though. For I can use them for one of the dating rituals I learned, and we may walk with our hands held together!"
+		},
+		"id12": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 3.0,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id15",
+				"3": "id16",
+				"4": "id17",
+				"10": "id18"
+			},
+			"sprite": "guido.png",
+			"text": "Perhaps I do not make my intent clear enough. I can perhaps clarify with one of the dating rituals I learned, we may walk with our hands held together?"
+		},
+		"id13": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 3.0,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id15",
+				"3": "id16",
+				"4": "id17",
+				"10": "id18"
+			},
+			"sprite": "guido.png",
+			"text": "Perhaps I make myself sound too serious. I can perhaps clarify with one of the dating rituals I learned, we may walk with our hands held together?"
+		},
+		"id14": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 2.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 1e99999,
+					"funny": 3.0,
+					"sentiment": 1e99999
+				}
+			},
+			"nexts": {
+				"0": "id15",
+				"3": "id16",
+				"4": "id17",
+				"10": "id18"
+			},
+			"sprite": "guidopleased.png",
+			"text": "They do serve me well enough, though. For I can use them for one of the dating rituals I learned, and we may walk with our hands held together!"
+		},
+		"id15": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
+			"sprite": "guidohappy.png",
+			"text": "Stupendous! I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
+		},
+		"id16": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
+			"sprite": "guido.png",
+			"text": "Oh, perhaps not, then. But I would have much happiness to walk with you, even without hands being held."
+		},
+		"id17": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
+			"sprite": "guidodispleased.png",
+			"text": "I do mean it… I would have much happiness to walk with you further, with or without hands being held."
+		},
+		"id18": {
+			"mood_expectation": {
+				"mood_lower_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				},
+				"mood_upper_bound": {
+					"flirty": 0.0,
+					"funny": 0.0,
+					"sentiment": 0.0
+				}
+			},
+			"nexts": {
+
+			},
+			"sprite": "guidopleased.png",
+			"text": "I would have much happiness to walk with you further. Perhaps to somewhere for the stargazing?"
+		}
 	}
-  }
 }
