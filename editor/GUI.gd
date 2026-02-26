@@ -251,6 +251,7 @@ func hflow() -> bool:
 	_get_box(GUIHFlow)
 	return true
 func end() -> void:
+	assert(!boxes.is_empty())
 	boxes.pop_back();
 func use_as_box() -> void:
 	boxes.append(used[-1])

@@ -253,8 +253,18 @@ func _NodeView_gui(gui: ELEGui, _delta: float) -> void:
 			
 			gui.texturerect_full(preload("res://assets/art/textboxbordered.png"))
 			gui.use_as_box()
-			gui.wrapped_label(col.text, Color.BLACK)
-			gui.fullrect()
+			if col.sprite:
+				gui.hbox()
+				gui.fullrect()
+				gui.texturerect(col.spritet, null, true, false)
+				gui.min_size(200.0 / col.spritet.get_height() * col.spritet.get_width())
+				gui.expand_vert()
+				gui.wrapped_label(col.text, Color.BLACK)
+				gui.expand()
+				gui.end()
+			else:
+				gui.wrapped_label(col.text, Color.BLACK)
+				gui.fullrect()
 			gui.end()
 			gui.end()
 		
