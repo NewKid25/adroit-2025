@@ -11,3 +11,4 @@ var conversation:Conversation
 
 var displayed_name: String
 var profile_image: Texture2D
+var background: Texture2D

@@ -21,43 +21,13 @@ var fade_timer:float = 1.0
 static var selected_char_index:int = 0
 static var selected_date_index:int = 0
 
-var characters : Array[Dictionary] = [
-	{
-		"date_numbers": [
-			{
-				"label": "Date 1",
-				"conversations": ["res://data/schrodie1.json", "res://data/paulrudd1.json", "res://data/guido1.json"],
-				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-			},
-			{
-				"label": "Date 2",
-				"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
-				"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-				"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-			}
-		]
-	},
-	{
-		"date_numbers": [
-			{
-				"label": "Date 1",
-				"conversations": ["res://data/feldspar1.json", "res://data/cassandrajones1.json", "res://data/professorqubit1.json"],
-				"displayed_names": ["Feldspar", "Cassandra", "Prof. Qubit"],
-				"profile_images": [preload("res://assets/art/squarefeldspar.png"), preload("res://assets/art/squarecassandra.png"), preload("res://assets/art/squareprofessor.png")]
-			},
-			# {
-			# 	"label": "Date B2",
-			# 	"conversations": ["res://data/schrodie2.json", "res://data/paulrudd2.json", "res://data/guido2.json"],
-			# 	"displayed_names": ["Schrodie", "Paul Rudd", "Guido"],
-			# 	"profile_images": [preload("res://assets/art/squareschrodie.png"), preload("res://assets/art/squarepaul.png"), preload("res://assets/art/squareguido.png")]
-			# }
-		]
-	}
-]
+var characters : Array
 
 
 func _ready() -> void:
+	var s = FileAccess.get_file_as_string("res://data/characters.json")
+	characters = JSON.parse_string(s)
+	
 	load_date_labels()
 	highlight_character()
 	highlight_menu_state()
@@ -107,7 +77,8 @@ func _process(delta: float):
 			for i in range(3):
 				GameManager.characters[i].conversation = DataService.get_conversation_from_file(characters[selected_char_index].date_numbers[selected_date_index].conversations[i])
 				GameManager.characters[i].displayed_name = characters[selected_char_index].date_numbers[selected_date_index].displayed_names[i]
-				GameManager.characters[i].profile_image = characters[selected_char_index].date_numbers[selected_date_index].profile_images[i]
+				GameManager.characters[i].profile_image = load(characters[selected_char_index].date_numbers[selected_date_index].profile_images[i])
+				GameManager.characters[i].background = load(characters[selected_char_index].date_numbers[selected_date_index].backgrounds[i])
 			GameManager.date_idx = selected_date_index + 1
 
 			get_tree().change_scene_to_file("res://scenes/date_screen.tscn")
@@ -204,13 +175,13 @@ func highlight_date_label():
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .9, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#ffffff"), TWEEN_DURATION)
-			tween.parallel().tween_property(child, "position.x", -80, TWEEN_DURATION)
+			#tween.parallel().tween_property(child, "position.x", -80, TWEEN_DURATION)
 		else:
 			var tween := create_tween()
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(child, "scale", Vector2.ONE * .8, TWEEN_DURATION)
 			tween.parallel().tween_property(child, "modulate", Color("#adadad"), TWEEN_DURATION)
-			tween.parallel().tween_property(child, "position.x", -90, TWEEN_DURATION)
+			#tween.parallel().tween_property(child, "position.x", -90, TWEEN_DURATION)
 
 
 func highlight_character():
